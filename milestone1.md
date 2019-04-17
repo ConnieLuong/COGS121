@@ -1,15 +1,19 @@
-#Team Name: 
+#### Team Name: 
 Daddy rocks, Daddy in the house!, Preggy Daddy:)
 
-Members: Hao-In Choi, Connie Luong, Boya Ren, Ally Landingin
+#### Members: 
+1. Hao-In Choi
+1. Connie Luong 
+1. Boya Ren 
+1. Ally Landingin
 
-Pitch:
-adjaldjal oK
+#### Pitch:
 
-Alternative Ideas:
 
-Storyboards:
+#### Alternative Ideas:
+
+##### Storyboards:
 Pics
 
-Paper Prototypes:
+##### Paper Prototypes:
 Pics
