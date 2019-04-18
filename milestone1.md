@@ -1,11 +1,11 @@
 #### Team Name: 
-Daddy rocks, Daddy in the house!, Preggy Daddy:)
+Daddy in the house!
 
 #### Members: 
 1. Hao-In Choi
-1. Connie Luong 
-1. Boya Ren 
-1. Ally Landingin
+2. Connie Luong 
+3. Boya Ren 
+4. Alessandra Landingin
 
 #### Pitch:
 
