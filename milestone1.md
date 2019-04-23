@@ -45,6 +45,13 @@ The app idea fits within the project theme since none of our team members are fi
 
 ### Prototype 2 (Father App)
 ![Image of prototype 2](img/prototype2.png)
+* Top row first image - home page showing slider of important blog posts and quick links
+* Top row second image - trending newsfeed
+* Navigation - includes quick links to the 'search', 'favorites,' 'scan,' and 'settings' pages.
+* Labels at the very top - provide quick access/filters for trending, mom, baby, and father posts/content
+* Bottom row 2 image - a simple blog post format
+* Bottom row 3 image - search page, with recent searches as well as trending searches. Also a button to scan product
+
 
 ### Prototype 3 (Surfing App)
 ![Image of prototype 3.1](img/prototype3-1.png)
