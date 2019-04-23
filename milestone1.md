@@ -42,6 +42,11 @@ The app idea fits within the project theme since none of our team members are fi
 ## Prototypes
 ### Prototype 1 (Father App)
 ![Image of prototype 1](img/prototype1.jpg)
+* Top row first image - home page showing the tips to first time dad, users can choose the one they want to read.
+* Top row second image - when the users press the menu button, the hidden user setting space will show
+* Top row third image - this is the blog section when the users press the tip. Users can share or make it as favorite. 
+* Bottom row first image - this is the "How to" Page, similar interaction as the "Tips page"
+* Bottom row second image - this is the blog section when the users press the tip. Users can share or make it as favorite. Similar to the one in the "Tips" page
 
 ### Prototype 2 (Father App)
 ![Image of prototype 2](img/prototype2.png)
