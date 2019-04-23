@@ -28,8 +28,22 @@ The app idea fits within the project theme since none of our team members are fi
         * No one on our team surfs
 
 
-### Storyboards:
+### Storyboard 1
+
+### Storyboard 2
+
+### Storyboard 3
 
 
-### Paper Prototypes:
-Pics
+
+### Prototype 1 (Father App)
+![Image of prototype 1](img/prototype1.jpg)
+
+### Prototype 2 (Father App)
+![Image of prototype 2](img/prototype2.png)
+
+### Prototype 3 (Surfing App)
+![Image of prototype 3.1](img/prototype3-1.png)
+![Image of prototype 3.2](img/prototype3-2.png)
+
+
