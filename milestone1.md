@@ -60,6 +60,13 @@ The app idea fits within the project theme since none of our team members are fi
 
 ### Prototype 3 (Surfing App)
 ![Image of prototype 3.1](img/prototype3-1.png)
+1. Map of surf spots
+2. Calendar of when surf spots are RSVP’d to
+3. Tutorial section/photo sharing 
+
 ![Image of prototype 3.2](img/prototype3-2.png)
+1. Click on a surf location from the map and it takes you to the destination’s information page that  contains surf conditions
+2. When you click on a day, you can search for a location and see who has RSVP’d to that location at that time
+3. Newsfeed of photos 
 
 
