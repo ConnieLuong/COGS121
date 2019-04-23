@@ -29,10 +29,14 @@ The app idea fits within the project theme since none of our team members are fi
 
 
 ### Storyboard 1
+![Image of storyboard 1](img/storyboard1.png)
 
 ### Storyboard 2
+![Image of storyboard 2](img/storyboard2.jpg)
 
 ### Storyboard 3
+![Image of storyboard 3.1](img/storyboard3-1.jpg)
+![Image of storyboard 3.2](img/storyboard3-2.jpg)
 
 
 
