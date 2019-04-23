@@ -27,7 +27,7 @@ The app idea fits within the project theme since none of our team members are fi
         * API: https://developers.google.com/maps/documentation/javascript/tutorial
         * No one on our team surfs
 
-
+## Storyboards
 ### Storyboard 1
 ![Image of storyboard 1](img/storyboard1.png)
 
@@ -39,7 +39,7 @@ The app idea fits within the project theme since none of our team members are fi
 ![Image of storyboard 3.2](img/storyboard3-2.jpg)
 
 
-
+## Prototypes
 ### Prototype 1 (Father App)
 ![Image of prototype 1](img/prototype1.jpg)
 
