@@ -1,7 +1,7 @@
 //firebase
 const firebase = require("firebase");
-const sercret = require('./secret');
-const config = sercret.getDb();
+//const sercret = require('./secret');
+const config = require('./secret').getDb() //sercret.getDb();
 firebase.initializeApp(config);
 const database = firebase.database();
 
