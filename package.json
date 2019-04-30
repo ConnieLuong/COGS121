@@ -1,0 +1,23 @@
+{
+  "name": "poppa-hub",
+  "version": "1.0.0",
+  "description": "COGS121 webapp project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ConnieLuong/COGS121.git"
+  },
+  "author": "Connie Luong, Hao-In Choi, Boya Ren, Alessandra Landingin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ConnieLuong/COGS121/issues"
+  },
+  "homepage": "https://github.com/ConnieLuong/COGS121#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
