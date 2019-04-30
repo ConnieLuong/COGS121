@@ -1,0 +1,30 @@
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+}
+
+.scrolling-wrapper {
+  overflow-x: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card {
+  flex: 0 0 auto;
+  margin: 5px;
+  height: 300px;
+  width: 300px;
+}
+
+#favorites {
+  background-color: tomato;
+}
+
+#hot {
+  background-color: cornflowerblue;
+}
+
+#new {
+  background-color: slateblue;
+}
