@@ -1,3 +1,4 @@
+//example of how to call database
 $(document).ready(function () {
   $('#resetButton').click(() => {
       console.log('Resetting the database');

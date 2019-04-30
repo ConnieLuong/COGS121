@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    //on page load grab all objects from tips collection and load into cards
+
+
+    //quick test to see if database is connected properly
     $('#resetButton').click(() => {
         console.log('Resetting the database');
         database.ref('users/').remove(); // delete the entire collection
