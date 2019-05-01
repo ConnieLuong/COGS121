@@ -1,22 +1,156 @@
+<!DOCTYPE html>
 <html>
-        <!--Bootstrap-->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<!--Navigation bar-->
-<div id="nav-placeholder">
+  <head>
+    <title>Poppa Hub | Bedtime</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-</div>
+    <!--Firebase-->
+    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js" ></script>
+    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js" ></script>
+    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js" ></script>
+    <script defer src="./js/secret.js"></script>
 
-<script>
-$(function(){
-  $("#nav-placeholder").load("nav.html");
-});
-</script>
-<!--end of Navigation bar-->
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
-  <!--Texts-->
-  <h1>stories</h1>
+    <!--Imports-->
+    <link rel="stylesheet" href="./css/bedtime.css" />
+    <script src="./js/bedtime.js"></script>
+
+    <script>
+        $(function(){
+          $("#nav-placeholder").load("nav.html");
+        });
+    </script>
+  </head>
+
+  <body>
+    <!-- Start Body-->
+    <!--Navigation bar-->
+    <div id="nav-placeholder"></div>
+  
+  
+    <!--carousel-->
+
+    <div id="demo" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+      </ul>
+
+      <!-- The slideshow -->
+      <div class="carousel-inner">
+        <!--a clickable carousel img-->
+        <a href="./story.html">
+          <div class="carousel-item active">
+            <img
+              src="./img/test.jpg"
+              alt="Los Angeles"
+              width="900"
+              height="500"
+            />
+          </div>
+        </a>
+
+        <div class="carousel-item">
+          <img src="./img/test.jpg" alt="Chicago" width="900" height="500" />
+        </div>
+        <div class="carousel-item">
+          <img src="./img/test.jpg" alt="New York" width="900" height="500" />
+        </div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    </div>
+
+    <!--favorites section-->
+    <section id="favorites">
+      <h1>Favorites</h1>
+      <div class="scrolling-wrapper">
+        <!--each card is a individual clickable link-->
+        <a href="./story.html">
+          <div class="card">
+            <!--image inside the card-->
+            <div class="imgholder">
+              <img class="cardimg" src="./img/Mustang.jpg" alt="cat" />
+            </div>
+          </div>
+        </a>
+
+        <a href="./story.html">
+          <div class="card">
+            <!--image inside the card-->
+            <div class="imgholder">
+              <img class="cardimg" src="./img/Mustang.jpg" alt="cat" />
+            </div>
+          </div>
+        </a>
+
+        <a href="./story.html">
+          <div class="card">
+            <!--image inside the card-->
+            <div class="imgholder">
+              <img class="cardimg" src="./img/Mustang.jpg" alt="cat" />
+            </div>
+          </div>
+        </a>
+
+        <a href="./story.html">
+          <div class="card">
+            <!--image inside the card-->
+            <div class="imgholder">
+              <img class="cardimg" src="./img/Mustang.jpg" alt="cat" />
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!--hot section-->
+    <section id="hot">
+      <h1>Hot</h1>
+      <div class="scrolling-wrapper">
+        <!--each card is a individual item-->
+        <div class="card"><h2>Card</h2></div>
+        <div class="card"><h2>Card</h2></div>
+        <div class="card"><h2>Card</h2></div>
+        <div class="card"><h2>Card</h2></div>
+        <div class="card"><h2>Card</h2></div>
+        <div class="card"><h2>Card</h2></div>
+        <div class="card"><h2>Card</h2></div>
+        <div class="card"><h2>Card</h2></div>
+      </div>
+    </section>
+
+    <!--New section-->
+    <section id="new">
+      <h1>New</h1>
+      <div class="scrolling-wrapper">
+        <!--each card is a individual item-->
+        <div class="card"><h2>Card</h2></div>
+        <div class="card"><h2>Card</h2></div>
+        <div class="card"><h2>Card</h2></div>
+        <div class="card"><h2>Card</h2></div>
+        <div class="card"><h2>Card</h2></div>
+        <div class="card"><h2>Card</h2></div>
+        <div class="card"><h2>Card</h2></div>
+      </div>
+    </section>
+  </body>
+  <!-- End Body-->
 </html>
