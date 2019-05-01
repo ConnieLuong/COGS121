@@ -12,10 +12,10 @@ In milestone 1, we mentioned the idea of having some sort of app targeting first
 
 ## Screenshots of UI skeleton webpages
 * milestone2.md contains screenshots of all your UI skeleton webpages embedded directly within the file (not linked as external image files).
-![main page](Screenshots/ss4.png)
-![story page1](Screenshots/ss1.png)
-![story page2](Screenshots/ss2.png)
-![story page3](Screenshots/ss3.png)
+![main page](screenshots/ss4.png)
+![story page1](screenshots/ss1.png)
+![story page2](screenshots/ss2.png)
+![story page3](screenshots/ss3.png)
 
 ### Comparison to paper protoypes
 
