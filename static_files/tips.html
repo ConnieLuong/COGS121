@@ -24,10 +24,20 @@
         <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="./css/tips.css">
         <script src="./js/tips.js"></script> 
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+        <script>
+            $(function(){
+                $("#nav-placeholder").load("nav.html");
+            });
+        </script>
 
     </head>
 
     <body>
+        <!--Navigation bar-->
+        <div id="nav-placeholder"></div>
         <h1>Tips Title</h1>
         <p> 
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
