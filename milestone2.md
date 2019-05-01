@@ -29,7 +29,7 @@ After recieving feedback from the TA and changed the major functions of the app 
 
 ![Image of prototype 1](milestone_img/prototype1.jpg)
 
-We adapted the card formats in the main screen and the 'Songs & Stories' screen but we thought that it would be better if we changed them into retangular cards. Such UI design has serveral adventages over the one in the prototype 1. 
+We adapted the card formats in the main screen and the 'Songs & Stories' screen but we thought that it would be better if we changed them into retangular cards. Such UI design has serveral advantages over the one in the prototype 1. 
 
 1. The cover picture consists a larger portion of the card.
 2. It gives spaces for the favorite and share buttons
