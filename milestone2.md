@@ -12,9 +12,16 @@ In milestone 1, we mentioned the idea of having some sort of app targeting first
 
 ## Screenshots of UI skeleton webpages
 * milestone2.md contains screenshots of all your UI skeleton webpages embedded directly within the file (not linked as external image files).
+![main page](screenshots/ss4.png)
+The main navigation page
+![story page1](screenshots/ss1.png)
+The Story page(1st screenshot)
+![story page2](screenshots/ss2.png)
+The Story page(2nd screenshot)
+![story page3](screenshots/ss3.png)
+The Story page(3rd screenshot)
 
 ### Comparison to paper protoypes
-* milestone2.md contains a written explanation of how your screenshots are similar to or differ from your paper prototypes in milestone1.md; it's perfectly okay if they are different (e.g., if you needed to change your initial idea), as long as you justify the changes.
 
 After recieving feedback from the TA and changed the major functions of the app as we stated above, we decided to adapt most of the layout from prototype 1 in milestone 1. 
 
