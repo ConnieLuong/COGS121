@@ -15,3 +15,23 @@ In milestone 1, we mentioned the idea of having some sort of app targeting first
 
 ### Comparison to paper protoypes
 * milestone2.md contains a written explanation of how your screenshots are similar to or differ from your paper prototypes in milestone1.md; it's perfectly okay if they are different (e.g., if you needed to change your initial idea), as long as you justify the changes.
+
+After recieving feedback from the TA and changed the major functions of the app as we stated above, we decided to adapt most of the layout from prototype 1 in milestone 1. 
+
+![Image of prototype 1](milestone_img/prototype1.jpg)
+
+We adapted the card formats in the main screen and the 'Songs & Stories' screen but we thought that it would be better if we changed them into retangular cards. Such UI design has serveral adventages over the one in the prototype 1. 
+
+1. The cover picture consists a larger portion of the card.
+2. It gives spaces for the favorite and share buttons
+3. It looks less crowded.
+
+The other change we made in the new version is that we took the bottom navbar away since it doesn't work well when we are making a webapp. Instead, we put all the navigation options into the side navbar.
+
+The last change we made is the new 'Songs & Stories' page. It is completely new. It has a carousel on the top which will display the top songs/stories. Then there are three sections which the users can scroll them horizontally. Each section contains the songs/stories in the categories of either favorites, hot, and new. 
+
+
+
+
+
+
