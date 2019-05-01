@@ -7,13 +7,11 @@ Daddy in the house!
 3. Boya Ren 
 4. Alessandra Landingin
 
-* milestone2.md contains a written explanation of how your idea is similar to or differs from what you proposed in milestone1.md for Milestone 1 (it's OK if you kept the same idea, just say that you kept it the same so we know; or if your TA suggested you change your idea, write how you did so)
+## Idea update: 
+In milestone 1, we mentioned the idea of having some sort of app targeting first time fathers. We have decided to charge on with this idea. However, we did realize that the original idea was a bit lacking in terms of functionality. Originally, we proposed to have more of an information based app. But this alone didn't make the app very useful or interactive at all. So we decided to add a 'Songs & Stories' functionality. This would provide users access to a library of songs and stories they can share with their child. These songs and stories can also be saved into the user's Favorites for easy access. 
 
-
+## Screenshots of UI skeleton webpages
 * milestone2.md contains screenshots of all your UI skeleton webpages embedded directly within the file (not linked as external image files).
 
+### Comparison to paper protoypes
 * milestone2.md contains a written explanation of how your screenshots are similar to or differ from your paper prototypes in milestone1.md; it's perfectly okay if they are different (e.g., if you needed to change your initial idea), as long as you justify the changes.
-
-Your Ajax interaction is relevant to your project, even if the backend data is faked (in other words, it's not just directly copied from example code without modification). Real data is fine too but not required at this point.
-You can properly explain to your TA how that Ajax interaction works by walking through both your frontend and backend code that you wrote for it (or if you use a web API such as Firebase, show how that code works).
-You tell your TA a plausible plan for what real data you are going to use for your project, and how you are going to obtain it (e.g., via an API, open-source data set, by collecting your own data, etc.). You don't need to necessarily stick with this plan, but you must at least propose a plan.
