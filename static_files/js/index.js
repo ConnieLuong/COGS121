@@ -8,7 +8,7 @@ $(document).ready(function () {
             _.each(feed, function(tip){
                 if(tip){
                     $('.feed').append(
-                        '<div class="col-sm-12 col-md-6">'+
+                        '<div class="col-sm-12 col-md-4">'+
                             '<a href="'+ tip.link +'" class="btn btn-primary">'+
                                 '<div class="card text-dark">'+
                                     '<img class="card-img" src="'+ tip.img +'">'+
