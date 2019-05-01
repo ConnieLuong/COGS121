@@ -38,17 +38,17 @@ $(document).ready(function () {
 
     $('#fillDB').click(() => {
         console.log('Filling the database with tips collection');
-        database.ref('tips/1').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Making Milk', text: '3 easy steps and things to look out for', link: '#'});
-        database.ref('tips/2').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Don\'t be Afraid',   text: 'You\'re not alone. Let\'s tackle PPD together', link: '#'});
-        database.ref('tips/3').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Helping Out',  text: 'It is time to show off your skills.', link: '#'});
-        database.ref('tips/4').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Changing Diapers',  text: 'It\s now or never.', link: '#'});
-        database.ref('tips/5').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: '10 Things New Dads should look out for',  text: 'You probably hadn\'t thought about this', link: '#'});
-        database.ref('tips/6').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'About Sleep',  text: 'Sleep will be valuable. You know it.', link: '#'});
-        database.ref('tips/7').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Don\'t be Afraid',   text: 'You\'re not alone. Let\'s tackle PPD together', link: '#'});
-        database.ref('tips/8').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Helping Out',  text: 'It is time to show off your skills.', link: '#'});
-        database.ref('tips/9').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Changing Diapers',  text: 'It\s now or never.', link: '#'});
-        database.ref('tips/10').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Don\'t be Afraid',   text: 'You\'re not alone. Let\'s tackle PPD together', link: '#'});
-        database.ref('tips/11').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Helping Out',  text: 'It is time to show off your skills.', link: '#'});
-        database.ref('tips/12').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Changing Diapers',  text: 'It\s now or never.', link: '#'});
+        database.ref('tips/1').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Making Milk', text: '3 easy steps and things to look out for', link: '../tips.html'});
+        database.ref('tips/2').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Don\'t be Afraid',   text: 'You\'re not alone. Let\'s tackle PPD together', link: '../tips.html'});
+        database.ref('tips/3').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Helping Out',  text: 'It is time to show off your skills.', link: '../tips.html'});
+        database.ref('tips/4').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Changing Diapers',  text: 'It\s now or never.', link: '../tips.html'});
+        database.ref('tips/5').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: '10 Things New Dads should look out for',  text: 'You probably hadn\'t thought about this', link: '../tips.html'});
+        database.ref('tips/6').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'About Sleep',  text: 'Sleep will be valuable. You know it.', link: '../tips.html'});
+        database.ref('tips/7').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Don\'t be Afraid',   text: 'You\'re not alone. Let\'s tackle PPD together', link: '../tips.html'});
+        database.ref('tips/8').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Helping Out',  text: 'It is time to show off your skills.', link: '../tips.html'});
+        database.ref('tips/9').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Changing Diapers',  text: 'It\s now or never.', link: '../tips.html'});
+        database.ref('tips/10').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Don\'t be Afraid',   text: 'You\'re not alone. Let\'s tackle PPD together', link: '../tips.html'});
+        database.ref('tips/11').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Helping Out',  text: 'It is time to show off your skills.', link: '../tips.html'});
+        database.ref('tips/12').set({img: 'http://placehold.jp/cccccc/cccccc/320x240.png', title: 'Changing Diapers',  text: 'It\s now or never.', link: '../tips.html'});
     });
 });
