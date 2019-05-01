@@ -11,12 +11,16 @@ Daddy in the house!
 In milestone 1, we mentioned the idea of having some sort of app targeting first time fathers. We have decided to charge on with this idea. However, we did realize that the original idea was a bit lacking in terms of functionality. Originally, we proposed to have more of an information based app. But this alone didn't make the app very useful or interactive at all. So we decided to add a 'Songs & Stories' functionality. This would provide users access to a library of songs and stories they can share with their child. These songs and stories can also be saved into the user's Favorites for easy access. 
 
 ## Screenshots of UI skeleton webpages
-![main page](milestone_img/main1.jpg)
+![main page](milestone_img/main1.JPG)
+
 The home screen (feed page)
-It contains the tips which will be presented in the form of news feed.
-![story page1](milestone_img/main2.jpg)
-The Story page(1st screenshot)
-![story page2](milestone_img/main3.jpg)
+It contains the tips which will be presented in the form of news feed. User can navigate to other pages via the menu button at the top left corner. 
+
+![story page1](milestone_img/main2.JPG)
+![story page2](milestone_img/main3.JPG)
+
+
+The Songs & Stories page which the carousel will feature the hottest stories and songs. And there are three sections which will suggest the stories and songs for the users.
 
 
 ### Comparison to paper protoypes
