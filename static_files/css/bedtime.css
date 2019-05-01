@@ -28,3 +28,14 @@
 #new {
   background-color: slateblue;
 }
+
+.cardimg {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  margin: auto;
+}
+
+.imgholder {
+  margin: auto;
+}
