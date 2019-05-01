@@ -29,19 +29,19 @@ The app idea fits within the project theme since none of our team members are fi
 
 ## Storyboards
 ### Storyboard 1
-![Image of storyboard 1](img/storyboard1.png)
+![Image of storyboard 1](milestone_img/storyboard1.png)
 
 ### Storyboard 2
-![Image of storyboard 2](img/storyboard2.jpg)
+![Image of storyboard 2](milestone_img/storyboard2.jpg)
 
 ### Storyboard 3
-![Image of storyboard 3.1](img/storyboard3-1.jpg)
-![Image of storyboard 3.2](img/storyboard3-2.jpg)
+![Image of storyboard 3.1](milestone_img/storyboard3-1.jpg)
+![Image of storyboard 3.2](milestone_img/storyboard3-2.jpg)
 
 
 ## Prototypes
 ### Prototype 1 (Father App)
-![Image of prototype 1](img/prototype1.jpg)
+![Image of prototype 1](milestone_img/prototype1.jpg)
 * Top row first image - home page showing the tips to first time dad, users can choose the one they want to read.
 * Top row second image - when the users press the menu button, the hidden user setting space will show
 * Top row third image - this is the blog section when the users press the tip. Users can share or make it as favorite. 
@@ -49,7 +49,7 @@ The app idea fits within the project theme since none of our team members are fi
 * Bottom row second image - this is the blog section when the users press the tip. Users can share or make it as favorite. Similar to the one in the "Tips" page
 
 ### Prototype 2 (Father App)
-![Image of prototype 2](img/prototype2.png)
+![Image of prototype 2](milestone_img/prototype2.png)
 * Top row first image - home page showing slider of important blog posts and quick links
 * Top row second image - trending newsfeed
 * Navigation - includes quick links to the 'search', 'favorites,' 'scan,' and 'settings' pages.
@@ -59,12 +59,12 @@ The app idea fits within the project theme since none of our team members are fi
 
 
 ### Prototype 3 (Surfing App)
-![Image of prototype 3.1](img/prototype3-1.png)
+![Image of prototype 3.1](milestone_img/prototype3-1.png)
 1. Map of surf spots
 2. Calendar of when surf spots are RSVP’d to
 3. Tutorial section/photo sharing 
 
-![Image of prototype 3.2](img/prototype3-2.png)
+![Image of prototype 3.2](milestone_img/prototype3-2.png)
 1. Click on a surf location from the map and it takes you to the destination’s information page that  contains surf conditions
 2. When you click on a day, you can search for a location and see who has RSVP’d to that location at that time
 3. Newsfeed of photos 
