@@ -9,3 +9,20 @@ body {
     background: none;    border:0;
     cursor: pointer;
 }
+.tip{
+    margin: 1rem;
+    width: 100%;
+}
+.feed{
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.filter{
+    background: transparent;
+    border: 0px black;
+}
+.active_filter{
+    border: 0px black;
+    border-bottom: 2px solid red;
+}

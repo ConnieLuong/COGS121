@@ -51,12 +51,15 @@
     <div id="nav-placeholder"></div>
 
     <!--Filters-->
-    <button class="filter" id="Trending">Trending</button>
-    <button class="filter" id="Baby">Baby</button>
-    <button class="filter" id="Parent">Parent</button>
+    <div style="display: flex; justify-content: center;">
+        <button class="filter" id="Trending">Trending</button>
+        <button class="filter" id="Baby">Baby</button>
+        <button class="filter" id="Parent">Parent</button>
+    </div>
+    
 
     <!--tip templates-->
-    <div class="row feed">
+    <div class="row feed" style="display: flex; justify-content: center;">
       <script id="tip-template" type="text/x-handlebars-template">
         <div class="col-sm-12 tip" id="tip{{tip_num}}card">
           <div class="card text-dark">

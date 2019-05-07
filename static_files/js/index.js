@@ -50,6 +50,12 @@ $(document).ready(function () {
     $('.filter').click( function (event){
         $('.feed').html('');
         const filter = event.target.id;
+        //for each filter button, remove active_filter
+        $('button').removeClass("active_filter");
+        //add active_filter to clicked button
+        event.target.classList.add("active_filter");
+
+        //load filtered items
         database.ref('tips/').once('value', function (snapshot){
             //filter and append only those that contain tag Trending
             const data = _.chain(snapshot.val())
