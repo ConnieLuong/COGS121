@@ -1,71 +1,49 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>Poppa Hub</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!--Firebase-->
-    <script
-      defer
-      src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"
-    ></script>
-    <script
-      defer
-      src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"
-    ></script>
-    <script
-      defer
-      src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"
-    ></script>
-    <script
-      defer
-      src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"
-    ></script>
+    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
     <script defer src="./js/secret.js"></script>
 
     <!--Bootstrap-->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
     <!--Imports-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-    <script
-      defer
-      src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
       integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/nav.css" />
     <script src="./js/index.js"></script>
 
+    <!--Handlebars-->
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+
+
     <script>
-      $(function() {
+      $(function () {
         $("#nav-placeholder").load("nav.html");
       });
     </script>
@@ -75,9 +53,25 @@
     <!--Navigation bar-->
     <div id="nav-placeholder"></div>
 
-    <!--Quick buttons to empty and laod database-->
-    <!-- <button id="emptyDB">Empty Database</button>
-        <button id="fillDB">Fill Database</button> -->
-    <div class="row justify-content-center feed"></div>
+    <!--tip templates-->
+    <div class="row feed">
+      <script id="tip-template" type="text/x-handlebars-template">
+        <div class="col-sm-12 tip" id="tip{{tip_num}}card">
+          <div class="card text-dark">
+            <img class="card-img-top" src="{{tip_img}}" id="tip{{tip_num}}">
+          </div>
+          <!--tip content would go here when clicking-->
+        </div>
+      </script>
+
+      <script id="tip-content-template" type="text/x-handlebars-template">
+        <div class="card-body" id="tip{{tip_num}}content">
+            <h5 class="card-title">{{tip_title}}</h5>
+            <p class="card-text">{{tip_text}}</p>
+            <i class="far fa-heart"></i><i class="far fa-share-square"></i>
+        </div>
+      </script>
+    </div>
   </body>
+
 </html>
