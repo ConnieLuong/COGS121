@@ -21,8 +21,9 @@ $(document).ready(function () {
         });
     });
 
-    //When click on DOM element with class .tip, grab its content from the database and append
-    $('.tip').click( function(event){
+    //When click on a tip card image, show its content
+    //$('.card-img-top').click( function(event){
+    $(document).on("click", ".card-img-top", function(event){
         console.log("clicking a tip");
         const tipNum = event.target.id;
         console.log(tipNum);
@@ -41,6 +42,28 @@ $(document).ready(function () {
         }
     });
 
+    $('body').click( function(event){
+        console.log("====> ", event.target.className);
+    })
+
+    //Filters
+    $('.filter').click( function (event){
+        $('.feed').html('');
+        const filter = event.target.id;
+        database.ref('tips/').once('value', function (snapshot){
+            //filter and append only those that contain tag Trending
+            const data = _.chain(snapshot.val())
+                .filter(function(tip){
+                    const tip_tags = tip.tip_tags;
+                    return tip_tags.includes(filter);
+                })
+                .each(function(e){
+                    var html = tt_template(e);
+                    $('.feed').append(html);
+                }).value();
+            console.log(data);
+        });
+    });
 
     //Hardcode database -- for now
     function emptyDB(){
@@ -50,15 +73,17 @@ $(document).ready(function () {
 
     function fillDB(){
         console.log('Filling the database with tips collection');
-        database.ref('tips/tip01').set({tip_num: "01", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'Making Milk', tip_text: '3 easy steps and things to look out for'});
-        database.ref('tips/tip02').set({tip_num: "02", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'Don\'t be Afraid', tip_text: 'You\'re not alone. Let\'s tackle PPD together'});
-        database.ref('tips/tip03').set({tip_num: "03", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'Helping Out', tip_text: 'It is time to show off your skills.'});
-        database.ref('tips/tip04').set({tip_num: "04", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'Changing Diapers', tip_text: 'It\s now or never.'});
-        database.ref('tips/tip05').set({tip_num: "05", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: '10 Things New Dads should look out for', tip_text: 'You probably hadn\'t thought about this'});
-        database.ref('tips/tip06').set({tip_num: "06", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'About Sleep', tip_text: 'Sleep will be valuable. You know it.'});
-        database.ref('tips/tip07').set({tip_num: "07", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'Don\'t be Afraid', tip_text: 'You\'re not alone. Let\'s tackle PPD together'});
-        database.ref('tips/tip08').set({tip_num: "08", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'Helping Out', tip_text: 'It is time to show off your skills.'});
-        database.ref('tips/tip09').set({tip_num: "09", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'Changing Diapers', tip_text: 'It\s now or never.'});
-        database.ref('tips/tip10').set({tip_num: "10", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'Don\'t be Afraid', tip_text: 'You\'re not alone. Let\'s tackle PPD together'});
+        database.ref('tips/tip01').set({tip_num: "01", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'Making Milk baby', tip_text: '3 easy steps and things to look out for', tip_tags:['Baby']});
+        database.ref('tips/tip02').set({tip_num: "02", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'Don\'t be Afraid parent', tip_text: 'You\'re not alone. Let\'s tackle PPD together', tip_tags:['Parent']});
+        database.ref('tips/tip03').set({tip_num: "03", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'Helping Out baby', tip_text: 'It is time to show off your skills.', tip_tags:['Baby']});
+        database.ref('tips/tip04').set({tip_num: "04", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'Changing Diapers parent trending', tip_text: 'It\s now or never.', tip_tags:['Parent', 'Trending']});
+        database.ref('tips/tip05').set({tip_num: "05", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: '10 Things New Dads should look out for parent', tip_text: 'You probably hadn\'t thought about this', tip_tags:['Parent']});
+        database.ref('tips/tip06').set({tip_num: "06", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'About Sleep baby trending', tip_text: 'Sleep will be valuable. You know it.', tip_tags:['Baby', 'Trending']});
+        database.ref('tips/tip07').set({tip_num: "07", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'Don\'t be Afraid baby trending', tip_text: 'You\'re not alone. Let\'s tackle PPD together', tip_tags:['Baby', 'Trending']});
+        database.ref('tips/tip08').set({tip_num: "08", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'Helping Out parent', tip_text: 'It is time to show off your skills.', tip_tags:['Parent']});
+        database.ref('tips/tip09').set({tip_num: "09", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'Changing Diapers baby trending', tip_text: 'It\s now or never.', tip_tags:['Baby','Trending']});
+        database.ref('tips/tip10').set({tip_num: "10", tip_img: 'http://placehold.jp/cccccc/cccccc/320x240.png', tip_title: 'Don\'t be Afraid baby', tip_text: 'You\'re not alone. Let\'s tackle PPD together', tip_tags:['Baby']});
     };
 });
+
+
