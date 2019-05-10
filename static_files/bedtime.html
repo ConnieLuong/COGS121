@@ -29,14 +29,32 @@
           $("#nav-placeholder").load("nav.html");
         });
     </script>
+
+    <!-- Get stories -->
+    <script type="text/javascript">
+      $(document).ready(() => {
+        const database = firebase.database();
+        const titles = [];
+        database.ref('/stories').once('value',(snapshot) => {
+          const data = snapshot.val();
+          data.forEach(function(story){
+            let title = story.Name;
+            titles.push(title);
+          })
+          $('.card').each(function(i, obj) {
+            $(this).html(titles[i]);
+            console.log('You writing');
+          })
+        })    
+      })
+    </script>
   </head>
 
   <body>
     <!-- Start Body-->
     <!--Navigation bar-->
     <div id="nav-placeholder"></div>
-  
-  
+
     <!--carousel-->
 
     <div id="demo" class="carousel slide" data-ride="carousel">
