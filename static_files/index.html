@@ -56,6 +56,10 @@
         <button class="filter" id="Baby">Baby</button>
         <button class="filter" id="Parent">Parent</button>
     </div>
+
+    <!--Tip of the day-->
+    <div class="row tipDay" style="display: flex; justify-content: center;"></div>
+    
     
 
     <!--tip templates-->
@@ -64,6 +68,7 @@
         <div class="col-sm-12 tip" id="tip{{tip_num}}card">
           <div class="card text-dark">
             <img class="card-img-top" src="{{tip_img}}" id="tip{{tip_num}}">
+            <h5 class="card-title">{{tip_title}}</h5>
           </div>
           <!--tip content would go here when clicking-->
         </div>
@@ -71,11 +76,10 @@
 
       <script id="tip-content-template" type="text/x-handlebars-template">
         <div class="card-body" id="tip{{tip_num}}content">
-            <h5 class="card-title">{{tip_title}}</h5>
             <p class="card-text">{{tip_text}}</p>
             <div style="float: right">
               <!--Favorite button-->
-              <i class="far fa-heart fa-fw"></i> Save
+              <i class="far fa-star fa-fw"></i> Favorite
               <!--Share-->
               <div class="dropdown" style="display: inline">
                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

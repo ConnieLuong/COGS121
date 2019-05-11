@@ -1,43 +1,38 @@
 $(document).ready(function () {
-    // if(true){
-    //     emptyDB();
-    //     fillDB();
-    // }
-
     //tip-template
-    var tt_template = Handlebars.compile($('#tip-template').html());
+    const tt_template = Handlebars.compile($('#tip-template').html());
 
     //tip-content-template
-    var tc_template = Handlebars.compile($('#tip-content-template').html());
+    const tc_template = Handlebars.compile($('#tip-content-template').html());
 
-    //load all tips onto the page
-    // database.ref('tips/').once('value', (snapshot) => {
-    //     const data = snapshot.val();
-
-    //     //for each tip entry in the tips collection, template it and append to class .feed
-    //     _.each(data, function(e){
-    //         var html = tt_template(e);
-    //         $('.feed').append(html);
-    //     });
-    // });
+    var tipDayIndex = 'tip01';
 
     //Show Trending items by default
     database.ref('tips/').once('value', function (snapshot){
-        //filter and append only those that contain tag Trending
-        const data = _.chain(snapshot.val())
+        //load tip of the day
+        const tips = snapshot.val();
+        console.log("tips: ", tips);
+        $('.tipDay').append('<h1>Tips of the Day</h1>');
+        const htmlTipDay = tt_template(tips[tipDayIndex]);
+        $('.tipDay').append(htmlTipDay);
+        $('.feed').append('<h2>Other tips</h1>');
+
+        //load all tips containing Trending tag
+        const data = _.chain(tips)
             .filter(function(tip){
                 const tip_tags = tip.tip_tags;
                 return tip_tags.includes("Trending");
             })
             .each(function(e){
-                var html = tt_template(e);
-                $('.feed').append(html);
+                if(parseInt(e.tip_num) != (tipDayIndex+1)){ //want to avoid repeat with tip of the day
+                    var html = tt_template(e);
+                    $('.feed').append(html);
+                }
             }).value();
         console.log(data);
     });
 
     //When click on a tip card image, show its content
-    //$('.card-img-top').click( function(event){
     $(document).on("click", ".card-img-top", function(event){
         console.log("clicking a tip");
         const tipNum = event.target.id;
@@ -72,15 +67,28 @@ $(document).ready(function () {
 
         //load filtered items
         database.ref('tips/').once('value', function (snapshot){
-            //filter and append only those that contain tag Trending
+            //if filter is Trending, load tip of the day & other tips header
+            if(filter=="Trending"){
+                $('.tipDay').append('<h1>Tip of the Day</h1>');
+                $('.tipDay').append(tt_template(snapshot.val()[tipDayIndex]));
+                $('.feed').append('<h2>Other tips</h1>');
+            }else{
+                $('.tipDay').html('');
+            }
+
+            //filter and append only those that contain tag "filter"
             const data = _.chain(snapshot.val())
                 .filter(function(tip){
                     const tip_tags = tip.tip_tags;
                     return tip_tags.includes(filter);
                 })
                 .each(function(e){
-                    var html = tt_template(e);
-                    $('.feed').append(html);
+                    if(filter=="Trending" && parseInt(e.tip_num) == (tipDayIndex+1)){
+                        return;
+                    }else{
+                        var html = tt_template(e);
+                        $('.feed').append(html);
+                    }
                 }).value();
             console.log(data);
         });
