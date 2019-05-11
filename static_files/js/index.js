@@ -11,14 +11,29 @@ $(document).ready(function () {
     var tc_template = Handlebars.compile($('#tip-content-template').html());
 
     //load all tips onto the page
-    database.ref('tips/').once('value', (snapshot) => {
-        const data = snapshot.val();
+    // database.ref('tips/').once('value', (snapshot) => {
+    //     const data = snapshot.val();
 
-        //for each tip entry in the tips collection, template it and append to class .feed
-        _.each(data, function(e){
-            var html = tt_template(e);
-            $('.feed').append(html);
-        });
+    //     //for each tip entry in the tips collection, template it and append to class .feed
+    //     _.each(data, function(e){
+    //         var html = tt_template(e);
+    //         $('.feed').append(html);
+    //     });
+    // });
+
+    //Show Trending items by default
+    database.ref('tips/').once('value', function (snapshot){
+        //filter and append only those that contain tag Trending
+        const data = _.chain(snapshot.val())
+            .filter(function(tip){
+                const tip_tags = tip.tip_tags;
+                return tip_tags.includes("Trending");
+            })
+            .each(function(e){
+                var html = tt_template(e);
+                $('.feed').append(html);
+            }).value();
+        console.log(data);
     });
 
     //When click on a tip card image, show its content
