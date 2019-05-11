@@ -91,11 +91,7 @@
 
         <div class="carousel-item active">
          
-          <img
-            src="./img/coverart.jpg"
-            alt="coverart"
-            width="900"
-            height="500"/>
+          <img src="./img/coverart.jpg"  alt="coverart" width="900" height="500"/>
             <h3 class="textOnImg">hello world</h3>
           
         </div>
@@ -146,12 +142,13 @@
     </section>
 
     <script id="song-template" type="text/x-handlebars-template">
-      <div class="card" id = "song{{song_num}}card">
+      <div class="card" id = "song{{song_num}}card" onclick="getTrackDetails($(this).find('.song_name').text(),$(this).find('.artist_name').text())">
           <!--image inside the card-->
           <div class="imgholder">
             <img id="fav_img{{song_num}}" class="cardimg" src="{{cover_art}}" alt="img"/>
           </div>
           <h3 id="song_name{{song_num}}" class="song_name">{{track_name}}</h3>
+          <h6 id="artist_name{{song_num}}" class="artist_name">{{artist_name}}</h6>
         </div>
     </script>
   </body>

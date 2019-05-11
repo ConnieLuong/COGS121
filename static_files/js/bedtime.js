@@ -164,3 +164,16 @@ function shuffle(array) {
   }
   return array;
 }
+
+//knowing which song is clicked
+function getTrackDetails(track_name, artist_name) {
+  console.log(track_name);
+  console.log(artist_name);
+  url =
+    "./song.html?name=" +
+    encodeURIComponent(track_name) +
+    "&artist=" +
+    encodeURIComponent(artist_name);
+  console.log(url);
+  document.location.href = url;
+}

@@ -44,6 +44,10 @@
   align-self: center;
 }
 
+.artist_name {
+  align-self: center;
+}
+
 /*text on the slides*/
 .textOnImg {
   position: absolute;
