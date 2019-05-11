@@ -57,6 +57,12 @@
     <link rel="stylesheet" href="./css/nav.css" />
     <script src="./js/bedtime.js"></script>
 
+    <!--handlebars-->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"
+    ></script>
+
     <script>
       $(function() {
         $("#nav-placeholder").load("nav.html");
@@ -84,19 +90,21 @@
         <!--a clickable carousel img-->
 
         <div class="carousel-item active">
+         
           <img
-            src="./img/test.jpg"
-            alt="Los Angeles"
+            src="./img/coverart.jpg"
+            alt="coverart"
             width="900"
-            height="500"
-          />
+            height="500"/>
+            <h3 class="textOnImg">hello world</h3>
+          
         </div>
 
         <div class="carousel-item">
-          <img src="./img/test.jpg" alt="Chicago" width="900" height="500" />
+          <img src="./img/coverart.jpg" alt="coverart" width="900" height="500" />
         </div>
         <div class="carousel-item">
-          <img src="./img/test.jpg" alt="New York" width="900" height="500" />
+          <img src="./img/coverart.jpg" alt="coverart" width="900" height="500" />
         </div>
       </div>
 
@@ -112,76 +120,41 @@
     <!--favorites section-->
     <section id="favorites">
       <h1>Favorites</h1>
-      <div class="scrolling-wrapper">
+      <div class="scrolling-wrapper" id = "fav_cards">
         <!--each card is a individual clickable link-->
-        <a href="./story.html">
-          <div class="card">
-            <!--image inside the card-->
-            <div class="imgholder">
-              <img class="cardimg" src="./img/Mustang.jpg" alt="cat" />
-            </div>
-          </div>
-        </a>
-
-        <a href="./story.html">
-          <div class="card">
-            <!--image inside the card-->
-            <div class="imgholder">
-              <img class="cardimg" src="./img/Mustang.jpg" alt="cat" />
-            </div>
-          </div>
-        </a>
-
-        <a href="./story.html">
-          <div class="card">
-            <!--image inside the card-->
-            <div class="imgholder">
-              <img class="cardimg" src="./img/Mustang.jpg" alt="cat" />
-            </div>
-          </div>
-        </a>
-
-        <a href="./story.html">
-          <div class="card">
-            <!--image inside the card-->
-            <div class="imgholder">
-              <img class="cardimg" src="./img/Mustang.jpg" alt="cat" />
-            </div>
-          </div>
-        </a>
-      </div>
     </section>
 
     <!--hot section-->
-    <section id="hot">
+    <section id="hot">  
+<!--
+     <button id="removeDB">deleteSongDB</button>
+-->
       <h1>Hot</h1>
-      <div class="scrolling-wrapper">
+      <div class="scrolling-wrapper" id = "hot_cards">
         <!--each card is a individual item-->
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
       </div>
+      
     </section>
 
     <!--New section-->
     <section id="new">
       <h1>New</h1>
-      <div class="scrolling-wrapper">
+      <button type="button" class="btn btn-outline-warning" id="reGenBtn">Generate New list</button>
+      <div class="scrolling-wrapper" id = "new_cards">
         <!--each card is a individual item-->
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
       </div>
     </section>
+
+    <script id="song-template" type="text/x-handlebars-template">
+      <div class="card" id = "song{{song_num}}card">
+          <!--image inside the card-->
+          <div class="imgholder">
+            <img id="fav_img{{song_num}}" class="cardimg" src="{{cover_art}}" alt="img"/>
+          </div>
+          <h3 id="song_name{{song_num}}" class="song_name">{{track_name}}</h3>
+        </div>
+    </script>
   </body>
+
   <!-- End Body-->
 </html>
