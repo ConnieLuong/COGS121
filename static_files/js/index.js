@@ -5,7 +5,7 @@ $(document).ready(function () {
     //tip-content-template
     const tc_template = Handlebars.compile($('#tip-content-template').html());
 
-    var tipDayIndex = 'tip01';
+    var tipDayIndex = 'tip04';
 
     //Show Trending items by default
     database.ref('tips/').once('value', function (snapshot){
@@ -13,8 +13,7 @@ $(document).ready(function () {
         const tips = snapshot.val();
         console.log("tips: ", tips);
         $('.tipDay').append('<h1>Tips of the Day</h1>');
-        const htmlTipDay = tt_template(tips[tipDayIndex]);
-        $('.tipDay').append(htmlTipDay);
+        $('.tipDay').append(tt_template(tips[tipDayIndex]));
         $('.feed').append('<h2>Other tips</h1>');
 
         //load all tips containing Trending tag
@@ -24,7 +23,7 @@ $(document).ready(function () {
                 return tip_tags.includes("Trending");
             })
             .each(function(e){
-                if(parseInt(e.tip_num) != (tipDayIndex+1)){ //want to avoid repeat with tip of the day
+                if(parseInt(e.tip_num) != parseInt(tipDayIndex.substring(3,tipDayIndex.length))){ //want to avoid repeat with tip of the day
                     var html = tt_template(e);
                     $('.feed').append(html);
                 }
@@ -83,7 +82,7 @@ $(document).ready(function () {
                     return tip_tags.includes(filter);
                 })
                 .each(function(e){
-                    if(filter=="Trending" && parseInt(e.tip_num) == (tipDayIndex+1)){
+                    if(filter=="Trending" && parseInt(e.tip_num) == parseInt(tipDayIndex.substring(3,tipDayIndex.length))){
                         return;
                     }else{
                         var html = tt_template(e);
