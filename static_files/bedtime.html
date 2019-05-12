@@ -75,8 +75,18 @@
     <!--Navigation bar-->
     <div id="nav-placeholder"></div>
 
-    <!--carousel-->
+      <!--Filters-->
+     
+        <div class="row">
+          <div class="col-sm-auto text-center" style="width:50%;">
+              <button class="filter active_filter" id="song">Song</button> <!--By default, load songs-->
+          </div>
+          <div class="col-sm-auto text-center" style="width:50%;">
+              <button class="filter" id="story">Story</button>
+          </div>
+        </div>
 
+    <!--carousel-->
     <div id="demo" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ul class="carousel-indicators">
@@ -112,6 +122,7 @@
         <span class="carousel-control-next-icon"></span>
       </a>
     </div>
+
 
     <!--favorites section-->
     <section id="favorites">
@@ -151,6 +162,20 @@
           <h6 id="artist_name{{song_num}}" class="artist_name">{{artist_name}}</h6>
         </div>
     </script>
+
+    <script id="story-template" type="text/x-handlebars-template">
+      <div class="card" id = "story{{No:}}card" onclick="getStoryDetails($(this).find('.story_name').text())">
+          <!--image inside the card-->
+          <div class="imgholder">
+            <img id="fav_img{{No:}}" class="cardimg" src="{{cover_art}}" alt="img"/>
+          </div>
+          <h3 id="song_name{{No:}}" class="story_name">{{Name}}</h3>
+          <h6 id="artist_name{{No:}}" class="story_category">{{Category}}</h6>
+        </div>
+    </script>
+
+
+
   </body>
 
   <!-- End Body-->

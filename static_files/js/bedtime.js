@@ -1,37 +1,10 @@
 $(document).ready(function() {
   //song-template
   var song_template = Handlebars.compile($("#song-template").html());
+  var story_template = Handlebars.compile($("#story-template").html());
 
   //load all songs onto the page
-  database.ref("songs/favorites").once("value", snapshot => {
-    const tracks = snapshot.val();
-    console.log("received fav data", tracks);
-    //for each tip entry in the songs collection, template it and append to favorite section
-    Object.keys(tracks).forEach(song => {
-      var html = song_template(tracks[song]);
-      $("#fav_cards").append(html);
-    });
-  });
-
-  database.ref("songs/hot").once("value", snapshot => {
-    const tracks = snapshot.val();
-    console.log("received hot data", tracks);
-    //for each tip entry in the songs collection, template it and append to hot section
-    Object.keys(tracks).forEach(song => {
-      var html = song_template(tracks[song]);
-      $("#hot_cards").append(html);
-    });
-  });
-
-  database.ref("songs/new").once("value", snapshot => {
-    const tracks = snapshot.val();
-    console.log("received new data", tracks);
-    //for each tip entry in the songs collection, template it and append to new section
-    Object.keys(tracks).forEach(song => {
-      var html = song_template(tracks[song]);
-      $("#new_cards").append(html);
-    });
-  });
+  loadSongs();
 
   //const ajax call for search children tracks
   const searchTrack = $.ajax({
@@ -136,15 +109,79 @@ $(document).ready(function() {
   $("#reGenBtn").click(() => {
     console.log("regenerating new track list");
     $("#new_cards").empty();
-    database.ref("songs/new").once("value", snapshot => {
-      const tracks = snapshot.val();
-      const newTracks = shuffle(Object.keys(tracks));
 
-      newTracks.slice(0, 5).forEach(song => {
-        var html = song_template(tracks[song]);
-        $("#new_cards").append(html);
+    //will trigger different loading depends on the which tap it is in.
+    if ($("#song").hasClass("active_filter")) {
+      database.ref("songs/new").once("value", snapshot => {
+        const tracks = snapshot.val();
+        const newTracks = shuffle(Object.keys(tracks));
+
+        newTracks.slice(0, 5).forEach(song => {
+          var html = song_template(tracks[song]);
+          $("#new_cards").append(html);
+        });
       });
+    } else {
+      database.ref("stories/").once("value", snapshot => {
+        const stories = snapshot.val();
+        const newStories = shuffle(stories);
+        for (i = 10; i < 15; i++) {
+          var html = story_template(stories[i]);
+          $("#new_cards").append(html);
+        }
+      });
+    }
+  });
+
+  //Filters
+  $("#story").click(function(event) {
+    $("#fav_cards").empty();
+    $("#hot_cards").empty();
+    $("#new_cards").empty();
+    const filter = event.target.id;
+    //for each filter button, remove active_filter
+    $("button").removeClass("active_filter");
+    //add active_filter to clicked button
+    event.target.classList.add("active_filter");
+
+    //loading fav_stories - will connect with fav later
+    database.ref("stories/").once("value", function(snapshot) {
+      const stories = snapshot.val();
+      for (i = 0; i < 5; i++) {
+        var html = story_template(stories[i]);
+        $("#fav_cards").append(html);
+      }
     });
+
+    //loading hot_stories
+    database.ref("stories/").once("value", function(snapshot) {
+      const stories = snapshot.val();
+      for (i = 5; i < 10; i++) {
+        var html = story_template(stories[i]);
+        $("#hot_cards").append(html);
+      }
+    });
+
+    //loading new_stories
+    database.ref("stories/").once("value", function(snapshot) {
+      const stories = snapshot.val();
+      for (i = 10; i < 15; i++) {
+        var html = story_template(stories[i]);
+        $("#new_cards").append(html);
+      }
+    });
+  });
+
+  $("#song").click(function(event) {
+    $("#fav_cards").empty();
+    $("#hot_cards").empty();
+    $("#new_cards").empty();
+    const filter = event.target.id;
+    //for each filter button, remove active_filter
+    $("button").removeClass("active_filter");
+    //add active_filter to clicked button
+    event.target.classList.add("active_filter");
+    loadSongs();
   });
 });
 
@@ -176,4 +213,44 @@ function getTrackDetails(track_name, artist_name) {
     encodeURIComponent(artist_name);
   console.log(url);
   document.location.href = url;
+}
+
+function getStoryDetails(story_name) {
+  console.log(story_name);
+  url = "./story.html?name=" + encodeURIComponent(story_name);
+  console.log(url);
+  document.location.href = url;
+}
+
+function loadSongs() {
+  var song_template = Handlebars.compile($("#song-template").html());
+  database.ref("songs/favorites").once("value", snapshot => {
+    const tracks = snapshot.val();
+    console.log("received fav data", tracks);
+    //for each tip entry in the songs collection, template it and append to favorite section
+    Object.keys(tracks).forEach(song => {
+      var html = song_template(tracks[song]);
+      $("#fav_cards").append(html);
+    });
+  });
+
+  database.ref("songs/hot").once("value", snapshot => {
+    const tracks = snapshot.val();
+    console.log("received hot data", tracks);
+    //for each tip entry in the songs collection, template it and append to hot section
+    Object.keys(tracks).forEach(song => {
+      var html = song_template(tracks[song]);
+      $("#hot_cards").append(html);
+    });
+  });
+
+  database.ref("songs/new").once("value", snapshot => {
+    const tracks = snapshot.val();
+    console.log("received new data", tracks);
+    //for each tip entry in the songs collection, template it and append to new section
+    Object.keys(tracks).forEach(song => {
+      var html = song_template(tracks[song]);
+      $("#new_cards").append(html);
+    });
+  });
 }

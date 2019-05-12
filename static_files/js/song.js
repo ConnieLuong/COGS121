@@ -4,8 +4,8 @@ $(document).ready(function() {
 
   if (queryString) {
     var arr = queryString.split("&");
-    track_name = arr[0].split("=")[1];
-    artist = arr[1].split("=")[1];
+    const track_name = arr[0].split("=")[1];
+    const artist = arr[1].split("=")[1];
     console.log(track_name);
     console.log(artist);
     const a = "Sexy and I know it",
@@ -29,6 +29,10 @@ $(document).ready(function() {
     getLyrics
       .done(function(data) {
         console.log(data);
+        const lyrics = data.message.body.lyrics.lyrics_body;
+        $("#title").html(track_name);
+        $("#artist").html(artist);
+        $("#lyrics").html(lyrics);
       })
       .fail(function(jqXHR, textStatus, errorThrown) {
         console.log(jqXHR);
@@ -36,6 +40,6 @@ $(document).ready(function() {
         console.log(errorThrown);
       });
   } else {
-    $(p).html("nothing Received");
+    $("#lyrics").html("nothing Received");
   }
 });

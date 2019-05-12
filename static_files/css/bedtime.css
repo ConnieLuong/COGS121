@@ -40,11 +40,13 @@
   margin: auto;
 }
 
-.song_name {
+.song_name,
+.story_name {
   align-self: center;
 }
 
-.artist_name {
+.artist_name,
+.story_category {
   align-self: center;
 }
 
@@ -54,4 +56,17 @@
   bottom: 76px;
   right: 67px;
   color: white;
+}
+
+.filter {
+  background: transparent;
+  border: 0px black;
+}
+.active_filter {
+  border: 0px black;
+  border-bottom: 2px solid red;
+}
+
+.row {
+  display: flex;
 }
