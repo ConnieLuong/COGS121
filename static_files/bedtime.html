@@ -4,30 +4,69 @@
     <title>Poppa Hub | Bedtime</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!--Firebase-->
-    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js" ></script>
-    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js" ></script>
-    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js" ></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"
+    ></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"
+    ></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"
+    ></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"
+    ></script>
     <script defer src="./js/secret.js"></script>
 
     <!--Bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
     <!--Imports-->
     <link rel="stylesheet" href="./css/bedtime.css" />
+    <link rel="stylesheet" href="./css/nav.css" />
     <script src="./js/bedtime.js"></script>
 
+    <!--handlebars-->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"
+    ></script>
+
     <script>
-        $(function(){
-          $("#nav-placeholder").load("nav.html");
-        });
+      $(function() {
+        $("#nav-placeholder").load("nav.html");
+      });
     </script>
   </head>
 
@@ -35,10 +74,19 @@
     <!-- Start Body-->
     <!--Navigation bar-->
     <div id="nav-placeholder"></div>
-  
-  
-    <!--carousel-->
 
+      <!--Filters-->
+     
+        <div class="row">
+          <div class="col-sm-auto text-center" style="width:50%;">
+              <button class="filter active_filter" id="song">Song</button> <!--By default, load songs-->
+          </div>
+          <div class="col-sm-auto text-center" style="width:50%;">
+              <button class="filter" id="story">Story</button>
+          </div>
+        </div>
+
+    <!--carousel-->
     <div id="demo" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ul class="carousel-indicators">
@@ -50,22 +98,19 @@
       <!-- The slideshow -->
       <div class="carousel-inner">
         <!--a clickable carousel img-->
-        <a href="./story.html">
-          <div class="carousel-item active">
-            <img
-              src="./img/test.jpg"
-              alt="Los Angeles"
-              width="900"
-              height="500"
-            />
-          </div>
-        </a>
+
+        <div class="carousel-item active">
+         
+          <img src="./img/coverart.jpg"  alt="coverart" width="900" height="500"/>
+            <h3 class="textOnImg">hello world</h3>
+          
+        </div>
 
         <div class="carousel-item">
-          <img src="./img/test.jpg" alt="Chicago" width="900" height="500" />
+          <img src="./img/coverart.jpg" alt="coverart" width="900" height="500" />
         </div>
         <div class="carousel-item">
-          <img src="./img/test.jpg" alt="New York" width="900" height="500" />
+          <img src="./img/coverart.jpg" alt="coverart" width="900" height="500" />
         </div>
       </div>
 
@@ -78,79 +123,60 @@
       </a>
     </div>
 
+
     <!--favorites section-->
     <section id="favorites">
       <h1>Favorites</h1>
-      <div class="scrolling-wrapper">
+      <div class="scrolling-wrapper" id = "fav_cards">
         <!--each card is a individual clickable link-->
-        <a href="./story.html">
-          <div class="card">
-            <!--image inside the card-->
-            <div class="imgholder">
-              <img class="cardimg" src="./img/Mustang.jpg" alt="cat" />
-            </div>
-          </div>
-        </a>
-
-        <a href="./story.html">
-          <div class="card">
-            <!--image inside the card-->
-            <div class="imgholder">
-              <img class="cardimg" src="./img/Mustang.jpg" alt="cat" />
-            </div>
-          </div>
-        </a>
-
-        <a href="./story.html">
-          <div class="card">
-            <!--image inside the card-->
-            <div class="imgholder">
-              <img class="cardimg" src="./img/Mustang.jpg" alt="cat" />
-            </div>
-          </div>
-        </a>
-
-        <a href="./story.html">
-          <div class="card">
-            <!--image inside the card-->
-            <div class="imgholder">
-              <img class="cardimg" src="./img/Mustang.jpg" alt="cat" />
-            </div>
-          </div>
-        </a>
-      </div>
     </section>
 
     <!--hot section-->
-    <section id="hot">
+    <section id="hot">  
+<!--
+     <button id="removeDB">deleteSongDB</button>
+-->
       <h1>Hot</h1>
-      <div class="scrolling-wrapper">
+      <div class="scrolling-wrapper" id = "hot_cards">
         <!--each card is a individual item-->
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
       </div>
+      
     </section>
 
     <!--New section-->
     <section id="new">
       <h1>New</h1>
-      <div class="scrolling-wrapper">
+      <button type="button" class="btn btn-outline-warning" id="reGenBtn">Generate New list</button>
+      <div class="scrolling-wrapper" id = "new_cards">
         <!--each card is a individual item-->
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
-        <div class="card"><h2>Card</h2></div>
       </div>
     </section>
+
+    <script id="song-template" type="text/x-handlebars-template">
+      <div class="card" id = "song{{song_num}}card" onclick="getTrackDetails($(this).find('.song_name').text(),$(this).find('.artist_name').text())">
+          <!--image inside the card-->
+          <div class="imgholder">
+            <img id="fav_img{{song_num}}" class="cardimg" src="{{cover_art}}" alt="img"/>
+          </div>
+          <h3 id="song_name{{song_num}}" class="song_name">{{track_name}}</h3>
+          <h6 id="artist_name{{song_num}}" class="artist_name">{{artist_name}}</h6>
+        </div>
+    </script>
+
+    <script id="story-template" type="text/x-handlebars-template">
+      <div class="card" id = "story{{No:}}card" onclick="getStoryDetails($(this).find('.story_name').text())">
+          <!--image inside the card-->
+          <div class="imgholder">
+            <img id="fav_img{{No:}}" class="cardimg" src="{{cover_art}}" alt="img"/>
+          </div>
+          <h3 id="song_name{{No:}}" class="story_name">{{Name}}</h3>
+          <h6 id="artist_name{{No:}}" class="story_category">{{Category}}</h6>
+        </div>
+    </script>
+
+
+
   </body>
+
   <!-- End Body-->
 </html>
