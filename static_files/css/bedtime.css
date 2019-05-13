@@ -1,13 +1,18 @@
 .carousel-inner img {
   width: 100%;
   height: 100%;
+  border-radius: 15px;
 }
 
 .scrolling-wrapper {
   overflow-x: auto;
+  overflow-y: hidden;
   display: flex;
   flex-wrap: nowrap;
   -webkit-overflow-scrolling: touch;
+  max-width:100%;
+  height:240px;
+  border-radius: 15px;
 }
 
 .card {
@@ -15,18 +20,6 @@
   margin: 5px;
   height: 300px;
   width: 300px;
-}
-
-#favorites {
-  background-color: tomato;
-}
-
-#hot {
-  background-color: cornflowerblue;
-}
-
-#new {
-  background-color: slateblue;
 }
 
 .cardimg {
@@ -69,4 +62,99 @@
 
 .row {
   display: flex;
+}
+
+#nav-placeholder {
+  position: absolute;
+  left: 4.27%;
+  right: 89.6%;
+  top: 6.72%;
+  bottom: 91.65%;
+}
+
+#search-bar {
+  position: absolute;
+  width: 266px;
+  height: 32px;
+  left: 74px;
+  top: 59px;
+}
+
+#demo {
+  position: absolute;
+  width: 313px;
+  height: 184px;
+  left: 31px;
+  top: 171px;
+}
+
+#favorites{
+  position: absolute;
+  max-width:100%;
+  height: 290px;
+  left: 43px;
+  top: 461px;
+  background: #F2C94C;
+  border-radius: 15px;
+}
+
+#new {
+  position: absolute;
+  max-width:100%;
+  height: 290px;
+  left: 45px;
+  top: 759px;
+  background: #F2C94C;
+  border-radius: 15px
+}
+
+#hot {
+  position: absolute;
+  max-width:100%;
+  height: 290px;
+  left: 45px;
+  top: 1055px;
+  background: #F2C94C;
+  border-radius: 15px
+}
+
+#tab {
+  position: absolute;
+  height: 38px;
+  left: 8px;
+  right: 24px;
+  top: 104px;
+}
+
+.categories {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height, or 150% */
+  letter-spacing: 0.2px;
+  color: #757F8C;
+}
+
+#stories {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height, or 150% */
+  letter-spacing: 0.2px;
+  color: #757F8C;
+}
+
+#music {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height, or 150% */
+  letter-spacing: 0.2px;
+  color: #757F8C;
 }

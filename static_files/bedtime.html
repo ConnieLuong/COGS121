@@ -72,17 +72,22 @@
 
   <body>
     <!-- Start Body-->
+    <div class="row">
     <!--Navigation bar-->
     <div id="nav-placeholder"></div>
-
+    <!-- Search bar -->
+    <form id = "search-bar" class="form-inline active-cyan-4">
+      <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+      <i class="fas fa-search" aria-hidden="true"></i>
+    </form>
+    </div>
       <!--Filters-->
-     
-        <div class="row">
+     <div id="tab" class="row">
           <div class="col-sm-auto text-center" style="width:50%;">
-              <button class="filter active_filter" id="song">Song</button> <!--By default, load songs-->
+              <button class="filter active_filter" id="stories">Stories</button> <!--By default, load songs-->
           </div>
           <div class="col-sm-auto text-center" style="width:50%;">
-              <button class="filter" id="story">Story</button>
+              <button class="filter" id="music">Music</button>
           </div>
         </div>
 
@@ -123,12 +128,12 @@
       </a>
     </div>
 
-
     <!--favorites section-->
     <section id="favorites">
-      <h1>Favorites</h1>
+      <h1 class="categories">Favorites</h1>
       <div class="scrolling-wrapper" id = "fav_cards">
         <!--each card is a individual clickable link-->
+      </div>
     </section>
 
     <!--hot section-->
@@ -136,16 +141,15 @@
 <!--
      <button id="removeDB">deleteSongDB</button>
 -->
-      <h1>Hot</h1>
+      <h1 class="categories">Hot</h1>
       <div class="scrolling-wrapper" id = "hot_cards">
         <!--each card is a individual item-->
       </div>
       
     </section>
-
     <!--New section-->
     <section id="new">
-      <h1>New</h1>
+      <h1 class="categories">New</h1>
       <button type="button" class="btn btn-outline-warning" id="reGenBtn">Generate New list</button>
       <div class="scrolling-wrapper" id = "new_cards">
         <!--each card is a individual item-->
