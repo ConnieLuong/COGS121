@@ -25,8 +25,6 @@ The Songs & Stories page which the carousel will feature the hottest stories and
 
 ### The redesigned UI
 
-
-
-
-
-For the redesigned UI, we chose yellow and orange as our main colors because we want to give the moods of warm and caring to our target users. We also added the tap features in both tips feed page and bedtime (song/story) page for users to navigate betweeen different categories of the content. When comparing the new and old feed page, we now hiding the share and favorite button. When the user clicks on the cards, the buttons and content will show within the same page by loading from the firebase instead of going to a new page.``` **(need to add description of new UI of bedtime.html)**```
+![main page](screenshots/feed_updated.PNG)
+In the redesigned UI of the home page/feed screen, which essentially is a list of "tip cards," we reformatted the style of the card such that the image representing the tip will be stacked ontop of the tip's title. We also added category headings ("Trending," "Baby," "Parent") to act as a way of filtering the content into those different categories. A user can filter through the tip feed by tapping on the different categories. 
+Also, rather than displaying the favorite and share button on the tip card itself, the user will have to click on the tip itself and the buttons and the content of the tip will appear as a "drop down," still on the same page by loading from the firebase instead of going to a new page.
