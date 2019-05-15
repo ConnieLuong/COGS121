@@ -1,31 +1,53 @@
 body {
-    margin:0 auto;   
+  margin: 0 auto;
+  font-family: helvetica;
+  background: #fffdfd;
 }
-.btn-primary{
-    border:0;
-    background: none;
+.btn-primary {
+  border: 0;
+  background: none;
 }
-.btn-primary:hover,  .btn-primary:active{
-    background: none;    border:0;
-    cursor: pointer;
+.btn-primary:hover,
+.btn-primary:active {
+  background: none;
+  border: 0;
+  cursor: pointer;
 }
-.tip{
-    margin: 1rem;
-    width: 100%;
+.tip {
+  margin: 1rem;
+  width: 100%;
 }
-.feed{
-    margin: 0 auto;
-    max-width: 800px;
+.feed {
+  margin: 0 auto;
+  max-width: 800px;
 }
 
-.filter{
-    background: transparent;
-    border: 0px black;
+.filter {
+  background: transparent;
+  border: 0px black;
 }
-.active_filter{
-    border: 0px black;
-    border-bottom: 2px solid red;
+.active_filter {
+  border: 0px black;
+  border-bottom: 2px solid red;
 }
-.dropdown-toggle::after{
-    display: none;
+.dropdown-toggle::after {
+  display: none;
+}
+
+.card-img-top {
+  border-radius: 35px 35px 0px 0px;
+}
+
+.card-title {
+  align-self: center;
+}
+
+.text-dark {
+  border-radius: 35px;
+}
+
+.tipDay h1 {
+  color: #f2924c;
+  margin-top: 18px;
+  margin-bottom: -13px;
 }
