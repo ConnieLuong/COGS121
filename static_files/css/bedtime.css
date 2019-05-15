@@ -12,21 +12,18 @@
 
 .card {
   flex: 0 0 auto;
-  margin: 5px;
-  height: 300px;
+  margin: 8px;
+  height: 350px;
   width: 300px;
+  line-break: auto;
+  background-color: #f2c94c;
+
+  box-shadow: 5px 4px 14px rgba(134, 118, 251, 0.6);
+  border-radius: 40px;
 }
 
-#favorites {
-  background-color: tomato;
-}
-
-#hot {
-  background-color: cornflowerblue;
-}
-
-#new {
-  background-color: slateblue;
+.card h4 {
+  justify-content: center;
 }
 
 .cardimg {
@@ -38,16 +35,6 @@
 
 .imgholder {
   margin: auto;
-}
-
-.song_name,
-.story_name {
-  align-self: center;
-}
-
-.artist_name,
-.story_category {
-  align-self: center;
 }
 
 /*text on the slides*/
@@ -64,9 +51,50 @@
 }
 .active_filter {
   border: 0px black;
-  border-bottom: 2px solid red;
+  border-bottom: 4px solid #f2c94c;
 }
 
 .row {
   display: flex;
+}
+
+#reGenBtn {
+  margin-left: 10px;
+}
+
+body {
+  font-size: 1.8rem;
+  line-height: 1.618;
+  max-width: 38em;
+  margin: auto;
+  color: #1f1f1f;
+  background-color: #f9f9f9;
+  padding: 13px;
+  font-family: Helvetica;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+  font-weight: 700;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+section {
+  margin-top: 25px;
+}
+
+section h6 {
+  font-weight: 545;
 }

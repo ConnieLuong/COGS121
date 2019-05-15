@@ -146,25 +146,25 @@
     <!--New section-->
     <section id="new">
       <h1>New</h1>
-      <button type="button" class="btn btn-outline-warning" id="reGenBtn">Generate New list</button>
+      <button type="button" class="btn btn-warning" id="reGenBtn">Generate New list</button>
       <div class="scrolling-wrapper" id = "new_cards">
         <!--each card is a individual item-->
       </div>
     </section>
 
     <script id="song-template" type="text/x-handlebars-template">
-      <div class="card" id = "song{{song_num}}card" onclick="getTrackDetails($(this).find('.song_name').text(),$(this).find('.artist_name').text())">
+      <div class="card text-center" id = "song{{song_num}}card" onclick="getTrackDetails($(this).find('.song_name').text(),$(this).find('.artist_name').text())">
           <!--image inside the card-->
           <div class="imgholder">
             <img id="fav_img{{song_num}}" class="cardimg" src="{{cover_art}}" alt="img"/>
           </div>
-          <h3 id="song_name{{song_num}}" class="song_name">{{track_name}}</h3>
+          <h4 id="song_name{{song_num}}" class="song_name">{{track_name}}</h4>
           <h6 id="artist_name{{song_num}}" class="artist_name">{{artist_name}}</h6>
         </div>
     </script>
 
     <script id="story-template" type="text/x-handlebars-template">
-      <div class="card" id = "story{{No:}}card" onclick="getStoryDetails($(this).find('.story_name').text())">
+      <div class="card text-center" id = "story{{No:}}card" onclick="getStoryDetails($(this).find('.story_name').text())">
           <!--image inside the card-->
           <div class="imgholder">
             <img id="fav_img{{No:}}" class="cardimg" src="{{cover_art}}" alt="img"/>
