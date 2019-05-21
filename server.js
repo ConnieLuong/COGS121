@@ -19,7 +19,23 @@ firebase.initializeApp(config);
 const db = firebase.database(); //realtime database
 const auth = firebase.auth(); //user authentication
 
-
+app.get('/getUser', (req, res) => {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      var displayName = user.displayName;
+      var email = user.email;
+      var photoURL = user.photoURL;
+      
+      res.send({'displayName': displayName, 'email':email, 'photoURL': photoURL, 'text':"Sign out"});
+      return;
+    } else {
+      // User is signed out.
+      res.send({'text': 'Log In'});
+      return;
+    }
+  });
+});
 
 app.post('/signin', (req, res) => {
   // Grab email & password from request
@@ -29,7 +45,8 @@ app.post('/signin', (req, res) => {
   // Sign in using firebase
   firebase.auth().signInWithEmailAndPassword(email, password)
   .then(function(user){
-    res.send({'message':'sucess sign in'});
+    res.status(200).send({'message':'sucess sign in'});
+    
   })
   .catch(function(error) {
     // Handle Errors here.
@@ -68,6 +85,7 @@ app.post('/signup', (req, res) => {
         displayName: displayName
       }
     );
+    return;
   })
   .catch(function(error) {
     // Handle Errors here.
@@ -97,7 +115,6 @@ app.post('/signup', (req, res) => {
     return;
   });
 });
-
 
 app.listen(3000, () => {
   console.log("Server started at https://localhost:3000/");

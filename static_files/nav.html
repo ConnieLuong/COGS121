@@ -4,7 +4,7 @@
   <a href="./bedtime.html">Bedtime</a>
   <a href="./favorites.html">Favorites</a>
   <a href="./settings.html">Settings</a>
-  <a href="./login.html">Logout</a>
+  <a href="./signin.html" id="signin"></a>
 </div>
 
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
@@ -17,4 +17,19 @@
   function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
   }
+
+  $(document).ready(function () {
+    $.ajax({
+        url: 'getUser',
+        type: 'GET', 
+        data: JSON,
+        success: (data) => {
+          $('#signin').html(data.text);
+        },
+        error: (data) => {
+            console.log("Error from get request to isUserSignedin");
+        }
+    });
+    return false; //prevents refresh     
+});
 </script>
