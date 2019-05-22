@@ -8,10 +8,10 @@ Daddy in the house!
 4. Alessandra Landingin
 
 ### Latest UI webpages
-![ui1](screenshots/feed)
-![ui2](screenshots/bedtime1)
-![ui3](screenshots/bedtime2)
-![ui4](screenshots/login)
+![ui1](screenshots/feeds.png)
+![ui2](screenshots/bedtime1.png)
+![ui3](screenshots/bedtime2.png)
+![ui4](screenshots/login.png)
 
 ### The Re-Designed UI
 We created a style guide for typography and color scheme. We made the header on the top with our theme color, an honey yellow, for every page to make the design consistent and we made the selected button white to make it stand out. We styled all fonts to make the texts more readible and visually appealing. We created the search bar on the top for the two main pages for users to quickly look for the information that they want. 
