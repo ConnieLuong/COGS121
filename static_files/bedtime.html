@@ -53,6 +53,7 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
     <!--Imports-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" />
     <link rel="stylesheet" href="./css/bedtime.css" />
     <link rel="stylesheet" href="./css/nav.css" />
     <script src="./js/bedtime.js"></script>
@@ -72,14 +73,23 @@
 
   <body>
     <!-- Start Body-->
+    <div id="topbox">
     <!--Navigation bar-->
-    <div id="nav-placeholder"></div>
+    <div id="nav-placeholder">
+    </div>
+
+    <!-- Search bar -->
+    <form id = "search-bar" class="form-inline active-cyan-4">
+      <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+      <i class="fas fa-search" aria-hidden="true"></i>
+    </form>
+  </div>
 
       <!--Filters-->
      
         <div class="row">
           <div class="col-sm-auto text-center" style="width:50%;">
-              <button class="filter active_filter" id="song">Song</button> <!--By default, load songs-->
+              <button class="filter active_filter" id="song">Music</button> <!--By default, load songs-->
           </div>
           <div class="col-sm-auto text-center" style="width:50%;">
               <button class="filter" id="story">Story</button>

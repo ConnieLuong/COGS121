@@ -51,3 +51,7 @@ body {
   margin-top: 18px;
   margin-bottom: -13px;
 }
+
+* {
+ font-family: Cabin;
+}
