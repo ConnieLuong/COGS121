@@ -57,6 +57,7 @@
     <link rel="stylesheet" href="./css/bedtime.css" />
     <link rel="stylesheet" href="./css/nav.css" />
     <script src="./js/bedtime.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <!--handlebars-->
     <script
@@ -73,6 +74,7 @@
 
   <body>
     <!-- Start Body-->
+    <div class="header">
     <div id="topbox">
     <!--Navigation bar-->
     <div id="nav-placeholder">
@@ -81,7 +83,6 @@
     <!-- Search bar -->
     <form id = "search-bar" class="form-inline active-cyan-4">
       <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
-      <i class="fas fa-search" aria-hidden="true"></i>
     </form>
   </div>
 
@@ -95,6 +96,7 @@
               <button class="filter" id="story">Story</button>
           </div>
         </div>
+      </div>
 
     <!--carousel-->
     <div id="demo" class="carousel slide" data-ride="carousel">
@@ -136,7 +138,12 @@
 
     <!--favorites section-->
     <section id="favorites">
+      <div class="onerow">
       <h1>Favorites</h1>
+      <button type="button" class="btn btn-warning reGenBtn" id="favButton">
+        <i class="fa fa-refresh" style="font-size:24px"></i>
+      </button>
+    </div>
       <div class="scrolling-wrapper" id = "fav_cards">
         <!--each card is a individual clickable link-->
     </section>
@@ -145,8 +152,12 @@
     <section id="hot">  
 <!--
      <button id="removeDB">deleteSongDB</button>
--->
-      <h1>Hot</h1>
+-->   <div class="onerow">
+      <h1 >Hot</h1>
+      <button type="button" class="btn btn-warning reGenBtn" id="hotButton">
+        <i class="fa fa-refresh" style="font-size:24px"></i>
+      </button>
+    </div>
       <div class="scrolling-wrapper" id = "hot_cards">
         <!--each card is a individual item-->
       </div>
@@ -155,11 +166,16 @@
 
     <!--New section-->
     <section id="new">
-      <h1>New</h1>
-      <button type="button" class="btn btn-warning" id="reGenBtn">Generate New list</button>
+      <div class="onerow">
+      <h1 id="text-new">New</h1>
+      <button type="button" class="btn btn-warning reGenBtn" id="newButton">
+        <i class="fa fa-refresh" style="font-size:24px"></i>
+      </button>
+    </div>
       <div class="scrolling-wrapper" id = "new_cards">
         <!--each card is a individual item-->
       </div>
+      
     </section>
 
     <script id="song-template" type="text/x-handlebars-template">

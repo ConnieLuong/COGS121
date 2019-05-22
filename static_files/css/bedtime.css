@@ -56,8 +56,20 @@
   display: flex;
 }
 
-#reGenBtn {
+.reGenBtn {
   margin-left: 10px;
+  color: #FED766;
+  background: white;
+  border-color: white;
+  width: 50px;
+}
+
+.onerow {
+  display: flex;
+}
+
+h1 {
+  flex: 1;
 }
 
 body {
@@ -115,7 +127,7 @@ section h6 {
   width: 104px;
   height: 38px;
   position: relative;
-  top: 60px;
+  top: 50px;
   right: 33px;
 }
 
@@ -125,13 +137,13 @@ section h6 {
   width: 104px;
   height: 38px;
   position: relative;
-  top: 60px;
+  top: 50px;
   left: 33px;
 }
 
 #demo {
   position: relative;
-  top: 127px;
+  top: 70px;
   left: 31px;
   right: 31px;
   height: 184px;
@@ -139,29 +151,34 @@ section h6 {
 
 #favorites {
   position: relative;
-  top: 403px;
+  top: 330px;
   left: 16px;
 }
 
 #hot {
   position: relative;
-  top: 418px;
+  top: 333px;
   left: 16px;
 }
 
 #new {
   position: relative;
-  top: 436px;
+  top: 336px;
   left: 16px;
 }
 
 .carousel-inner {
   border-radius: 20px;
+  position: relative;
+  right: 31px;
 }
 
 #topbox {
   display: flex;
-  background-color: #FED766;
+}
+
+.header {
+  background: #FED766;
 }
 
 #nav-placeholder {
@@ -170,9 +187,5 @@ section h6 {
 
 #search-bar {
   flex: 1;
-  position: relative;
 }
 
-.row {
-  background-color: #FED766;
-}

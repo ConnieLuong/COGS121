@@ -57,6 +57,7 @@
     <link rel="stylesheet" href="./css/nav.css" />
     <script src="./js/story.js"></script>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <script>
       $(function() {
@@ -67,13 +68,13 @@
 
   <body>
     <!-- Start Body-->
-    <!--Navigation bar-->
-    <div id="nav-placeholder"></div>
-
+    <button class="back-button" onclick="window.location.href = './bedtime.html'"><i class="fa fa-angle-left"></i></button>
+    <div id="background">
     <h1 id="story_name"></h1>
     <br />
     <p id="story_content"></p>
     <br />
     <i class="far fa-heart"></i><i class="far fa-share-square"></i>
+  </div>
   </body>
 </html>

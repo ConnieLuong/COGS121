@@ -1,6 +1,5 @@
 body {
   margin: 0 auto;
-  font-family: helvetica;
   background: #fffdfd;
 }
 .btn-primary {
@@ -54,4 +53,52 @@ body {
 
 * {
  font-family: Cabin;
+}
+
+#Trending, #Baby, #Parent {
+  font-size: 24px;
+  font-weight: medium;
+/*  width: 104px;
+  height: 38px;
+  position: relative;
+  top: 60px;*/
+}
+
+/*#Trending {
+  left: 8px;
+}
+
+#Baby {
+  text-align: center;
+}
+
+#Parent {
+  right: 8px;
+}
+
+.tipDay {
+  margin: auto;
+}*/
+/*.tipDay {
+  position: relative;
+  top: 127px;
+  left: 31px;
+  right: 31px;
+  height: 184px;
+}*/
+
+.header {
+  background: #FED766;
+}
+
+#topbox {
+  display: flex;
+}
+
+#nav-placeholder {
+  width: 70px;
+}
+
+#search-bar {
+  flex: 1;
 }

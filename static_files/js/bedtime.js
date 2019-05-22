@@ -106,7 +106,7 @@ $(document).ready(function() {
   //regenearate new list.
   //remove the html first, then shuffle the data from firebase. Then take the first five
   //and load to the front end
-  $("#reGenBtn").click(() => {
+  $("#newButton").click(() => {
     console.log("regenerating new track list");
     $("#new_cards").empty();
 
@@ -128,6 +128,60 @@ $(document).ready(function() {
         for (i = 10; i < 15; i++) {
           var html = story_template(stories[i]);
           $("#new_cards").append(html);
+        }
+      });
+    }
+  });
+
+  $("#hotButton").click(() => {
+    console.log("regenerating new track list");
+    $("#hot_cards").empty();
+
+    //will trigger different loading depends on the which tap it is in.
+    if ($("#song").hasClass("active_filter")) {
+      database.ref("songs/new").once("value", snapshot => {
+        const tracks = snapshot.val();
+        const newTracks = shuffle(Object.keys(tracks));
+
+        newTracks.slice(0, 5).forEach(song => {
+          var html = song_template(tracks[song]);
+          $("#hot_cards").append(html);
+        });
+      });
+    } else {
+      database.ref("stories/").once("value", snapshot => {
+        const stories = snapshot.val();
+        const newStories = shuffle(stories);
+        for (i = 10; i < 15; i++) {
+          var html = story_template(stories[i]);
+          $("#hot_cards").append(html);
+        }
+      });
+    }
+  });
+
+  $("#favButton").click(() => {
+    console.log("regenerating new track list");
+    $("#fav_cards").empty();
+
+    //will trigger different loading depends on the which tap it is in.
+    if ($("#song").hasClass("active_filter")) {
+      database.ref("songs/new").once("value", snapshot => {
+        const tracks = snapshot.val();
+        const newTracks = shuffle(Object.keys(tracks));
+
+        newTracks.slice(0, 5).forEach(song => {
+          var html = song_template(tracks[song]);
+          $("#fav_cards").append(html);
+        });
+      });
+    } else {
+      database.ref("stories/").once("value", snapshot => {
+        const stories = snapshot.val();
+        const newStories = shuffle(stories);
+        for (i = 10; i < 15; i++) {
+          var html = story_template(stories[i]);
+          $("#fav_cards").append(html);
         }
       });
     }
