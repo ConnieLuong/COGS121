@@ -1,0 +1,12 @@
+.activeTab{
+    border: 0px solid black;
+    border-bottom: 2px solid salmon;
+}
+
+.form-wrapper{
+    padding: 0 2rem;
+}
+
+form{
+    padding-top: 2rem;
+}
