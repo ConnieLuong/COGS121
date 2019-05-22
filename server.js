@@ -1,13 +1,13 @@
+/******************* Initiations  *******************/
 const express = require("express");
-var firebase = require("firebase/app");
+const firebase = require("firebase/app");
 require("firebase/auth");
-require("firebase/database")
+require("firebase/database");
+const bodyParser = require('body-parser');
 const app = express();
 app.use(express.static("static_files"));
-const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true})); // hook up with your app
-
-var config = {
+const config = {
     apiKey: "AIzaSyD0R6vfBJHgyT5pkOJZKIQuPN-A0ybDfz4",
     authDomain: "poppa-hub.firebaseapp.com",
     databaseURL: "https://poppa-hub.firebaseio.com",
@@ -17,7 +17,7 @@ var config = {
 };
 firebase.initializeApp(config);
 const database = firebase.database();
-
+/******************* GET REQUESTS *******************/
 app.get('/getUser', (req, res) => {
     console.log("trying to make GET request to /getUser");
     var user = firebase.auth().currentUser;
@@ -53,6 +53,7 @@ app.get('/signOut', (req, res) => {
     }
 });
 
+/******************* POST REQUESTS *******************/
 app.post('/signin', (req, res) => {
     console.log("trying to make POST request to /signin");
     // Grab email & password from request
@@ -145,6 +146,30 @@ app.post('/signup', (req, res) => {
 
         return;
     });
+});
+
+app.post('/favorite', (req, res) => {
+    var user = firebase.auth().currentUser;
+    var collection = req.body.type;   //tips, stories, songs
+    var item = req.body.item;           //ie. tip01
+    if (user){
+        //get reference to user in the collection users
+        //get reference to user's favorite array
+        //update user's favorite array
+        database.ref(collection);
+        database.ref('users/').once('value', function (snapshot){
+            var collectionSize = (snapshot.val()) ? (Object.keys(snapshot.val()).length + 1) : 1;
+            var userName = 'users/user'+collectionSize;
+            database.ref(userName).set({
+                'email': email,
+                'favorite_tips':[0],
+                'favorite_songs':[0],
+                'favorite_stories': [0]
+            })
+        });
+    }else{
+
+    }
 });
 
 app.listen(3000, () => {
