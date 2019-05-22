@@ -167,6 +167,7 @@ app.post('/favorite', (req, res) => {
             // Get reference to user's appropriate favorites list & add new item
             var userFav = (collection==('tips')) ? userRef.favorite_tips : ((collection==('stories')) ? userRef.favorite_stories : userRef.favorite_songs);
             userFav.push(item);
+            userFav = _.uniq(userFav);
             if(userFav[0]==0)   userFav.shift(); //removes the placeholder 0
 
             // Update database

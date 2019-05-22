@@ -79,7 +79,7 @@ $(document).ready(function () {
             const data = _.chain(snapshot.val())
                 .filter(function(tip){
                     const tip_tags = tip.tip_tags;
-                    return tip_tags.includes(filter);
+                    return (tip_tags) ? tip_tags.includes(filter) : false;
                 })
                 .each(function(e){
                     if(filter=="Trending" && parseInt(e.tip_num) == parseInt(tipDayIndex.substring(3,tipDayIndex.length))){
