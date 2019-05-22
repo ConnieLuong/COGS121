@@ -4,7 +4,7 @@
   <a href="./bedtime.html">Bedtime</a>
   <a href="./favorites.html">Favorites</a>
   <a href="./settings.html">Settings</a>
-  <a href="./signin.html" class="signinNav"></a>
+  <a class="signinNav"></a>
 </div>
 
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
@@ -28,11 +28,11 @@
                 if(data.text=="Sign out"){
                     $('.signinNav').html(data.text);
                     $('.signinNav').addClass('signoutNav');
-                    $('.signinNav').attr('src', data.textsrc);
+                    $('.signinNav').attr('href', '#');
                 }else if (data.text == "Sign in"){
                     $('.signinNav').html(data.text);
                     $('.signinNav').removeClass('signoutNav');
-                    $('.signinNav').attr('src', data.textsrc);
+                    $('.signinNav').attr('href', './signin.html');
                 }
             },
             error: (data) => {
@@ -41,15 +41,19 @@
         });
 
         //sign out
-        $('.signoutNav').click(function(){
+        $(document).on('click', '.signoutNav', function(event){
+            console.log(event.target.classList);
             $.ajax({
                 url: 'signOut',
                 type: 'GET', 
                 data: JSON,
                 success: (data) => {
-                    console.log(data.message)
+                    console.log("successful sign out");
+                    location.href = "./signin.html";
                 }
             });
+
+
         })
     });
 </script>

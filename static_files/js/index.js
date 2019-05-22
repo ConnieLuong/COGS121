@@ -113,6 +113,3 @@ $(document).ready(function () {
         database.ref('tips/tip10').set({tip_num: "10", tip_img: 'http://placehold.jp/14/ffdb99/662900/320x240.png?text=placeholder%20image', tip_title: 'Don\'t be Afraid baby', tip_text: 'You\'re not alone. Let\'s tackle PPD together', tip_tags:['Baby']});
     };
 });
-
-
-g

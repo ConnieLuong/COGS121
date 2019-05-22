@@ -23,8 +23,9 @@ $(document).ready(function () {
                     password: $('#signinPassword').val()
                   },
             success: (data) => {
-              console.log("User successfully signed in");
-              //redirect to home page
+                console.log("User successfully signed in");
+                //redirect to home page
+                location.href = "./index.html";
             },
             error: (data) => {
                 console.log(data.responseJSON.message);
@@ -53,8 +54,9 @@ $(document).ready(function () {
                     displayName: $('#signupName').val()
                   },
             success: (data) => {
-              console.log('User sign up successful');
-              //redirect to home page
+                console.log('User sign up successful');
+                //redirect to home page
+                location.href = "./index.html";
             },
             error: (data) => {
                 console.log(data.responseJSON.message);
