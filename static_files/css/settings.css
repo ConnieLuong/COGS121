@@ -7,6 +7,7 @@ body {
     background-color: #f9f9f9;
     padding: 13px;
     font-family: Cabin;
+    text-align: center;
   }
 
 #topbox {
@@ -17,3 +18,63 @@ body {
 #nav-placeholder {
     width: 70px;
   }
+
+img.userIcon {
+    padding-top: 25px;
+    padding-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+    height: 15%
+}
+
+.button {
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+  }
+
+.header
+{
+    padding-top: 25px;
+    padding-bottom: 10px;;
+    color: #EE6352;
+    font-size:24px;
+}
+
+input[type=text] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  input[type=email] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  .saveInfoButton {
+    background-color: #EE6352;
+    color: white;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    float: right;
+    font-size: 20px;
+  }
+
+.label {
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+    float: right;
+  }​
