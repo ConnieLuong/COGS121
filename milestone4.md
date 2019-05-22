@@ -8,6 +8,10 @@ Daddy in the house!
 4. Alessandra Landingin
 
 ### Latest UI webpages
+![ui1](milestone_img/idk)
+![ui2](milestone_img/idk)
+![ui3](milestone_img/idk)
+![ui4](milestone_img/idk)
 
 ### User Action 1 - Browsing and filtering feed
 When opening the webapp, you are greeted with a feed of "tips". The tips vary by content, so to make browsing easier, users can utilize the filter action to more conveniently browse tips. The filters can be easily found at the top of the feed. Because the main purpose of the app is to help educate new fathers, we found it important to put the tips first and foremost. But to prevent users from begin too overwhelmed with the number of tips, they can utilize the filter options to better browse and discover through the information on the feed.
