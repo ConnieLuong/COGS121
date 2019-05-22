@@ -8,33 +8,48 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true})); // hook up with your app
 
 var config = {
-  apiKey: "AIzaSyD0R6vfBJHgyT5pkOJZKIQuPN-A0ybDfz4",
-  authDomain: "poppa-hub.firebaseapp.com",
-  databaseURL: "https://poppa-hub.firebaseio.com",
-  projectId: "poppa-hub",
-  storageBucket: "poppa-hub.appspot.com",
-  messagingSenderId: "907928434472"
+    apiKey: "AIzaSyD0R6vfBJHgyT5pkOJZKIQuPN-A0ybDfz4",
+    authDomain: "poppa-hub.firebaseapp.com",
+    databaseURL: "https://poppa-hub.firebaseio.com",
+    projectId: "poppa-hub",
+    storageBucket: "poppa-hub.appspot.com",
+    messagingSenderId: "907928434472"
 };
 firebase.initializeApp(config);
-const db = firebase.database(); //realtime database
-const auth = firebase.auth(); //user authentication
 
 app.get('/getUser', (req, res) => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      // User is signed in.
-      var displayName = user.displayName;
-      var email = user.email;
-      var photoURL = user.photoURL;
-      
-      res.send({'displayName': displayName, 'email':email, 'photoURL': photoURL, 'text':"Sign out"});
-      return;
+        // User is signed in.
+        var displayName = user.displayName;
+        var email = user.email;
+        var photoURL = user.photoURL;
+        
+        return res.send({
+            'displayName': displayName, 
+            'email':email, 
+            'photoURL': photoURL, 
+            'text':'Sign out', 
+            'textsrc':''
+        });
     } else {
-      // User is signed out.
-      res.send({'text': 'Log In'});
-      return;
+        // User is signed out.
+        return res.send({
+            'text': 'Sign in', 
+            'textsrc': './signin.html'
+        });
     }
   });
+});
+
+app.get('/signout', (req, res) => {
+    var user = firebase.auth().currentUser;
+    if (user) {
+      user.signOut();
+      return res.status(200).send({'message': 'Successfully signed user out'});
+    } else{
+        console.log("no user sign in..... couldn't sign out");
+    }
 });
 
 app.post('/signin', (req, res) => {
@@ -45,27 +60,29 @@ app.post('/signin', (req, res) => {
   // Sign in using firebase
   firebase.auth().signInWithEmailAndPassword(email, password)
   .then(function(user){
-    res.status(200).send({'message':'sucess sign in'});
-    
+    var user = firebase.auth().currentUser;
+    if(user) {
+        window.location = 'index.html'; //After successful login, user will be redirected to home.html
+    }
+    return res.status(200).send({'message':'sucess sign in'});
   })
   .catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
     
     if (errorCode == 'auth/invalid-email') {
-      res.status(406).send({
+      return res.status(406).send({
         message: 'Email was invalid'
       });
     } else if(errorCode == 'auth/wrong-password'){
-      res.status(406).send({
+      return res.status(406).send({
         message: 'Wrong password'
       });
     } else {
-      res.status(406).send({
+      return res.status(406).send({
         message: 'User not found'
       });
     }
-    return;
   });
 });
 

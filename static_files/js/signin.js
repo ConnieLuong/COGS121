@@ -1,4 +1,18 @@
 $(document).ready(function () {
+    //show sign in form initially
+    $('.signin').css("display", "initial");
+    $('.signup').css("display", "none");
+    $('.signinTab').addClass('activeTab');
+    $('.signupTab').removeClass('activeTab');
+    
+    //sign in
+    $(document).on("click", ".signinTab", function(event){
+        $('.signin').css("display", "initial");
+        $('.signup').css("display", "none");
+        $('.signinTab').addClass('activeTab');
+        $('.signupTab').removeClass('activeTab');
+    });
+
     $(document).on("click", "#signinButton", function(event){
         console.log('signing in...');
         $.ajax({
@@ -20,6 +34,13 @@ $(document).ready(function () {
         return false; //prevents refresh
     });   
     
+    //sign up
+    $(document).on("click", ".signupTab", function(event){
+        $('.signin').css("display", "none");
+        $('.signup').css("display", "initial");
+        $('.signinTab').removeClass('activeTab');
+        $('.signupTab').addClass('activeTab');
+    });
     
     $(document).on("click", "#signupButton", function(event){
         console.log('signing up...');
@@ -41,5 +62,5 @@ $(document).ready(function () {
             }
         });
         return false; //prevents refresh
-    });   
+    });    
 });

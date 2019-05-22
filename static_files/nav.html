@@ -4,32 +4,52 @@
   <a href="./bedtime.html">Bedtime</a>
   <a href="./favorites.html">Favorites</a>
   <a href="./settings.html">Settings</a>
-  <a href="./signin.html" id="signin"></a>
+  <a href="./signin.html" class="signinNav"></a>
 </div>
 
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
 <script>
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-  }
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
 
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
 
-  $(document).ready(function () {
-    $.ajax({
-        url: 'getUser',
-        type: 'GET', 
-        data: JSON,
-        success: (data) => {
-          $('#signin').html(data.text);
-        },
-        error: (data) => {
-            console.log("Error from get request to isUserSignedin");
-        }
+    $(document).ready(function () {
+        //update navbar on load
+        $.ajax({
+            url: 'getUser',
+            type: 'GET', 
+            data: JSON,
+            success: (data) => {
+                if(data.text=="Sign out"){
+                    $('.signinNav').html(data.text);
+                    $('.signinNav').addClass('signoutNav');
+                    $('.signinNav').attr('src', data.textsrc);
+                }else if (data.text == "Sign in"){
+                    $('.signinNav').html(data.text);
+                    $('.signinNav').removeClass('signoutNav');
+                    $('.signinNav').attr('src', data.textsrc);
+                }
+            },
+            error: (data) => {
+                console.log("Error from get request to isUserSignedin");
+            }
+        });
+
+        //sign out
+        $('.signoutNav').click(function(){
+            $.ajax({
+                url: 'signOut',
+                type: 'GET', 
+                data: JSON,
+                success: (data) => {
+                    console.log(data.message)
+                }
+            });
+        })
     });
-    return false; //prevents refresh     
-});
 </script>
