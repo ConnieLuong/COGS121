@@ -77,26 +77,32 @@
     <div class="header">
     <div id="topbox">
     <!--Navigation bar-->
-    <div id="nav-placeholder">
-    </div>
+    <div id="nav-placeholder"></div>
 
     <!-- Search bar -->
     <form id = "search-bar" class="form-inline active-cyan-4">
       <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+      <i class="fas fa-search" aria-hidden="true"></i>
     </form>
   </div>
 
       <!--Filters-->
      
-        <div class="row">
+<!--         <div class="row">
           <div class="col-sm-auto text-center" style="width:50%;">
-              <button class="filter active_filter" id="song">Music</button> <!--By default, load songs-->
-          </div>
+              <button class="filter active_filter" id="song">Music</button> 
+       </div>
           <div class="col-sm-auto text-center" style="width:50%;">
               <button class="filter" id="story">Story</button>
           </div>
         </div>
-      </div>
+      </div> -->
+
+      <div style="display: flex">
+        <button class="filter active_filter" id="song">Music</button> <!--By default, load songs-->
+        <button class="filter" id="story">Story</button>
+    </div>
+  </div>
 
     <!--carousel-->
     <div id="demo" class="carousel slide" data-ride="carousel">

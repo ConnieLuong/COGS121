@@ -27,7 +27,8 @@ body {
 }
 .active_filter {
   border: 0px black;
-  border-bottom: 2px solid red;
+/*  border-bottom: 30px white;*/
+  color: white;
 }
 .dropdown-toggle::after {
   display: none;
@@ -45,10 +46,21 @@ body {
   border-radius: 35px;
 }
 
-.tipDay h1 {
-  color: #f2924c;
+h1 {
+  color: #ffaa5a;
   margin-top: 18px;
   margin-bottom: -13px;
+  font-weight: regular;
+  font-size: 20px;
+}
+
+.feed {
+    height: 184px;
+}
+
+.tipDay {
+  font-weight: regular;
+  font-size: 16px;
 }
 
 * {
@@ -78,13 +90,6 @@ body {
 
 .tipDay {
   margin: auto;
-}*/
-/*.tipDay {
-  position: relative;
-  top: 127px;
-  left: 31px;
-  right: 31px;
-  height: 184px;
 }*/
 
 .header {
