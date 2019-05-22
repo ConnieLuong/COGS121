@@ -17,9 +17,3 @@ body {
 #nav-placeholder {
     width: 70px;
   }
-
-  #pageHeader {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-}
