@@ -1,12 +1,13 @@
-/******************* Initiations  *******************/
+/************************************** Initiations  **************************************/
 const express = require("express");
+const _ = require('underscore');
 const firebase = require("firebase/app");
 require("firebase/auth");
 require("firebase/database");
 const bodyParser = require('body-parser');
 const app = express();
 app.use(express.static("static_files"));
-app.use(bodyParser.urlencoded({extended: true})); // hook up with your app
+app.use(bodyParser.urlencoded({extended: true})); 
 const config = {
     apiKey: "AIzaSyD0R6vfBJHgyT5pkOJZKIQuPN-A0ybDfz4",
     authDomain: "poppa-hub.firebaseapp.com",
@@ -17,7 +18,7 @@ const config = {
 };
 firebase.initializeApp(config);
 const database = firebase.database();
-/******************* GET REQUESTS *******************/
+/************************************** GET REQUESTS **************************************/
 app.get('/getUser', (req, res) => {
     console.log("trying to make GET request to /getUser");
     var user = firebase.auth().currentUser;
@@ -53,7 +54,7 @@ app.get('/signOut', (req, res) => {
     }
 });
 
-/******************* POST REQUESTS *******************/
+/************************************** POST REQUESTS **************************************/
 app.post('/signin', (req, res) => {
     console.log("trying to make POST request to /signin");
     // Grab email & password from request
@@ -149,26 +150,46 @@ app.post('/signup', (req, res) => {
 });
 
 app.post('/favorite', (req, res) => {
+    console.log("trying to make POST request to /favorite");
     var user = firebase.auth().currentUser;
-    var collection = req.body.type;   //tips, stories, songs
-    var item = req.body.item;           //ie. tip01
+    var collection = req.body.collection; //tips, stories, songs/favorites, songs/hot, songs/new
+    var item = req.body.item;             //ie. tip01
+    console.log("collection: " + collection + " item: " + item);
     if (user){
-        //get reference to user in the collection users
-        //get reference to user's favorite array
-        //update user's favorite array
-        database.ref(collection);
         database.ref('users/').once('value', function (snapshot){
-            var collectionSize = (snapshot.val()) ? (Object.keys(snapshot.val()).length + 1) : 1;
-            var userName = 'users/user'+collectionSize;
-            database.ref(userName).set({
-                'email': email,
-                'favorite_tips':[0],
-                'favorite_songs':[0],
-                'favorite_stories': [0]
-            })
-        });
-    }else{
+            //Get a copy of user object 
+            var userRef = _.findWhere(snapshot.val(), {'email': user.email});
+            var userKey = _.findKey(snapshot.val(), function(u){
+                return u.email==user.email;
+            });
+            console.log('userKey: '+ userKey +' userRef: ', userRef);
 
+            // Get reference to user's appropriate favorites list & add new item
+            var userFav = (collection==('tips')) ? userRef.favorite_tips : ((collection==('stories')) ? userRef.favorite_stories : userRef.favorite_songs);
+            userFav.push(item);
+            if(userFav[0]==0)   userFav.shift(); //removes the placeholder 0
+
+            // Update database
+            switch (collection) {
+                case "tips":
+                    database.ref('users/'+userKey).update({
+                        'favorite_tips': userFav
+                    });
+                    break;
+                case "stories":
+                    database.ref('users/'+userKey).update({
+                        'favorite_stories': userFav
+                    });
+                    break;
+                default:
+                    database.ref('users/'+userKey).update({
+                        'favorite_songs': userFav
+                    });
+            }
+        });
+        return res.send({'message': 'Added to your favorites'});
+    }else{
+        return res.send({'message': 'Please sign in to add to favorites.'});
     }
 });
 
