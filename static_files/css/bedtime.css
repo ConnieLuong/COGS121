@@ -13,13 +13,11 @@
 .card {
   flex: 0 0 auto;
   margin: 8px;
-  height: 350px;
-  width: 300px;
+  /* height: 198px; */
+  width: 143px;
   line-break: auto;
-  background-color: #f2c94c;
-
-  box-shadow: 5px 4px 14px rgba(134, 118, 251, 0.6);
-  border-radius: 40px;
+  background-color: white;
+  border-radius: 20px;
 }
 
 .card h4 {
@@ -27,14 +25,14 @@
 }
 
 .cardimg {
+  /*top: 0px;
   width: 200px;
   height: 200px;
+  */
+  max-width:100%;
+  max-height:100%;
   display: flex;
-  margin: auto;
-}
-
-.imgholder {
-  margin: auto;
+  border-radius: 20px 20px 0px 0px;
 }
 
 /*text on the slides*/
@@ -48,6 +46,7 @@
 .filter {
   background: transparent;
   border: 0px black;
+  margin: 1rem 0.5rem;
 }
 .active_filter {
   border: 0px black;
@@ -63,20 +62,29 @@
 }
 
 body {
-  font-size: 1.8rem;
+  font-size: 16px;
   line-height: 1.618;
-  max-width: 38em;
+  /* max-width: 38em; */
   margin: auto;
   color: #1f1f1f;
   background-color: #f9f9f9;
-  padding: 13px;
-  font-family: Helvetica;
+  /* padding: 13px; */
+  font-family: Cabin;
 }
 
-h1,
+h1 {
+  font-size: 20px;
+  font-weight: regular;
+  margin-left: 1rem;
+}
+
+h3, h4 {
+  font-size: 16px;
+  font-weight: regular;
+}
+
+
 h2,
-h3,
-h4,
 h5,
 h6 {
   line-height: 1.1;
@@ -97,4 +105,79 @@ section {
 
 section h6 {
   font-weight: 545;
+}
+
+* {
+ font-family: Cabin;
+}
+
+#story {
+  font-size: 24px;
+  font-weight: medium;
+  /* width: 104px;
+  height: 38px;
+  position: relative;
+  top: 60px;
+  right: 33px; */
+}
+
+#song {
+  font-size: 24px;
+  font-weight: medium;
+  /* width: 104px;
+  height: 38px;
+  position: relative;
+  top: 60px;
+  left: 33px; */
+}
+
+#demo {
+  /* position: relative;
+  top: 127px;
+  left: 31px;
+  right: 31px;
+  height: 184px; */
+
+  margin: 1rem auto 2rem auto;
+}
+
+#favorites {
+  /* position: relative;
+  top: 403px;
+  left: 16px; */
+}
+
+#hot {
+  /* position: relative;
+  top: 418px;
+  left: 16px; */
+}
+
+#new {
+  /* position: relative;
+  top: 436px;
+  left: 16px; */
+}
+
+.carousel-inner {
+  border-radius: 20px;
+}
+
+.topbox {
+  display: flex;
+  background-color: #FED766;
+  padding: 1rem;
+}
+
+#nav-placeholder {
+  width: 70px;
+}
+
+#search-bar {
+  flex: 1;
+  position: relative;
+}
+
+.row {
+  /* background-color: #FED766; */
 }
