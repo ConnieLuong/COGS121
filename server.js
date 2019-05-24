@@ -245,7 +245,20 @@ app.post("/getFavorite", (req, res) => {
           break;
         case "stories":
           console.log("clicking stories");
-
+          database.ref("stories/").once("value", function(t) {
+            const data = t.val();
+            const results = _.chain(Object.keys(data))
+              .filter(function(key) {
+                return userFav.includes(key);
+              })
+              .reduce((obj, key) => {
+                obj[key] = data[key];
+                return obj;
+              }, {})
+              .value();
+            console.log(results);
+            res.send(results);
+          });
           break;
         default:
           console.log("clicking songs");
