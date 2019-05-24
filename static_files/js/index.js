@@ -33,27 +33,39 @@ $(document).ready(function () {
 
     //When click on a tip card image, show its content
     $(document).on("click", ".card-img-top", function(event){
-        console.log("clicking a tip");
         const tipNum = event.target.id;
-        console.log(tipNum);
-        //if content not showing, show content. Else remove.
+        console.log("clicking a tip", event.target.id);
+
+        //if content is showing, don't show content.
         if(event.target.classList.contains("showing")){
             event.target.classList.remove("showing");
             $('#'+tipNum+'content').remove();
-        }else{
-            //mark element as showing
+        }
+        //else mark element as showing
+        else{
             event.target.classList.add("showing");
             database.ref('tips/'+tipNum).once('value', function (snapshot){
                 const data = snapshot.val();
                 var html = tc_template(data);
                 $('#'+tipNum+'card').append(html);
             });
+
+            //check if tip is favorited
+            $.ajax({
+                url: 'getFavorite',
+                type: 'POST',
+                data: {collection: "tips"},
+                success: function(data) {
+                    console.log("clicking on tips. need to check if favorited: ", data);
+                    var userFavTips = Object.keys(data);
+                    //if a user is signed in and current tip is in their favorites
+                    if(userFavTips.length>0 && userFavTips.includes(tipNum)){
+                        $('.favorite').html('<i class="fas fa-star fa-fw"></i> Favorited');
+                    }
+                },
+            });
         }
     });
-
-    $('body').click( function(event){
-        console.log("====> ", event.target.className);
-    })
 
     //Filters
     $('.filter').click( function (event){
@@ -93,25 +105,5 @@ $(document).ready(function () {
         });
     });
 
-    //Favorites
-    $(document).on("click", ".favorite", function(event){
-        console.log("attempting to favorite...");
-        $.ajax({
-            url: 'favorite',
-            type: 'POST', 
-            data: {
-                    collection: 'tips',
-                    item: event.target.id
-                  },
-            success: (data) => {
-                console.log(data);
-                console.log(data.message);
-                alert(data.message);
-            },
-            error: (data) => {
-                console.log(data.message);
-                alert(data.message);
-            }
-        });
-    });
+    
 });

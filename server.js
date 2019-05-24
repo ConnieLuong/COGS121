@@ -152,8 +152,10 @@ app.post("/favorite", (req, res) => {
     var user = firebase.auth().currentUser;
     var collection = req.body.collection; //tips, stories, songs
     var item = req.body.item; //ie. tip01, favorites/track0, hot/track1, new/track3, 3 (stories)
+    var message;
     console.log("collection: " + collection + " item: " + item);
     if (user) {
+        var message;
         database.ref("users/").once("value", function (snapshot) {
             //Get a copy of user object
             var userRef = _.findWhere(snapshot.val(), { email: user.email });
@@ -164,7 +166,18 @@ app.post("/favorite", (req, res) => {
 
             // Get reference to user's appropriate favorites list & add new item
             var userFav = (collection == "tips") ? userRef.favorite_tips : ((collection == "stories") ? userRef.favorite_stories : userRef.favorite_songs);
-            userFav.push(item);
+            if(userFav.includes(item)){
+                console.log("here");
+                //remove that item
+                userFav = _.filter(userFav, function(elem){
+                    return elem!=item;
+                });
+                res.send({ message: "Removed item from your favorites" });
+            }else{
+                //add that item
+                userFav.push(item);
+                res.send({ message: "Added item to your favorites" });
+            }
             userFav = _.uniq(userFav);
             if (userFav[0] == 0) userFav.shift(); //removes the placeholder 0
 
@@ -186,7 +199,6 @@ app.post("/favorite", (req, res) => {
                     });
             }
         });
-        return res.send({ message: "Added to your favorites" });
     } else {
         return res.send({ message: "Please sign in to add to favorites." });
     }
@@ -194,7 +206,7 @@ app.post("/favorite", (req, res) => {
 
 //loading favorite
 app.post("/getFavorite", (req, res) => {
-    console.log("trying to make GET request to /getFavorite");
+    console.log("trying to make POST request to /getFavorite");
     var user = firebase.auth().currentUser;
     var collection = req.body.collection; //tips, stories, songs/favorites, songs/hot, songs/new
     if (user) {
@@ -255,7 +267,7 @@ app.post("/getFavorite", (req, res) => {
         });
     } else {
         console.log("You need to sign in to see favorites");
-        return res.send(401);
+        return res.send({});
     }
 });
 
