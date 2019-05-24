@@ -35,6 +35,7 @@ body {
 .active_filter {
     border: 0px black;
     border-bottom: 4px solid #f2c94c;
+    color: white;
 }
 .dropdown-toggle::after {
     display: none;

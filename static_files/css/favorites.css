@@ -23,12 +23,16 @@ body {
 }
 
 .filter {
-  background: transparent;
-  border: 0px black;
+    background: transparent;
+    border: 0px black;
+    margin: 0 0.5rem;
+    font-size: 24px;
+    font-weight: medium;
 }
 .active_filter {
   border: 0px black;
-  border-bottom: 2px solid red;
+  border-bottom: 4px solid #f2c94c;
+  color: white;
 }
 .dropdown-toggle::after {
   display: none;
