@@ -72,23 +72,14 @@
     </head>
 
     <body>
-        <!-- Start Body-->
-        <div class="topbox">
-            <!--Navigation bar-->
-            <div id="nav-placeholder"></div>
 
-            <!-- Search bar -->
-            <form id = "search-bar" class="form-inline active-cyan-4">
-                <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
-                <i class="fas fa-search" aria-hidden="true"></i>
-            </form>
-        </div>
+        <div id="nav-placeholder"></div>
 
         <!--Filters-->
         <div style="display: flex; justify-content: center;">
-                <button class="filter active_filter" id="song">Music</button> <!--By default, load songs-->
-                <button class="filter" id="story">Story</button>
-        </div>
+            <button class="filter active_filter" id="song">Music</button> <!--By default, load songs-->
+            <button class="filter" id="story">Story</button>
+        </div><hr>
 
         <!--carousel-->
         <div id="demo" class="carousel slide" data-ride="carousel">
@@ -129,26 +120,22 @@
 
 
         <!--favorites section-->
-        <section id="favorites">
+        <section class="favorites">
             <h1>Favorites</h1>
             <div class="scrolling-wrapper" id = "fav_cards">
             <!--each card is a individual clickable link-->
         </section>
 
         <!--hot section-->
-        <section id="hot">  
-    <!--
-        <button id="removeDB">deleteSongDB</button>
-    -->
+        <section class="hot">  
             <h1>Hot</h1>
             <div class="scrolling-wrapper" id = "hot_cards">
                 <!--each card is a individual item-->
             </div>
-        
         </section>
 
         <!--New section-->
-        <section id="new">
+        <section class="new">
             <h1>New</h1>
             <button type="button" class="btn btn-warning" id="reGenBtn">Generate New list</button>
             <div class="scrolling-wrapper" id = "new_cards">
@@ -156,6 +143,7 @@
             </div>
         </section>
 
+        <!--Templates-->
         <script id="song-template" type="text/x-handlebars-template">
             <div class="card text-center" id = "song{{song_num}}card" onclick="getTrackDetails($(this).find('.song_name').text(),$(this).find('.artist_name').text())">
                 <!--image inside the card-->
@@ -177,9 +165,6 @@
                 <h6 id="artist_name{{No:}}" class="story_category">{{Category}}</h6>
             </div>
         </script>
-
-
-
     </body>
 
   <!-- End Body-->

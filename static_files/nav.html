@@ -1,4 +1,7 @@
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" />
+
+<!--nav-->
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="./index.html">Feed</a>
@@ -8,8 +11,14 @@
   <a class="signinNav"></a>
 </div>
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+<!--search-->
+<form id = "search-bar" class="form-inline active-cyan-4">
+    <input class="form-control form-control-sm" type="text" placeholder="Search" aria-label="Search">
+    <!-- <i class="fas fa-search" aria-hidden="true"></i> -->
+</form>
 
+
+<!---->
 <script>
     function openNav() {
         document.getElementById("mySidenav").style.width = "250px";

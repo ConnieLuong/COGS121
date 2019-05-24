@@ -12,8 +12,7 @@
 
 .card {
   flex: 0 0 auto;
-  margin: 8px;
-  /* height: 198px; */
+  margin: 0.3rem;
   width: 143px;
   line-break: auto;
   background-color: white;
@@ -25,10 +24,6 @@
 }
 
 .cardimg {
-  /*top: 0px;
-  width: 200px;
-  height: 200px;
-  */
   max-width:100%;
   max-height:100%;
   display: flex;
@@ -46,7 +41,9 @@
 .filter {
   background: transparent;
   border: 0px black;
-  margin: 1rem 0.5rem;
+  margin: 0 0.5rem;
+  font-size: 24px;
+  font-weight: medium;
 }
 .active_filter {
   border: 0px black;
@@ -64,11 +61,9 @@
 body {
   font-size: 16px;
   line-height: 1.618;
-  /* max-width: 38em; */
   margin: auto;
   color: #1f1f1f;
   background-color: #f9f9f9;
-  /* padding: 13px; */
   font-family: Cabin;
 }
 
@@ -76,6 +71,7 @@ h1 {
   font-size: 20px;
   font-weight: regular;
   margin-left: 1rem;
+  margin-bottom: 0;
 }
 
 h3, h4 {
@@ -84,9 +80,7 @@ h3, h4 {
 }
 
 
-h2,
-h5,
-h6 {
+h2,h5,h6 {
   line-height: 1.1;
   font-weight: 700;
   overflow-wrap: break-word;
@@ -111,73 +105,13 @@ section h6 {
  font-family: Cabin;
 }
 
-#story {
-  font-size: 24px;
-  font-weight: medium;
-  /* width: 104px;
-  height: 38px;
-  position: relative;
-  top: 60px;
-  right: 33px; */
-}
-
-#song {
-  font-size: 24px;
-  font-weight: medium;
-  /* width: 104px;
-  height: 38px;
-  position: relative;
-  top: 60px;
-  left: 33px; */
-}
-
 #demo {
-  /* position: relative;
-  top: 127px;
-  left: 31px;
-  right: 31px;
-  height: 184px; */
-
-  margin: 1rem auto 2rem auto;
-}
-
-#favorites {
-  /* position: relative;
-  top: 403px;
-  left: 16px; */
-}
-
-#hot {
-  /* position: relative;
-  top: 418px;
-  left: 16px; */
-}
-
-#new {
-  /* position: relative;
-  top: 436px;
-  left: 16px; */
+  margin: 1rem 1rem 2rem 1rem;
 }
 
 .carousel-inner {
   border-radius: 20px;
 }
-
-.topbox {
-  display: flex;
-  background-color: #FED766;
-  padding: 1rem;
-}
-
-#nav-placeholder {
-  width: 70px;
-}
-
-#search-bar {
-  flex: 1;
-  position: relative;
-}
-
-.row {
-  /* background-color: #FED766; */
+section{
+    margin: 1rem 0.7rem;
 }

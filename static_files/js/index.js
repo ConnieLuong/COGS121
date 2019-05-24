@@ -12,7 +12,7 @@ $(document).ready(function () {
         //load tip of the day
         const tips = snapshot.val();
         console.log("tips: ", tips);
-        $('.tipDay').append('<h1>Tips of the Day</h1>');
+        $('.tipDay').append('<h1>Tip of the Day</h1>');
         $('.tipDay').append(tt_template(tips[tipDayIndex]));
         $('.feed').append('<h2>Other tips</h1>');
 
