@@ -156,8 +156,8 @@ app.post("/signup", (req, res) => {
 app.post("/favorite", (req, res) => {
   console.log("trying to make POST request to /favorite");
   var user = firebase.auth().currentUser;
-  var collection = req.body.collection; //tips, stories, songs/favorites, songs/hot, songs/new
-  var item = req.body.item; //ie. tip01
+  var collection = req.body.collection; //tips, stories, songs
+  var item = req.body.item; //ie. tip01, favorites/track0, hot/track1, new/track3, 3 (stories)
   console.log("collection: " + collection + " item: " + item);
   if (user) {
     database.ref("users/").once("value", function(snapshot) {
@@ -169,12 +169,7 @@ app.post("/favorite", (req, res) => {
       console.log("userKey: " + userKey + " userRef: ", userRef);
 
       // Get reference to user's appropriate favorites list & add new item
-      var userFav =
-        collection == "tips"
-          ? userRef.favorite_tips
-          : collection == "stories"
-          ? userRef.favorite_stories
-          : userRef.favorite_songs;
+      var userFav = (collection == "tips") ? userRef.favorite_tips : ((collection == "stories") ? userRef.favorite_stories : userRef.favorite_songs);
       userFav.push(item);
       userFav = _.uniq(userFav);
       if (userFav[0] == 0) userFav.shift(); //removes the placeholder 0
