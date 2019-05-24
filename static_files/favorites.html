@@ -52,6 +52,10 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
     <!--Imports-->
+    <script
+      type="text/javascript"
+      src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"
+    ></script>
     <link rel="stylesheet" href="./css/favorites.css" />
     <link rel="stylesheet" href="./css/nav.css" />
     <script src="./js/favorites.js"></script>
@@ -100,6 +104,15 @@
             <p class="card-text">{{tip_text}}</p>
         </div>
       </script>
+    </div>
+    <div id="overlay">
+      <div id="msgCard" class="card text-center">
+        <div class="card-header">Message</div>
+        <div class="card-body">
+          <h5 class="card-title">Please Sign In or Sign Up First</h5>
+          <a href="./signin.html" class="btn btn-warning">Sign In/Sign up</a>
+        </div>
+      </div>
     </div>
   </body>
 </html>

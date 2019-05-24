@@ -54,62 +54,6 @@ app.get("/signOut", (req, res) => {
   }
 });
 
-app.get("/favorite"),
-  (req, res) => {
-    console.log("trying to make GET request to /favorite");
-    var user = firebase.auth().currentUser;
-    var collection = req.body.collection; //tips, stories, songs/favorites, songs/hot, songs/new
-    if (user) {
-      console.log("getting favorite data from firebase");
-      database.ref("users/").once("value", function(snapshot) {
-        //Get a copy of user object
-        var userRef = _.findWhere(snapshot.val(), { email: user.email });
-        var userKey = _.findKey(snapshot.val(), function(u) {
-          return u.email == user.email;
-        });
-        console.log("userKey: " + userKey + " userRef: ", userRef);
-
-        //Get to user's favorites tip
-        var userFav =
-          collection == "tips"
-            ? userRef.favorite_tips
-            : collection == "stories"
-            ? userRef.favorite_stories
-            : userRef.favorite_songs;
-
-        switch (collection) {
-          case "tips":
-            database
-              .ref("users/" + userKey + "/favorite_tips")
-              .once("value", function(snapshot) {
-                res.send(snapshot.val());
-                console.log("sent favorite_tips");
-              });
-            break;
-          case "stories":
-            database
-              .ref("users/" + userKey + "/favorite_stories")
-              .once("value", function(snapshot) {
-                res.send(snapshot.val());
-                console.log("sent favorite_stories");
-              });
-            break;
-          default:
-            database
-              .ref("users/" + userKey + "/favorite_songs")
-              .once("value", function(snapshot) {
-                res.send(snapshot.val());
-                console.log("sent favorite_songs");
-              });
-            break;
-        }
-      });
-    } else {
-      console.log("You need to sign in to see favorites");
-      return res.send({ message: "Please sign in to see your favorites" });
-    }
-  };
-
 /************************************** POST REQUESTS **************************************/
 app.post("/signin", (req, res) => {
   console.log("trying to make POST request to /signin");
@@ -256,6 +200,60 @@ app.post("/favorite", (req, res) => {
     return res.send({ message: "Added to your favorites" });
   } else {
     return res.send({ message: "Please sign in to add to favorites." });
+  }
+});
+
+//loading favorite
+app.post("/getFavorite", (req, res) => {
+  console.log("trying to make GET request to /getFavorite");
+  var user = firebase.auth().currentUser;
+  var collection = req.body.collection; //tips, stories, songs/favorites, songs/hot, songs/new
+  if (user) {
+    console.log("getting favorite data from firebase");
+    database.ref("users/").once("value", function(snapshot) {
+      //Get a copy of user object
+      var userRef = _.findWhere(snapshot.val(), { email: user.email });
+      var userKey = _.findKey(snapshot.val(), function(u) {
+        return u.email == user.email;
+      });
+      console.log("userKey: " + userKey + " userRef: ", userRef);
+
+      //Get to user's favorites tip
+      var userFav =
+        collection == "tips"
+          ? userRef.favorite_tips
+          : collection == "stories"
+          ? userRef.favorite_stories
+          : userRef.favorite_songs;
+
+      switch (collection) {
+        case "tips":
+          database.ref("tips/").once("value", function(t) {
+            const data = t.val();
+            const results = _.chain(Object.keys(data))
+              .filter(function(key) {
+                return userFav.includes(key);
+              })
+              .reduce((obj, key) => {
+                obj[key] = data[key];
+                return obj;
+              }, {})
+              .value();
+            console.log(results);
+            res.send(results);
+          });
+          break;
+        case "stories":
+          console.log("clicking stories");
+
+          break;
+        default:
+          console.log("clicking songs");
+      }
+    });
+  } else {
+    console.log("You need to sign in to see favorites");
+    return res.send(401);
   }
 });
 

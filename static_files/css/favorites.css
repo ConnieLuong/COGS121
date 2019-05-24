@@ -3,6 +3,24 @@ body {
   font-family: helvetica;
   background: #fffdfd;
 }
+.btn-primary {
+  border: 0;
+  background: none;
+}
+.btn-primary:hover,
+.btn-primary:active {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.tip {
+  margin: 1rem;
+  width: 100%;
+}
+.feed {
+  margin: 0 auto;
+  max-width: 800px;
+}
 
 .filter {
   background: transparent;
@@ -11,4 +29,48 @@ body {
 .active_filter {
   border: 0px black;
   border-bottom: 2px solid red;
+}
+.dropdown-toggle::after {
+  display: none;
+}
+
+.card-img-top {
+  border-radius: 35px 35px 0px 0px;
+}
+
+.card-title {
+  align-self: center;
+}
+
+.text-dark {
+  border-radius: 35px;
+}
+
+.tipDay h1 {
+  color: #f2924c;
+  margin-top: 18px;
+  margin-bottom: -13px;
+}
+
+* {
+  font-family: Cabin;
+}
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+
+#msgCard {
+  top: 30%;
+  margin: 2em;
 }
