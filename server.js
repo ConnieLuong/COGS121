@@ -64,10 +64,6 @@ app.post("/signin", (req, res) => {
     // Sign in using firebase
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then(function (user) {
-            var user = firebase.auth().currentUser;
-            // if(user) {
-            //     window.location = 'index.html'; //After successful login, user will be redirected to home.html
-            // }
             return res.status(200).send({ message: "sucess sign in" });
         })
         .catch(function (error) {
@@ -270,6 +266,47 @@ app.post("/getFavorite", (req, res) => {
         return res.send({});
     }
 });
+
+//update profile
+app.post("/updateProfile", (req, res) =>{
+    console.log("trying to make POST request to /getFavorite");
+    var user = firebase.auth().currentUser;
+    //new profile info
+    var newName = req.body.newName;
+    var newEmail = req.body.newEmail;
+    var newPassword = req.body.newPassword;
+
+    if(user){
+        if(newName){
+            user.updateProfile({
+                displayName: newName,
+            });
+        }
+        if(newEmail){
+            user.updateEmail(newEmail).then(function() {
+                // Update successful.
+                res.status(200).send("Updated email");
+
+            }).catch(function(error) {
+                // An error happened.
+                res.status(400).send("Could not update email");
+            });
+        }
+        if(newPassword){
+            user.updatePassword(newPassword).then(function() {
+                // Update successful.
+                res.status(200).send("Updated password");
+            }).catch(function(error) {
+                // An error happened.
+                res.status(400).send("Could not update password");
+            });
+        }   
+    }
+    
+
+    return res.send("Successfully updated profile");
+});
+
 
 app.listen(3000, () => {
     console.log("Server started at https://localhost:3000/");
