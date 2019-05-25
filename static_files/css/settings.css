@@ -7,8 +7,16 @@ h1, h4{
 label{
     margin: 1rem 0 0.2rem 0;
 }
-form>button{
+button{
     background-color: tomato !important;
     color: white;
     border: 0px !important;
+}
+small{
+    background: rgb(178, 208, 168);
+    border: 1px solid rgb(76, 154, 76);
+    display: flex;
+    justify-content: center;
+    margin: 1rem 4rem;
+    padding: 0.3rem;
 }

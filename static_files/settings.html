@@ -1,79 +1,86 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>Poppa Hub</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <title>Poppa Hub</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!--Firebase-->
-    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+        <!--Firebase-->
+        <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
 
-    <!--Bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
-    <!--Imports-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
-        integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" />
+        <!--Imports-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
+            integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" />
 
+        <!-- Local -->
+        <link rel="stylesheet" href="./css/settings.css">
+        <script src="./js/settings.js"></script>
+        <script>
+            $(function () {
+                $("#nav-placeholder").load("nav.html");
+            });
+        </script>
+    </head>
 
-    <!-- Local -->
-    <link rel="stylesheet" href="./css/settings.css">
-    <script src="./js/settings.js"></script>
-    <script>
-        $(function () {
-            $("#nav-placeholder").load("nav.html");
-        });
-    </script>
+    <body>
+        <!--Navigation bar-->
+        <div id="nav-placeholder"></div>
+        <h1>Settings</h1>
 
-</head>
-
-<body>
-    <!--Navigation bar-->
-    <div id="nav-placeholder"></div>
-    <h1>Settings</h1>
-
-    <h4>General Information</h4>
-    <form>
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="email" class="form-control" id="name" placeholder="Enter name">
+        <div class="noUser">
+            <h4>Please sign in to view settings.</h4>
+            <a href="signin.html"><button class="btn btn-primary" style="margin: 0 1rem;">Sign in</button></a>
         </div>
-        <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+
+        <div class="profile">
+            <small id="message"></small>
+            <h4>General Information</h4>
+            <form class="updateForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                        placeholder="Enter email">
+                </div>
+                <button type="submit" class="btn btn-primary" id="saveInfo">Save Info</button>
+            </form>
+            <hr>
+            <h4>Change Password</h4>
+            <form class="updateForm">
+                <div class="form-group">
+                    <label for="password">New Password</label>
+                    <input type="password" class="form-control" id="newPassword" placeholder="New password">
+                    <label for="password">Confirm</label>
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password">
+                </div>
+                <button type="submit" class="btn btn-primary" id="changePassword">Change Password</button>
+            </form>
         </div>
-        <button type="submit" class="btn btn-primary" id="saveInfo">Save Info</button>
-    </form>
-    <hr>
-    <h4>Change Password</h4>
-    <form>
-        <div class="form-group">
-            <label for="password">New Password</label>
-            <input type="password" class="form-control" id="newPassword" placeholder="New password">
-            <label for="password">Confirm</label>
-            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password">
-        </div>
-        <button type="submit" class="btn btn-primary" id="changePassword">Change Password</button>
-    </form>
-</body>
+    </body>
 
 </html>
