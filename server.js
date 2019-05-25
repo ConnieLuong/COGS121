@@ -269,44 +269,46 @@ app.post("/getFavorite", (req, res) => {
 
 //update profile
 app.post("/updateProfile", (req, res) =>{
-    console.log("trying to make POST request to /getFavorite");
+    console.log("trying to make POST request to /updateProfile");
     var user = firebase.auth().currentUser;
     //new profile info
     var newName = req.body.newName;
     var newEmail = req.body.newEmail;
-    var newPassword = req.body.newPassword;
-
     if(user){
-        if(newName){
+        if(newName && newName != ""){
             user.updateProfile({
                 displayName: newName,
             });
         }
-        if(newEmail){
+        if(newEmail && newEmail != ""){
             user.updateEmail(newEmail).then(function() {
                 // Update successful.
-                res.status(200).send("Updated email");
-
             }).catch(function(error) {
                 // An error happened.
-                res.status(400).send("Could not update email");
+                return res.status(400).send({message: "Could not update email"});
             });
-        }
-        if(newPassword){
+        } 
+    }
+    return res.status(200).send({message: "Successfully updated profile", name: user.displayName, email: user.email});
+});
+
+app.post("/changePassword", (req, res) =>{
+    console.log("trying to make POST request to /changePassword");
+    var user = firebase.auth().currentUser;
+    var newPassword = req.body.newPassword;
+
+    if(user){
+        if(newPassword && newPassword != ""){
             user.updatePassword(newPassword).then(function() {
                 // Update successful.
-                res.status(200).send("Updated password");
+                return res.status(200).send({message: "Successfully changed password", name: user.displayName, email: user.email});
             }).catch(function(error) {
                 // An error happened.
-                res.status(400).send("Could not update password");
+                return res.status(400).send({message: "Could not change password"});
             });
         }   
     }
-    
-
-    return res.send("Successfully updated profile");
 });
-
 
 app.listen(3000, () => {
     console.log("Server started at https://localhost:3000/");
