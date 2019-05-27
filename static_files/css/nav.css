@@ -1,9 +1,11 @@
 * {
     font-family: Cabin;
 }
-h1{
+.sidenav > h1{
     color: ivory;
     margin: 0.5rem 2rem;
+    text-align: left;
+    font-size: 40px;
 }
 #greetingLine{
     margin: 0.9rem 8rem 1rem 2rem;
