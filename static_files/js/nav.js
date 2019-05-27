@@ -17,10 +17,12 @@ $(document).ready(function () {
                 $('.signinNav').html(data.text);
                 $('.signinNav').addClass('signoutNav');
                 $('.signinNav').attr('href', '#');
+                $('#greeting').html("Hey, <br>"+data.displayName+"!");
             }else if (data.text == "Sign in"){
                 $('.signinNav').html(data.text);
                 $('.signinNav').removeClass('signoutNav');
                 $('.signinNav').attr('href', './signin.html');
+                $('#greeting').html("Hi there!");
             }
         },
         error: (data) => {

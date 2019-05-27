@@ -1,6 +1,14 @@
 * {
     font-family: Cabin;
 }
+h1{
+    color: ivory;
+    margin: 0.5rem 2rem;
+}
+#greetingLine{
+    margin: 0.9rem 8rem 1rem 2rem;
+    border-top: 4px solid #FED666;
+}
 #nav-placeholder{
     background: #FED766;
     padding: 1rem;
@@ -25,7 +33,7 @@
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  padding: 0.5rem 2rem;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
@@ -40,9 +48,8 @@
 .sidenav .closebtn {
   position: absolute;
   top: 0;
-  right: 25px;
+  right: 0;
   font-size: 36px;
-  margin-left: 50px;
 }
 
 
