@@ -6,14 +6,16 @@ h1, h4 {
   font-size: 20px;
   font-weight: regular;
   text-align: center;
+  margin: 1rem 1rem 1rem 1rem;
 }
 
 p {
 	font-size: 16px;
  	font-weight: regular;
  	text-align: center;
+ 	margin: 1rem 1rem 1rem 1rem;
 }
 
-#background {
+body {
 	background-color: #FFF9EC;
 }
