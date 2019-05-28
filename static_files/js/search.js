@@ -1,13 +1,13 @@
 function search(query){
     //search thru each collection
     var tips = searchTips(query);
-    var songs = searchSongs(query);
+ //   var songs = searchSongs(query);
     var stories = searchStories(query);
 
     //return object containing search results
     return {
         tips: tips, 
-        songs: songs, 
+ //       songs: songs, 
         stories: stories
     };
 }
