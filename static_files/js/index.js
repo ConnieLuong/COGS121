@@ -14,7 +14,7 @@ $(document).ready(function () {
         console.log("tips: ", tips);
         $('.tipDay').append('<h1>Tip of the Day</h1>');
         $('.tipDay').append(tt_template(tips[tipDayIndex]));
-        $('.feed').append('<h2>Other tips</h1>');
+        $('.feed').append('<h1>Featured Tips</h1>');
 
         //load all tips containing Trending tag
         const data = _.chain(tips)
@@ -82,7 +82,7 @@ $(document).ready(function () {
             if(filter=="Trending"){
                 $('.tipDay').append('<h1>Tip of the Day</h1>');
                 $('.tipDay').append(tt_template(snapshot.val()[tipDayIndex]));
-                $('.feed').append('<h2>Other tips</h1>');
+                $('.feed').append('<h1>Featured Tips</h1>');
             }else{
                 $('.tipDay').html('');
             }
