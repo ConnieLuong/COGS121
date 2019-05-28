@@ -59,6 +59,18 @@ app.get("/tips", (req, res) =>{
         res.send(snapshot.val());
     });
 });
+
+app.get("/stories", (req, res) =>{
+    database.ref('stories/').once('value', function (snapshot){
+        res.send(snapshot.val());
+    });
+});
+
+app.get("/songs", (req, res) =>{
+    database.ref('songs/').once('value', function (snapshot){
+        res.send(snapshot.val());
+    });
+});
 /************************************** POST REQUESTS **************************************/
 app.post("/signin", (req, res) => {
     console.log("trying to make POST request to /signin");
