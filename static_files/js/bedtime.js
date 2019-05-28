@@ -97,12 +97,6 @@ $(document).ready(function() {
       console.log(errorThrown);
     });
 
-  //for debugging purpose
-  $("#removeDB").click(() => {
-    console.log("removing child");
-    database.ref("songs/").remove();
-  });
-
   //regenearate new list.
   //remove the html first, then shuffle the data from firebase. Then take the first five
   //and load to the front end
