@@ -1,57 +1,62 @@
+* {
+    font-family: Cabin;
+}
 body {
-  margin: 0 auto;
-  font-family: helvetica;
-  background: #fffdfd;
+    margin: 0 auto;
+    font-family: helvetica;
+    background: #fffdfd;
 }
 .btn-primary {
-  border: 0;
-  background: none;
+    border: 0;
+    background: none;
 }
 .btn-primary:hover,
 .btn-primary:active {
-  background: none;
-  border: 0;
-  cursor: pointer;
+    background: none;
+    border: 0;
+    cursor: pointer;
 }
 .tip {
-  margin: 1rem;
-  width: 100%;
+    margin: 1rem;
+    width: 100%;
 }
 .feed {
-  margin: 0 auto;
-  max-width: 800px;
+    margin: 0 auto;
+    max-width: 800px;
 }
 
 .filter {
-  background: transparent;
-  border: 0px black;
+    background: transparent;
+    border: 0px black;
+    margin: 0 0.5rem;
+    font-size: 24px;
+    font-weight: medium;
 }
 .active_filter {
-  border: 0px black;
-  border-bottom: 2px solid red;
+    border: 0px black;
+    border-bottom: 4px solid #f2c94c;
+    color: white;
 }
 .dropdown-toggle::after {
-  display: none;
+    display: none;
 }
 
 .card-img-top {
-  border-radius: 35px 35px 0px 0px;
+    border-radius: 35px 35px 0px 0px;
 }
 
 .card-title {
-  align-self: center;
+    align-self: center;
 }
 
 .text-dark {
-  border-radius: 35px;
+    border-radius: 35px;
 }
 
 .tipDay h1 {
-  color: #f2924c;
-  margin-top: 18px;
-  margin-bottom: -13px;
+    color: #f2924c;
+    margin-top: 18px;
+    margin-bottom: -13px;
 }
 
-* {
- font-family: Cabin;
-}
+
