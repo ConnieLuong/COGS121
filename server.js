@@ -64,10 +64,6 @@ app.post("/signin", (req, res) => {
     // Sign in using firebase
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then(function (user) {
-            var user = firebase.auth().currentUser;
-            // if(user) {
-            //     window.location = 'index.html'; //After successful login, user will be redirected to home.html
-            // }
             return res.status(200).send({ message: "sucess sign in" });
         })
         .catch(function (error) {
@@ -152,8 +148,10 @@ app.post("/favorite", (req, res) => {
     var user = firebase.auth().currentUser;
     var collection = req.body.collection; //tips, stories, songs
     var item = req.body.item; //ie. tip01, favorites/track0, hot/track1, new/track3, 3 (stories)
+    var message;
     console.log("collection: " + collection + " item: " + item);
     if (user) {
+        var message;
         database.ref("users/").once("value", function (snapshot) {
             //Get a copy of user object
             var userRef = _.findWhere(snapshot.val(), { email: user.email });
@@ -164,7 +162,18 @@ app.post("/favorite", (req, res) => {
 
             // Get reference to user's appropriate favorites list & add new item
             var userFav = (collection == "tips") ? userRef.favorite_tips : ((collection == "stories") ? userRef.favorite_stories : userRef.favorite_songs);
-            userFav.push(item);
+            if(userFav.includes(item)){
+                console.log("here");
+                //remove that item
+                userFav = _.filter(userFav, function(elem){
+                    return elem!=item;
+                });
+                res.send({ message: "Removed item from your favorites" });
+            }else{
+                //add that item
+                userFav.push(item);
+                res.send({ message: "Added item to your favorites" });
+            }
             userFav = _.uniq(userFav);
             if (userFav[0] == 0) userFav.shift(); //removes the placeholder 0
 
@@ -186,7 +195,6 @@ app.post("/favorite", (req, res) => {
                     });
             }
         });
-        return res.send({ message: "Added to your favorites" });
     } else {
         return res.send({ message: "Please sign in to add to favorites." });
     }
@@ -194,7 +202,7 @@ app.post("/favorite", (req, res) => {
 
 //loading favorite
 app.post("/getFavorite", (req, res) => {
-    console.log("trying to make GET request to /getFavorite");
+    console.log("trying to make POST request to /getFavorite");
     var user = firebase.auth().currentUser;
     var collection = req.body.collection; //tips, stories, songs/favorites, songs/hot, songs/new
     if (user) {
@@ -255,7 +263,50 @@ app.post("/getFavorite", (req, res) => {
         });
     } else {
         console.log("You need to sign in to see favorites");
-        return res.send(401);
+        return res.send({});
+    }
+});
+
+//update profile
+app.post("/updateProfile", (req, res) =>{
+    console.log("trying to make POST request to /updateProfile");
+    var user = firebase.auth().currentUser;
+    //new profile info
+    var newName = req.body.newName;
+    var newEmail = req.body.newEmail;
+    if(user){
+        if(newName && newName != ""){
+            user.updateProfile({
+                displayName: newName,
+            });
+        }
+        if(newEmail && newEmail != ""){
+            user.updateEmail(newEmail).then(function() {
+                // Update successful.
+            }).catch(function(error) {
+                // An error happened.
+                return res.status(400).send({message: "Could not update email"});
+            });
+        } 
+    }
+    return res.status(200).send({message: "Successfully updated profile", name: user.displayName, email: user.email});
+});
+
+app.post("/changePassword", (req, res) =>{
+    console.log("trying to make POST request to /changePassword");
+    var user = firebase.auth().currentUser;
+    var newPassword = req.body.newPassword;
+
+    if(user){
+        if(newPassword && newPassword != ""){
+            user.updatePassword(newPassword).then(function() {
+                // Update successful.
+                return res.status(200).send({message: "Successfully changed password", name: user.displayName, email: user.email});
+            }).catch(function(error) {
+                // An error happened.
+                return res.status(400).send({message: "Could not change password"});
+            });
+        }   
     }
 });
 
