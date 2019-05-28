@@ -3,8 +3,8 @@
 }
 body {
     margin: 0 auto;
-    font-family: helvetica;
     background: #fffdfd;
+    font-size: 16px;
 }
 .btn-primary {
     border: 0;
@@ -20,9 +20,14 @@ body {
     margin: 1rem;
     width: 100%;
 }
+
 .feed {
-    margin: 0 auto;
+    margin: 1rem 1rem 1rem 1rem;
     max-width: 800px;
+}
+
+.tipDay {
+    margin: 1rem 1rem 1rem 1rem;
 }
 
 .filter {
@@ -57,6 +62,16 @@ body {
     color: #f2924c;
     margin-top: 18px;
     margin-bottom: -13px;
+    font-size: 20px;
+    font-weight: regular;
 }
 
+.feed h1 {
+    font-size: 20px;
+    font-weight: regular;
+}
 
+.feed h5 {
+    font-size: 16px;
+    font-weight: regular;
+}
