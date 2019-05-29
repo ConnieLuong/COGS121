@@ -14,7 +14,7 @@ Our app’s target population are dads-to-be and first time fathers who may be s
 ### UI screenshots
 screenshots of your latest UI webpages embedded directly within the file.
 
-<img src="milestone_img/1.png" width="30%"><img src="milestone_img/2.png" width="30%"><img src="milestone_img/3.png" width="30%"><img src="milestone_img/4.png" width="30%"><img src="milestone_img/5.png" width="30%"><img src="milestone_img/6.png" width="30%"><img src="milestone_img/7.png" width="30%"><img src="milestone_img/8.png" width="30%"><img src="milestone_img/9.png" width="30%">
+<img src="milestone_img/1.png" width="30%" style="margin: 5px;"><img src="milestone_img/2.png" width="30%"><img src="milestone_img/3.png" width="30%"><img src="milestone_img/4.png" width="30%"><img src="milestone_img/5.png" width="30%"><img src="milestone_img/6.png" width="30%"><img src="milestone_img/7.png" width="30%"><img src="milestone_img/8.png" width="30%"><img src="milestone_img/9.png" width="30%">
 
 
 
