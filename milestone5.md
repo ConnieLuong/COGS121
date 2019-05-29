@@ -38,9 +38,6 @@ Data is displayed in several ways in our app: on "tip cards" on a "tip feed" tha
 
 <img src="milestone_img/11.png" width="30%"><img src="milestone_img/3.png" width="30%">
 <img src="milestone_img/12.png" width="30%"><img src="milestone_img/13.png" width="30%">
-milestone5.md contains screenshots of how your data is displayed or visualized within your app. 
-Include these as separate screenshots in addition to the general UI screenshots in rubric item 2. 
-(You don't need a fancy visualization, but your data needs to be shown in a way that makes sense for your app.)
 
 ### Data display or visualizations
 
