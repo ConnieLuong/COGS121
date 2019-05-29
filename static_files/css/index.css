@@ -59,6 +59,18 @@ body {
     border-radius: 35px;
 }
 
+.card-body{
+    background: #f1f1f1;
+    padding: 5rem 2rem 3rem 2rem;
+    position: relative;
+    top: -2rem;
+    z-index: -1;
+
+    -webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+
 .tipDay h1 {
     color: #f2924c;
     margin-top: 18px;
