@@ -284,7 +284,7 @@ app.post("/getFavorite", (req, res) => {
         });
     } else {
         console.log("You need to sign in to see favorites");
-        return res.status(400).send({});
+        return res.send({message: "You need to sign in to see favorites"});
     }
 });
 
