@@ -62,9 +62,10 @@ body {
 
 .card-body{
     background: #f1f1f1;
-    padding: 5rem 2rem 3rem 2rem;
+    padding: 4rem 2rem 3rem 2rem;
     position: relative;
     top: -2rem;
+    border-radius: 0 0 2rem 2rem;
 
     -webkit-transition: all .5s;
 	-moz-transition: all .5s;
