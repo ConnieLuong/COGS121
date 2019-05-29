@@ -98,6 +98,7 @@ function showTipContent(tipNum, tc_template){
             var tips = data;
             var html = tc_template(tips[tipNum]);
             $('#' + tipNum + 'card').append(html);
+            // $('#' + tipNum + 'content').hide().slideDown(1000);;
         },
     });
 }

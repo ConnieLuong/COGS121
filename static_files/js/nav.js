@@ -46,6 +46,19 @@ $(document).ready(function () {
 
     });
 
+    $('body').click(function(event){
+        console.log(event.target.id);
+    });
+
+    $(document).on('click', '#query', function(event){
+        $('#logo').fadeOut(150);
+    });
+    $(document).on('click', 'body', function(event){
+        if(event.target.id != 'query'){
+            $('#logo').delay(500).fadeIn();
+        }
+    });
+
     //search
     $("form#search-bar").on("submit", function(e) {
         e.preventDefault(); //prevents refresh
