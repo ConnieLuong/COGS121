@@ -116,11 +116,18 @@ function searchStories(query) {
             //go through each story and add it to res if any of category, content, name contains the query
             //tipValue = {category:'', content:'', link: '', name:'', No:''}
             _.each(stories, function (storyValue, storyKey) {
+                // var cleanedSongValue = _.chain(storyValue).omit(function (value, key, object) {
+                //     return (key == 'Link' || key == 'No');
+                // })// {Category: 'a', Content:'b', Name:'c'}
+                //     .values() // ['a', 'b', 'c']
+                //     .value();
+
                 var cleanedSongValue = _.chain(storyValue).omit(function (value, key, object) {
-                    return (key == 'Link' || key == 'No');
+                    return (key == 'No');
                 })// {Category: 'a', Content:'b', Name:'c'}
                     .values() // ['a', 'b', 'c']
                     .value();
+
 
                 _.each(cleanedSongValue, function (val) {
                     if (val.toLowerCase().includes(query.toLowerCase())) {
@@ -132,15 +139,15 @@ function searchStories(query) {
             console.log("ajax call ==> stories res:", res);
 
             //TODO display results
-            // _.each(res, function (e) {
-            //     var html = story_template(e);
-            //     $('.storyResults').append(html);
-            // });
+            _.each(res, function (e) {
+                var html = story_template(e);
+                $('.storyResults').append(html);
+            });
             if(Object.keys(res).length == 0){
                 $('.storyResults').append("No results");
                 return;
             }
-            $('.storyResults').append('No results');
+            // $('.storyResults').append('No results');
         }
     });
 }
@@ -160,7 +167,8 @@ function searchSongs(query) {
                 return {
                     album_name: value.album_name,
                     artist_name: value.artist_name,
-                    track_name: value.track_name
+                    track_name: value.track_name,
+                    cover_art: value.cover_art
                 }
             }) //{track0: {album_name:'a', artist_name:'b', track_name:'c'}, ...}
                 .each(function (trackValue, trackKey) {
@@ -178,7 +186,8 @@ function searchSongs(query) {
                 return {
                     album_name: value.album_name,
                     artist_name: value.artist_name,
-                    track_name: value.track_name
+                    track_name: value.track_name,
+                    cover_art: value.cover_art
                 }
             }) //{track0: {album_name:'a', artist_name:'b', track_name:'c'}, ...}
                 .each(function (trackValue, trackKey) {
@@ -196,7 +205,8 @@ function searchSongs(query) {
                 return {
                     album_name: value.album_name,
                     artist_name: value.artist_name,
-                    track_name: value.track_name
+                    track_name: value.track_name,                    
+                    cover_art: value.cover_art
                 }
             }) //{track0: {album_name:'a', artist_name:'b', track_name:'c'}, ...}
                 .each(function (trackValue, trackKey) {
@@ -212,17 +222,17 @@ function searchSongs(query) {
 
             console.log("ajax call ==> songs res:", res);
 
-            //TODO display results
-            // _.each(res, function (e) {
-            //     var html = song_template(e);
-            //     $('.songResults').append(html);
-            // });
+            // TODO display results
+            _.each(res, function (e) {
+                var html = song_template(e);
+                $('.songResults').append(html);
+            });
 
             if(Object.keys(res).length == 0){
                 $('.songResults').append("No results");
                 return;
             }
-            $('.songResults').append('No results');
+            // $('.songResults').append('No results');
         }
     });
 }
@@ -239,3 +249,27 @@ function showTipContent(tipNum, tc_template){
         },
     });
 }
+
+//knowing which song is clicked
+function getTrackDetails(track_name, artist_name, section) {
+    console.log(track_name);
+    console.log(artist_name);
+    console.log(section);
+    url =
+      "./song.html?name=" +
+      encodeURIComponent(track_name) +
+      "&artist=" +
+      encodeURIComponent(artist_name) +
+      "&section=" +
+      encodeURIComponent(section);
+    console.log(url);
+  
+    document.location.href = url;
+  }
+  
+  function getStoryDetails(story_name) {
+    console.log(story_name);
+    url = "./story.html?name=" + encodeURIComponent(story_name);
+    console.log(url);
+    document.location.href = url;
+  }
