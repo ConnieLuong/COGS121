@@ -1,19 +1,23 @@
 function search(query) {
     //search thru each collection
     var tips = searchTips(query);
-    //   var songs = searchSongs(query);
+    var songs = searchSongs(query);
     var stories = searchStories(query);
+
+    console.log("tips:", tips);
+    console.log("songs", songs);
+    console.log("stories", stories);
 
     //return object containing search results
     return {
-        tips: tips,
-        //       songs: songs, 
-        stories: stories
+        tips: tips, //{'tip0':{}, 'tip10':{}}
+        songs: songs, //[0, 2, 3]
+        stories: stories //['favorite/track0', 'hot/track2']
     };
 }
 
 function searchTips(query) {
-    var res = [];
+    var res = {};
     $.ajax({
         url: 'tips',
         type: 'GET',
@@ -24,17 +28,18 @@ function searchTips(query) {
             //go through each tip and add it to res if any of tip_tags, tip_text, tip_title contains the query
             //tipValue = {tip_img:'', tip_num:'', tip_tags: [], tip_text:'', tip_title:''}
             _.each(tips, function (tipValue, tipKey) {
-                _.chain(tipValue).omit(function (value, key, object) {
-                    return (key == 'tip_img' || key == 'tip_num');
-                })// {tip_tags: [], tip_text:'', tip_title:''}
-                    .values() // [[''], '', '']
-                    .flatten()// ['','','']
-                    .each(function (value) {
-                        if (value.includes(query)) {
-                            res.push(tipKey);
-                        }
-                    })
+                var cleanedTipValue = _.chain(tipValue).omit(function (value, key, object) {
+                        return (key == 'tip_img' || key == 'tip_num');
+                    })// {tip_tags: ['a'], tip_text:'b', tip_title:'c'}
+                    .values() // [['a'], 'b', 'c']
+                    .flatten()// ['a','b','c']
                     .value(); // [tip_tags, tip_text, tip_title]
+                
+                _.each(cleanedTipValue, function (val) {
+                    if (val.includes(query)) {
+                        $.extend(res, {tipKey: tipValue});
+                    }
+                })
             });
         }
     });
@@ -71,6 +76,7 @@ function searchStories(query) {
 }
 
 function searchSongs(query) {
+    var res = [];
     $.ajax({
         url: 'songs',
         type: 'GET',
@@ -86,7 +92,41 @@ function searchSongs(query) {
                     artist_name: value.artist_name,
                     track_name: value.track_name
                 }
-            }) //[album_name:'a', artist_name:'b', track_name:'c']
+            }) //{track0: {album_name:'a', artist_name:'b', track_name:'c'}, ...}
+            .each(function (trackValue, trackKey) {
+                _.chain(trackValue).values() // ['a', 'b', 'c']
+                .each(function (value) {
+                    if (value.includes(query)) {
+                        res.push('favorite/'+storyKey);
+                    }
+                })
+                .value();
+            });
+
+            _.chain(hotSongs).mapObject(function (value, key) {
+                return {
+                    album_name: value.album_name,
+                    artist_name: value.artist_name,
+                    track_name: value.track_name
+                }
+            }) //{track0: {album_name:'a', artist_name:'b', track_name:'c'}, ...}
+            .each(function (trackValue, trackKey) {
+                _.chain(trackValue).values() // ['a', 'b', 'c']
+                .each(function (value) {
+                    if (value.includes(query)) {
+                        res.push('favorite/'+storyKey);
+                    }
+                })
+                .value();
+            });
+
+            _.chain(newSongs).mapObject(function (value, key) {
+                return {
+                    album_name: value.album_name,
+                    artist_name: value.artist_name,
+                    track_name: value.track_name
+                }
+            }) //{track0: {album_name:'a', artist_name:'b', track_name:'c'}, ...}
             .each(function (trackValue, trackKey) {
                 _.chain(trackValue).values() // ['a', 'b', 'c']
                 .each(function (value) {
@@ -98,4 +138,5 @@ function searchSongs(query) {
             });
         }
     });
+    return _.uniq(res);
 }

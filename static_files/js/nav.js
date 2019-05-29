@@ -44,5 +44,11 @@ $(document).ready(function () {
         });
 
 
-    })
+    });
+
+    //search
+    $(document).on('click', ',search', function(event){
+        var query = event.target.val(); //need to get the query value
+        search(query);
+    });
 });
