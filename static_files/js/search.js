@@ -1,8 +1,65 @@
+var tt_template;
+var tc_template;
+var story_template;
+var song_template;
+$(document).ready(function () {
+    //instantiate templates
+    tt_template = Handlebars.compile($('#tip-template').html()); //tip-template    
+    tc_template = Handlebars.compile($('#tip-content-template').html()); //tip-content-template
+    story_template = Handlebars.compile($('#story-template').html()); //story template
+    song_template = Handlebars.compile($('#song-template').html()); //song template
+
+
+    //instantiate query & search
+    var query = localStorage.getItem("query");
+    $('#query2').html(query);
+    console.log("query:", query);
+    if (query) {
+        search(query);
+        $('#query').val(query);
+    }
+
+    //if query null or search results empty display message
+
+    //When click on a tip card image, show its content
+    $(document).on("click", ".card-img-top", function (event) {
+    // $(document).on("click", ".card-title", function (event) {
+        const tipNum = event.target.id;
+        console.log("clicking a tip:", event.target.id);
+
+        //if content is showing, don't show content.
+        if (event.target.classList.contains("showing")) {
+            event.target.classList.remove("showing");
+            $('#' + tipNum + 'content').remove();
+        }
+        //else mark element as showing & show content
+        else {
+            event.target.classList.add("showing");
+            showTipContent(tipNum, tc_template);
+
+            //check if tip is favorited
+            $.ajax({
+                url: 'favorite',
+                type: 'POST',
+                data: { collection: "tips" },
+                success: function (data) {
+                    console.log("Checking if ", tipNum, " is favorited: ", data);
+                    var userFavTips = Object.keys(data);
+                    //if a user is signed in and current tip is in their favorites
+                    if (userFavTips.length > 0 && userFavTips.includes(tipNum)) {
+                        $('.favorite').html('<i class="fas fa-star fa-fw"></i> Favorited');
+                    }
+                },
+            });
+        }
+    });
+
+})
 function search(query) {
     //search thru each collection
-    var tips = searchTips(query);
-    var songs = searchSongs(query);
-    var stories = searchStories(query);
+    searchTips(query);
+    searchSongs(query);
+    searchStories(query);
 }
 
 function searchTips(query) {
@@ -18,29 +75,36 @@ function searchTips(query) {
             //tipValue = {tip_img:'', tip_num:'', tip_tags: [], tip_text:'', tip_title:''}
             _.each(tips, function (tipValue, tipKey) {
                 var cleanedTipValue = _.chain(tipValue).omit(function (value, key, object) {
-                        return (key == 'tip_img' || key == 'tip_num');
-                    })// {tip_tags: ['a'], tip_text:'b', tip_title:'c'}
+                    return (key == 'tip_img' || key == 'tip_num');
+                })// {tip_tags: ['a'], tip_text:'b', tip_title:'c'}
                     .values() // [['a'], 'b', 'c']
                     .flatten()// ['a','b','c']
                     .value(); // [tip_tags, tip_text, tip_title]
-                
-                
+
+
                 _.each(cleanedTipValue, function (val) {
                     if (val.toLowerCase().includes(query.toLowerCase())) {
-                        $.extend(res, {[tipKey]: tipValue});
+                        $.extend(res, { [tipKey]: tipValue });
                     }
                 })
             });
             console.log("ajax call ==> tips res:", res);
 
-            //TODO display results
-            
+            //display results
+            if(Object.keys(res).length == 0){
+                $('.tipResults').append("No results");
+                return;
+            }
+            _.each(res, function (e) {
+                var html = tt_template(e);
+                $('.tipResults').append(html);
+            });
         }
     });
 }
 
 function searchStories(query) {
-    
+
     $.ajax({
         url: 'stories',
         type: 'GET',
@@ -55,12 +119,12 @@ function searchStories(query) {
                 var cleanedSongValue = _.chain(storyValue).omit(function (value, key, object) {
                     return (key == 'Link' || key == 'No');
                 })// {Category: 'a', Content:'b', Name:'c'}
-                .values() // ['a', 'b', 'c']
-                .value();
+                    .values() // ['a', 'b', 'c']
+                    .value();
 
                 _.each(cleanedSongValue, function (val) {
                     if (val.toLowerCase().includes(query.toLowerCase())) {
-                        $.extend(res, {[storyKey]: storyValue});
+                        $.extend(res, { [storyKey]: storyValue });
                     }
                 })
             });
@@ -68,6 +132,15 @@ function searchStories(query) {
             console.log("ajax call ==> stories res:", res);
 
             //TODO display results
+            // _.each(res, function (e) {
+            //     var html = story_template(e);
+            //     $('.storyResults').append(html);
+            // });
+            if(Object.keys(res).length == 0){
+                $('.storyResults').append("No results");
+                return;
+            }
+            $('.storyResults').append('No results');
         }
     });
 }
@@ -90,16 +163,16 @@ function searchSongs(query) {
                     track_name: value.track_name
                 }
             }) //{track0: {album_name:'a', artist_name:'b', track_name:'c'}, ...}
-            .each(function (trackValue, trackKey) {
-                _.chain(trackValue).values() // ['a', 'b', 'c']
-                .each(function (val) {
-                    if (val.toLowerCase().includes(query.toLowerCase())) {
-                        var newKey = 'favorite/'+ trackKey;
-                        $.extend(res, {[newKey]: trackValue});
-                    }
-                })
-                .value();
-            });
+                .each(function (trackValue, trackKey) {
+                    _.chain(trackValue).values() // ['a', 'b', 'c']
+                        .each(function (val) {
+                            if (val.toLowerCase().includes(query.toLowerCase())) {
+                                var newKey = 'favorite/' + trackKey;
+                                $.extend(res, { [newKey]: trackValue });
+                            }
+                        })
+                        .value();
+                });
 
             _.chain(hotSongs).mapObject(function (value, key) {
                 return {
@@ -108,16 +181,16 @@ function searchSongs(query) {
                     track_name: value.track_name
                 }
             }) //{track0: {album_name:'a', artist_name:'b', track_name:'c'}, ...}
-            .each(function (trackValue, trackKey) {
-                _.chain(trackValue).values() // ['a', 'b', 'c']
-                .each(function (val) {
-                    if (val.toLowerCase().includes(query.toLowerCase())) {
-                        var newKey = 'hot/'+ trackKey;
-                        $.extend(res, {[newKey]: trackValue});
-                    }
-                })
-                .value();
-            });
+                .each(function (trackValue, trackKey) {
+                    _.chain(trackValue).values() // ['a', 'b', 'c']
+                        .each(function (val) {
+                            if (val.toLowerCase().includes(query.toLowerCase())) {
+                                var newKey = 'hot/' + trackKey;
+                                $.extend(res, { [newKey]: trackValue });
+                            }
+                        })
+                        .value();
+                });
 
             _.chain(newSongs).mapObject(function (value, key) {
                 return {
@@ -126,20 +199,43 @@ function searchSongs(query) {
                     track_name: value.track_name
                 }
             }) //{track0: {album_name:'a', artist_name:'b', track_name:'c'}, ...}
-            .each(function (trackValue, trackKey) {
-                _.chain(trackValue).values() // ['a', 'b', 'c']
-                .each(function (val) {
-                    if (val.toLowerCase().includes(query.toLowerCase())) {
-                        var newKey = 'new/'+ trackKey;
-                        $.extend(res, {[newKey]: trackValue});
-                    }
-                })
-                .value();
-            });
+                .each(function (trackValue, trackKey) {
+                    _.chain(trackValue).values() // ['a', 'b', 'c']
+                        .each(function (val) {
+                            if (val.toLowerCase().includes(query.toLowerCase())) {
+                                var newKey = 'new/' + trackKey;
+                                $.extend(res, { [newKey]: trackValue });
+                            }
+                        })
+                        .value();
+                });
 
             console.log("ajax call ==> songs res:", res);
 
             //TODO display results
+            // _.each(res, function (e) {
+            //     var html = song_template(e);
+            //     $('.songResults').append(html);
+            // });
+
+            if(Object.keys(res).length == 0){
+                $('.songResults').append("No results");
+                return;
+            }
+            $('.songResults').append('No results');
         }
+    });
+}
+
+function showTipContent(tipNum, tc_template){
+    $.ajax({
+        url: 'tips',
+        type: 'GET',
+        data: JSON,
+        success: function (data) {
+            var tips = data;
+            var html = tc_template(tips[tipNum]);
+            $('#' + tipNum + 'card').append(html);
+        },
     });
 }
