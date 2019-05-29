@@ -2,10 +2,11 @@
     font-family: Cabin;
 }
 .sidenav > h1{
-    color: ivory;
-    margin: 0.5rem 2rem;
-    text-align: left;
-    font-size: 40px;
+    color: ivory ;
+    margin: 0.5rem 2rem ;
+    text-align: left ;
+    font-size: 40px ;
+    text-transform: none ;
 }
 #greetingLine{
     margin: 0.9rem 8rem 1rem 2rem;
@@ -18,7 +19,7 @@
     justify-content: space-between;
     align-items: center;
 }
-#nav-placeholder h1{
+#logo{
     padding: 0;
     margin: 0;
     font-size: 35px;
