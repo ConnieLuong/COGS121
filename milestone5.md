@@ -29,7 +29,9 @@ Most all data interactions are done either with the musixmatch API or with fireb
 
 ### Ambitious data display or visualization ideas
 
+When brainstorming for our app, one of the more ambitious data display ideas involved the relationship between a dad and his wife by giving advice tailored to supporting his wife in situations that he may have no idea how to handle during and after pregnancy. We invisioned that the app would ask a series of questions in regards to his wife's mood, behaviors, cravings, etc. to get a more personalized information on how to navigate his relationship with his wife. For example:
+Question: "How has your partner described her self confidence as of recent?" Answer: "Minimal, self-depricating"
+Question: "When was the last time you had date nigt with your partner"  Answer: "2 weeks ago"
+Question: "Does your partner want to go out on date night?" Answer: "Indifferent"
 
-milestone5.md contains a paragraph describing some more ambitious data display or visualization ideas beyond what you've 
-implemented that would make your app more polished. Note that you do NOT need to implement those ideas, so feel 
-free to be more creative here. (2 points)
+Based on these three questions, the app would suggest ways in which the father could help increase his wife's self-confidence. Perhaps it would encourage the husband to compliment his wife, to make dinner for her, etc. Depending on how the questions are answered by the dad, the app would generate relevant information that could help out.
