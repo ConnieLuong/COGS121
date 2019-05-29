@@ -184,12 +184,11 @@ app.post("/favorite", (req, res) => {
             var userKey = _.findKey(snapshot.val(), function (u) {
                 return u.email == user.email;
             });
-            console.log("userKey: " + userKey + " userRef: ", userRef);
+            // console.log("userKey: " + userKey + " userRef: ", userRef);
 
             // Get reference to user's appropriate favorites list & add new item
             var userFav = (collection == "tips") ? userRef.favorite_tips : ((collection == "stories") ? userRef.favorite_stories : userRef.favorite_songs);
             if (userFav.includes(item)) {
-                console.log("here");
                 //remove that item
                 userFav = _.filter(userFav, function (elem) {
                     return elem != item;
@@ -241,7 +240,7 @@ app.post("/getFavorite", (req, res) => {
             var userKey = _.findKey(snapshot.val(), function (u) {
                 return u.email == user.email;
             });
-            console.log("userKey: " + userKey + " userRef: ", userRef);
+            // console.log("userKey: " + userKey + " userRef: ", userRef);
 
             //Get to user's favorites tip
             var userFav =
@@ -280,7 +279,7 @@ app.post("/getFavorite", (req, res) => {
                                 return obj;
                             }, {})
                             .value();
-                        console.log(results);
+                        // console.log(results);
                         res.send(results);
                     });
                     break;

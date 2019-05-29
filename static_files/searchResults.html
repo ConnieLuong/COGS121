@@ -33,7 +33,10 @@
         crossorigin="anonymous"></script>
 
     <!--Local-->
+    <link rel="stylesheet" href="./css/bedtime.css" />
     <link rel="stylesheet" href="./css/index.css" />
+
+
     <link rel="stylesheet" href="./css/searchResults.css" />
     <script src="./js/favoriteAction.js"></script>
     <script src="./js/search.js"></script>
@@ -101,12 +104,12 @@
 
     <!--Song template-->
     <script id="song-template" type="text/x-handlebars-template">
-        <div class="card text-center" id = "song{{song_num}}card" onclick="getTrackDetails($(this).find('.song_name').text(),$(this).find('.artist_name').text())">
+        <div class="card text-center" id = "song{{song_num}}card" onclick="getTrackDetails($(this).find('.song_name').text(),$(this).find('.artist_name').text(),$(this).parent().parent().prop('className'))">
             <!--image inside the card-->
             <div class="imgholder">
                 <img id="fav_img{{song_num}}" class="cardimg" src="{{cover_art}}" alt="img"/>
             </div>
-            <h4 id="song_name{{song_num}}" class="song_name">{{track_name}}</h4>
+            <h3 id="song_name{{song_num}}" class="song_name">{{track_name}}</h3>
             <h6 id="artist_name{{song_num}}" class="artist_name">{{artist_name}}</h6>
         </div>
     </script>
@@ -116,10 +119,10 @@
         <div class="card text-center" id = "story{{No:}}card" onclick="getStoryDetails($(this).find('.story_name').text())">
             <!--image inside the card-->
             <div class="imgholder">
-                <img id="fav_img{{No:}}" class="cardimg" src="{{cover_art}}" alt="img"/>
+                <img id="fav_img{{No}}" class="cardimg" src="{{story_img}}" alt="img"/>
             </div>
-            <h3 id="song_name{{No:}}" class="story_name">{{Name}}</h3>
-            <h6 id="artist_name{{No:}}" class="story_category">{{Category}}</h6>
+            <h3 id="song_name{{No}}" class="story_name">{{Name}}</h3>
+            <h6 id="artist_name{{No}}" class="story_category">{{Category}}</h6>
         </div>
     </script>
 </body>
