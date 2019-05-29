@@ -1,4 +1,10 @@
 $(document).ready(function() {
+  $(document).ready(function() {
+    $(".carousel1").slick({
+      autoplay: true,
+      autoplaySpeed: 3000
+    });
+  });
   //song-template
   var song_template = Handlebars.compile($("#song-template").html());
   var story_template = Handlebars.compile($("#story-template").html());
@@ -137,6 +143,9 @@ $(document).ready(function() {
     $("#fav_cards").empty();
     $("#hot_cards").empty();
     $("#new_cards").empty();
+    $("#hlImg1").attr("src", "");
+    $("#hlImg2").attr("src", "");
+    $("#hlImg3").attr("src", "");
     const filter = event.target.id;
     //for each filter button, remove active_filter
     $("button").removeClass("active_filter");
@@ -146,6 +155,9 @@ $(document).ready(function() {
     //loading fav_stories - will connect with fav later
     database.ref("stories/").once("value", function(snapshot) {
       const stories = snapshot.val();
+      $("#hlImg1").attr("src", stories[03].story_img);
+      $("#hlImg2").attr("src", stories[01].story_img);
+      $("#hlImg3").attr("src", stories[10].story_img);
       for (i = 0; i < 5; i++) {
         var html = story_template(stories[i]);
         $("#fav_cards").append(html);
@@ -175,6 +187,9 @@ $(document).ready(function() {
     $("#fav_cards").empty();
     $("#hot_cards").empty();
     $("#new_cards").empty();
+    $("#hlImg1").attr("src", "");
+    $("#hlImg2").attr("src", "");
+    $("#hlImg3").attr("src", "");
     const filter = event.target.id;
     //for each filter button, remove active_filter
     $("button").removeClass("active_filter");
@@ -240,6 +255,10 @@ function loadSongs() {
   database.ref("songs/hot").once("value", snapshot => {
     const tracks = snapshot.val();
     console.log("received hot data", tracks);
+
+    $("#hlImg1").attr("src", tracks["track0"].cover_art);
+    $("#hlImg2").attr("src", tracks["track5"].cover_art);
+    $("#hlImg3").attr("src", tracks["track3"].cover_art);
     //for each tip entry in the songs collection, template it and append to hot section
     Object.keys(tracks).forEach(song => {
       var html = song_template(tracks[song]);
