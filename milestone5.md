@@ -9,7 +9,7 @@ Daddy in the house!
 
 ### User story
 
-Our app’s target population are dads-to-be and first time fathers who may be struggling to find ways to become more involved in the process of pregnancy and raising a newborn child. Our app seeks to improve 3 aspects of this process: personal development in regards to fatherhood, his relationship with his wife, and his relationship with his baby. Since our app is essentially a collection of resources for fathers, we imagine that it would be used in such a way that when a dad has questions in regards to a particular situation that he is in involving the infant or his wife, he would open Daddy's House to gain access to reliable and comprehensive information on fatherhood. For example, if a father current methods for calming down a crying infant are unsuccessful, he could search through the tips section on our app to find a "tip article" on ways to soothe a fussy baby. Our app would then provide suggestions for the father. He would also be able to favorite the tip and it would be stored on his profile for more immediate access the next time around. Also, our app contains collections of songs and stories for when a dad might want to play music or read a story to his infant. For example, if a father is waiting outside for his wife to finish grocery shopping and the infant gets fussy, he could open up the app and find a children's story that he could read to the baby as a way to pass time and keep the baby calm. 
+Our app, Popper Hub’s target population are dads-to-be and first time fathers who may be struggling to find ways to become more involved in the process of pregnancy and raising a newborn child. Our app seeks to improve 3 aspects of this process: personal development in regards to fatherhood, his relationship with his wife, and his relationship with his baby. Since our app is essentially a collection of resources for fathers, we imagine that it would be used in such a way that when a dad has questions in regards to a particular situation that he is in involving the infant or his wife, he would open Daddy's House to gain access to reliable and comprehensive information on fatherhood. For example, if a father current methods for calming down a crying infant are unsuccessful, he could search through the tips section on our app to find a "tip article" on ways to soothe a fussy baby. Our app would then provide suggestions for the father. He would also be able to favorite the tip and it would be stored on his profile for more immediate access the next time around. Also, our app contains collections of songs and stories for when a dad might want to play music or read a story to his infant. For example, if a father is waiting outside for his wife to finish grocery shopping and the infant gets fussy, he could open up the app and find a children's story that he could read to the baby as a way to pass time and keep the baby calm. 
 
 ### UI screenshots
 screenshots of your latest UI webpages embedded directly within the file.
@@ -26,7 +26,10 @@ screenshots of your latest UI webpages embedded directly within the file.
 
 
 
-written explanation of how your UI's screenshots have improved upon the versions shown in milestone4.md.
+### UI improvement
+
+We updated all the pictures in the app to tailor the whole theme of the app (caring and informative). The cards are made more rounder which give a more modern feeling to the users. We added the app's name "Popper Hub" on the top navbar which orginally is the search bar, but now we hide the search bar into an icon. Whenever user presses it, it will show up dynamically. In the bedtime page, we changed the regenearate button to an icon which will make it more visually pleasing. In the navbar menu, we added a greeting to the user. It will show the user's name if they are logged in. If not, it will show "hi there".
+
 
 ### How data is displayed
 
