@@ -20,6 +20,8 @@ screenshots of your latest UI webpages embedded directly within the file.
 ![ui5](milestone_img/5.png =100x)
 ![ui6](milestone_img/6.png =100x)
 
+<img src="milestone_img/1.png" width="40%">.
+
 
 written explanation of how your UI's screenshots have improved upon the versions shown in milestone4.md.
 
