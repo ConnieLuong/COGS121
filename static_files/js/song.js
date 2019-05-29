@@ -1,29 +1,32 @@
 $(document).ready(function() {
-    //on load, load correct favorite icon
-    $.ajax({
-        url: 'getFavorite',
-        type: 'POST',
-        data: {collection: "tips"},
-        success: function(data) {
-            console.log("clicking on tips. need to check if favorited: ", data);
-            var userFavTips = Object.keys(data);
-            //if a user is signed in and current tip is in their favorites
-            if(userFavTips.length>0 && userFavTips.includes(tipNum)){
-                $('.favorite').html('<i class="fas fa-star fa-fw"></i> Favorited');
-            }
-        },
-    });
+  //on load, load correct favorite icon
+  $.ajax({
+    url: "getFavorite",
+    type: "POST",
+    data: { collection: "songs" },
+    success: function(data) {
+      console.log("clicking on tips. need to check if favorited: ", data);
+      const song_name = arr[0].split("=")[1];
+      const result = _.findWhere(data, { track_name: song_name });
 
+      //if a user is signed in and current tip is in their favorites
+      if (result) {
+        $(".favorite").html('<i class="fas fa-star fa-fw"></i> Favorited');
+      }
+    }
+  });
 
   var url = document.location.href,
     queryString = decodeURIComponent(url.split("?")[1]);
 
   if (queryString) {
     var arr = queryString.split("&");
-    const track_name = arr[0].split("=")[1];
+    const song_name = arr[0].split("=")[1];
     const artist = arr[1].split("=")[1];
-    console.log(track_name);
+    const section = arr[2].split("=")[1];
+    console.log(song_name);
     console.log(artist);
+    console.log(section);
     const a = "Sexy and I know it",
       b = "LMFAO";
 
@@ -46,7 +49,7 @@ $(document).ready(function() {
       .done(function(data) {
         console.log(data);
         const lyrics = data.message.body.lyrics.lyrics_body;
-        $("#title").html(track_name);
+        $("#title").html(song_name);
         $("#artist").html(artist);
         $("#lyrics").html(lyrics);
       })
@@ -55,6 +58,13 @@ $(document).ready(function() {
         console.log(textStatus);
         console.log(errorThrown);
       });
+
+    database.ref("songs/" + section).once("value", function(snapshot) {
+      const songs = snapshot.val();
+      const song = _.find(songs, { track_name: song_name });
+      console.log(song);
+      $(".favorite").attr("id", section + "/track" + song["song_num"]);
+    });
   } else {
     $("#lyrics").html("nothing Received");
   }
