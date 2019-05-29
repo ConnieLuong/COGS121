@@ -75,7 +75,7 @@ function searchTips(query) {
             //tipValue = {tip_img:'', tip_num:'', tip_tags: [], tip_text:'', tip_title:''}
             _.each(tips, function (tipValue, tipKey) {
                 var cleanedTipValue = _.chain(tipValue).omit(function (value, key, object) {
-                    return (key == 'tip_img' || key == 'tip_num');
+                    return (key == 'tip_img');
                 })// {tip_tags: ['a'], tip_text:'b', tip_title:'c'}
                     .values() // [['a'], 'b', 'c']
                     .flatten()// ['a','b','c']
