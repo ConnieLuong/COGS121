@@ -44,5 +44,13 @@ $(document).ready(function () {
         });
 
 
-    })
+    });
+
+    //search
+    $("form#search-bar").on("submit", function(e) {
+        e.preventDefault(); //prevents refresh
+        var query = $('#query').val(); 
+        localStorage.setItem("query",query); //store query so can use when go to searchResults page
+        location.href = "./searchResults.html"; //redirect to search results page
+    });
 });
