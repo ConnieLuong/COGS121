@@ -17,6 +17,9 @@ screenshots of your latest UI webpages embedded directly within the file.
 written explanation of how your UI's screenshots have improved upon the versions shown in milestone4.md.
 
 ### How data is displayed
+
+Data is displayed in several ways in our app: on "tip cards" on a "tip feed" that has relevant filters, on story pages, and music pages. 
+
 milestone5.md contains screenshots of how your data is displayed or visualized within your app. 
 Include these as separate screenshots in addition to the general UI screenshots in rubric item 2. 
 (You don't need a fancy visualization, but your data needs to be shown in a way that makes sense for your app.)
