@@ -1,8 +1,3 @@
-.carousel-inner img {
-  width: 100%;
-  height: 100%;
-}
-
 .scrolling-wrapper {
   overflow-x: auto;
   display: flex;
@@ -24,8 +19,10 @@
 }
 
 .cardimg {
-  max-width:100%;
-  max-height:100%;
+  max-width: 100%;
+  max-height: 100%;
+  height: 9em;
+  width: 10em;
   display: flex;
   border-radius: 20px 20px 0px 0px;
 }
@@ -47,7 +44,7 @@
 }
 .active_filter {
   border: 0px black;
-  border-bottom: 4px solid #f2c94c;
+  border-bottom: 4px solid #FED766;
   color: white;
 }
 
@@ -75,13 +72,15 @@ h1 {
   margin-bottom: 0;
 }
 
-h3, h4 {
+h3,
+h4 {
   font-size: 16px;
   font-weight: regular;
 }
 
-
-h2,h5,h6 {
+h2,
+h5,
+h6 {
   line-height: 1.1;
   font-weight: 700;
   overflow-wrap: break-word;
@@ -103,7 +102,7 @@ section h6 {
 }
 
 * {
- font-family: Cabin;
+  font-family: Cabin;
 }
 
 #demo {
@@ -113,8 +112,15 @@ section h6 {
 .carousel-inner {
   border-radius: 20px;
 }
-section{
-    margin: 1rem 0.7rem;
+section {
+  margin: 1rem 0.7rem;
+}
+
+.highlightImg {
+  max-width: 100%;
+  max-height: 100%;
+  width: 24em;
+  height: 20em;
 }
 
 .feed h5 {

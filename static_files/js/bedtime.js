@@ -1,4 +1,10 @@
 $(document).ready(function() {
+  $(document).ready(function() {
+    $(".carousel1").slick({
+      autoplay: true,
+      autoplaySpeed: 3000
+    });
+  });
   //song-template
   var song_template = Handlebars.compile($("#song-template").html());
   var story_template = Handlebars.compile($("#story-template").html());
@@ -71,23 +77,28 @@ $(document).ready(function() {
       hot_track_list = r2[0].message.body.track_list;
       new_track_list = r3[0].message.body.track_list;
 
+      let j = 0;
+      let counter3 = 0;
+      let counter2 = 19;
       //storing the received data from the api
-      fav_track_list.forEach((e, i) => {
+      /* fav_track_list.forEach((e, i) => {
         e.track["song_num"] = i;
-        e.track["cover_art"] = "./img/coverart.jpg";
+        e.track["cover_art"] = "./img/artcover/" + j + ".jpg";
         database.ref("songs/favorites/track" + i).set(e.track);
-      });
+      }); */
 
       hot_track_list.forEach((e, i) => {
         e.track["song_num"] = i;
-        e.track["cover_art"] = "./img/coverart.jpg";
+        e.track["cover_art"] = "./img/artcover/" + counter2 + ".jpg";
         database.ref("songs/hot/track" + i).set(e.track);
+        counter2--;
       });
 
       new_track_list.forEach((e, i) => {
         e.track["song_num"] = i;
-        e.track["cover_art"] = "./img/coverart.jpg";
+        e.track["cover_art"] = "./img/artcover/" + counter3 + ".jpg";
         database.ref("songs/new/track" + i).set(e.track);
+        counter3++;
       });
     })
     // fail message
@@ -96,12 +107,6 @@ $(document).ready(function() {
       console.log(textStatus);
       console.log(errorThrown);
     });
-
-  //for debugging purpose
-  $("#removeDB").click(() => {
-    console.log("removing child");
-    database.ref("songs/").remove();
-  });
 
   //regenearate new list.
   //remove the html first, then shuffle the data from firebase. Then take the first five
@@ -138,6 +143,9 @@ $(document).ready(function() {
     $("#fav_cards").empty();
     $("#hot_cards").empty();
     $("#new_cards").empty();
+    $("#hlImg1").attr("src", "");
+    $("#hlImg2").attr("src", "");
+    $("#hlImg3").attr("src", "");
     const filter = event.target.id;
     //for each filter button, remove active_filter
     $("button").removeClass("active_filter");
@@ -147,6 +155,9 @@ $(document).ready(function() {
     //loading fav_stories - will connect with fav later
     database.ref("stories/").once("value", function(snapshot) {
       const stories = snapshot.val();
+      $("#hlImg1").attr("src", stories[03].story_img);
+      $("#hlImg2").attr("src", stories[01].story_img);
+      $("#hlImg3").attr("src", stories[10].story_img);
       for (i = 0; i < 5; i++) {
         var html = story_template(stories[i]);
         $("#fav_cards").append(html);
@@ -176,6 +187,9 @@ $(document).ready(function() {
     $("#fav_cards").empty();
     $("#hot_cards").empty();
     $("#new_cards").empty();
+    $("#hlImg1").attr("src", "");
+    $("#hlImg2").attr("src", "");
+    $("#hlImg3").attr("src", "");
     const filter = event.target.id;
     //for each filter button, remove active_filter
     $("button").removeClass("active_filter");
@@ -203,15 +217,19 @@ function shuffle(array) {
 }
 
 //knowing which song is clicked
-function getTrackDetails(track_name, artist_name) {
+function getTrackDetails(track_name, artist_name, section) {
   console.log(track_name);
   console.log(artist_name);
+  console.log(section);
   url =
     "./song.html?name=" +
     encodeURIComponent(track_name) +
     "&artist=" +
-    encodeURIComponent(artist_name);
+    encodeURIComponent(artist_name) +
+    "&section=" +
+    encodeURIComponent(section);
   console.log(url);
+
   document.location.href = url;
 }
 
@@ -237,6 +255,10 @@ function loadSongs() {
   database.ref("songs/hot").once("value", snapshot => {
     const tracks = snapshot.val();
     console.log("received hot data", tracks);
+
+    $("#hlImg1").attr("src", tracks["track0"].cover_art);
+    $("#hlImg2").attr("src", tracks["track5"].cover_art);
+    $("#hlImg3").attr("src", tracks["track3"].cover_art);
     //for each tip entry in the songs collection, template it and append to hot section
     Object.keys(tracks).forEach(song => {
       var html = song_template(tracks[song]);
