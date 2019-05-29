@@ -63,9 +63,9 @@ function loadFilteredTips(filter, tt_template) {
 
             //if filter is Trending, load 'tip of the day' & 'other tips' header
             if (filter == "Trending") {
-                $('.tipDay').append('<h1>Tip of the Day</h1>');
+                $('.tipDay').append('<h1>Tip of the Day<hr></h1>');
                 $('.tipDay').append(tt_template(tips[tipDayIndex]));
-                $('.feed').append('<h1>Featured tips</h1>');
+                $('.feed').append('<h1>Featured tips<hr></h1>');
             } else {
                 $('.tipDay').html('');
             }
