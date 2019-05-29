@@ -44,7 +44,7 @@
 }
 .active_filter {
   border: 0px black;
-  border-bottom: 4px solid #f2c94c;
+  border-bottom: 4px solid #FED766;
   color: white;
 }
 
@@ -121,4 +121,25 @@ section {
   max-height: 100%;
   width: 24em;
   height: 20em;
+}
+
+.feed h5 {
+    font-size: 16px;
+    font-weight: regular;
+}
+
+.reGenBtn {
+  margin: 0rem 1rem 0rem 1rem;
+  color: #FED766;
+  background: white;
+  border-color: white;
+  width: 50px;
+}
+
+.onerow {
+  display: flex;
+}
+
+h1 {
+  flex: 1;
 }

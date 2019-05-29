@@ -27,6 +27,7 @@
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" />
         <link rel="stylesheet" href="./css/bedtime.css" />
         <script src="./js/bedtime.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
         <!--Add the new slick-theme.css if you want the default styling--> 
         <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
@@ -85,8 +86,12 @@
 
         <!--New section-->
         <section class="new">
+            <div class="onerow">
             <h1>New</h1>
-            <button type="button" class="btn btn-warning" id="reGenBtn">Generate New list</button>
+            <button type="button" class="btn btn-warning reGenBtn" id="reGenBtn">
+                 <i class="fa fa-refresh" style="font-size:24px"></i>
+            </button>
+            </div>
             <div class="scrolling-wrapper" id = "new_cards">
                 <!--each card is a individual item-->
             </div>

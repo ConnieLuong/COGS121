@@ -83,3 +83,8 @@ body {
   margin: 1rem;
   width: 100%;
 }
+.btn{
+  background-color: #FED766;
+  outline-color: #FED766;
+  border-color: #FED766;
+}

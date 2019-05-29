@@ -44,5 +44,26 @@ $(document).ready(function () {
         });
 
 
-    })
+    });
+
+    $('body').click(function(event){
+        console.log(event.target.id);
+    });
+
+    $(document).on('click', '#query', function(event){
+        $('#logo').fadeOut(150);
+    });
+    $(document).on('click', 'body', function(event){
+        if(event.target.id != 'query'){
+            $('#logo').delay(500).fadeIn();
+        }
+    });
+
+    //search
+    $("form#search-bar").on("submit", function(e) {
+        e.preventDefault(); //prevents refresh
+        var query = $('#query').val(); 
+        localStorage.setItem("query",query); //store query so can use when go to searchResults page
+        location.href = "./searchResults.html"; //redirect to search results page
+    });
 });
