@@ -17,10 +17,12 @@ $(document).ready(function () {
                 $('.signinNav').html(data.text);
                 $('.signinNav').addClass('signoutNav');
                 $('.signinNav').attr('href', '#');
+                $('#greeting').html("Hey, <br>"+data.displayName+"!");
             }else if (data.text == "Sign in"){
                 $('.signinNav').html(data.text);
                 $('.signinNav').removeClass('signoutNav');
                 $('.signinNav').attr('href', './signin.html');
+                $('#greeting').html("Hi there!");
             }
         },
         error: (data) => {
@@ -42,5 +44,26 @@ $(document).ready(function () {
         });
 
 
-    })
+    });
+
+    $('body').click(function(event){
+        console.log(event.target.id);
+    });
+
+    $(document).on('click', '#query', function(event){
+        $('#logo').fadeOut(150);
+    });
+    $(document).on('click', 'body', function(event){
+        if(event.target.id != 'query'){
+            $('#logo').delay(500).fadeIn();
+        }
+    });
+
+    //search
+    $("form#search-bar").on("submit", function(e) {
+        e.preventDefault(); //prevents refresh
+        var query = $('#query').val(); 
+        localStorage.setItem("query",query); //store query so can use when go to searchResults page
+        location.href = "./searchResults.html"; //redirect to search results page
+    });
 });

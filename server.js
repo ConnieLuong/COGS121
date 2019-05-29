@@ -54,6 +54,26 @@ app.get("/signOut", (req, res) => {
     }
 });
 
+app.get("/tips", (req, res) =>{
+    console.log("trying to make GET request to /tips");
+    database.ref('tips/').once('value', function (snapshot){
+        res.send(snapshot.val());
+    });
+});
+
+app.get("/stories", (req, res) =>{
+    console.log("trying to make GET request to /stories");
+    database.ref('stories/').once('value', function (snapshot){
+        res.send(snapshot.val());
+    });
+});
+
+app.get("/songs", (req, res) =>{
+    console.log("trying to make GET request to /songs");
+    database.ref('songs/').once('value', function (snapshot){
+        res.send(snapshot.val());
+    });
+});
 /************************************** POST REQUESTS **************************************/
 app.post("/signin", (req, res) => {
     console.log("trying to make POST request to /signin");
@@ -176,6 +196,7 @@ app.post("/favorite", (req, res) => {
             }
             userFav = _.uniq(userFav);
             if (userFav[0] == 0) userFav.shift(); //removes the placeholder 0
+            if(userFav.length==0) userFav.push(0);
 
             // Update database
             switch (collection) {
@@ -263,7 +284,7 @@ app.post("/getFavorite", (req, res) => {
         });
     } else {
         console.log("You need to sign in to see favorites");
-        return res.send({});
+        return res.send({message: "You need to sign in to see favorites"});
     }
 });
 

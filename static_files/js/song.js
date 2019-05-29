@@ -1,4 +1,20 @@
 $(document).ready(function() {
+    //on load, load correct favorite icon
+    $.ajax({
+        url: 'getFavorite',
+        type: 'POST',
+        data: {collection: "tips"},
+        success: function(data) {
+            console.log("clicking on tips. need to check if favorited: ", data);
+            var userFavTips = Object.keys(data);
+            //if a user is signed in and current tip is in their favorites
+            if(userFavTips.length>0 && userFavTips.includes(tipNum)){
+                $('.favorite').html('<i class="fas fa-star fa-fw"></i> Favorited');
+            }
+        },
+    });
+
+
   var url = document.location.href,
     queryString = decodeURIComponent(url.split("?")[1]);
 

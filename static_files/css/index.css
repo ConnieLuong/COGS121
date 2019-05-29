@@ -1,10 +1,11 @@
 * {
     font-family: Cabin;
 }
+
 body {
     margin: 0 auto;
-    font-family: helvetica;
     background: #fffdfd;
+    font-size: 16px;
 }
 .btn-primary {
     border: 0;
@@ -20,9 +21,14 @@ body {
     margin: 1rem;
     width: 100%;
 }
+
 .feed {
-    margin: 0 auto;
+    margin: 1rem 1rem 1rem 1rem;
     max-width: 800px;
+}
+
+.tipDay {
+    margin: 1rem 1rem 1rem 1rem;
 }
 
 .filter {
@@ -34,7 +40,7 @@ body {
 }
 .active_filter {
     border: 0px black;
-    border-bottom: 4px solid #f2c94c;
+    border-bottom: 4px solid #FED766;
     color: white;
 }
 .dropdown-toggle::after {
@@ -53,10 +59,33 @@ body {
     border-radius: 35px;
 }
 
+.card-body{
+    background: #f1f1f1;
+    padding: 5rem 2rem 3rem 2rem;
+    position: relative;
+    top: -2rem;
+    z-index: -1;
+
+    -webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+
 .tipDay h1 {
     color: #f2924c;
     margin-top: 18px;
-    margin-bottom: -13px;
+    font-size: 20px;
+    font-weight: regular;
 }
 
+h1 {
+    margin-top: 18px;
+    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: regular;
+}
 
+.feed h5 {
+    font-size: 16px;
+    font-weight: regular;
+}

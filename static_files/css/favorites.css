@@ -78,3 +78,9 @@ body {
   top: 30%;
   margin: 2em;
 }
+
+.btn{
+  background-color: #FED766;
+  outline-color: #FED766;
+  border-color: #FED766;
+}

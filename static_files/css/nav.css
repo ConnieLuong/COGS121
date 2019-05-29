@@ -1,12 +1,31 @@
 * {
     font-family: Cabin;
 }
+.sidenav > h1{
+    color: ivory ;
+    margin: 0.5rem 2rem ;
+    text-align: left ;
+    font-size: 40px ;
+    text-transform: none ;
+}
+#greetingLine{
+    margin: 0.9rem 8rem 1rem 2rem;
+    border-top: 4px solid #FED666;
+}
 #nav-placeholder{
     background: #FED766;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+#logo{
+    padding: 0;
+    margin: 0;
+    font-size: 35px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
 }
 
 /* Navigation */
@@ -25,7 +44,7 @@
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  padding: 0.5rem 2rem;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
@@ -40,9 +59,8 @@
 .sidenav .closebtn {
   position: absolute;
   top: 0;
-  right: 25px;
+  right: 0;
   font-size: 36px;
-  margin-left: 50px;
 }
 
 
@@ -61,6 +79,7 @@
  */
 #search-bar{
     margin: 0;
+    padding: 0;
 }
 input {
 	outline: none;
