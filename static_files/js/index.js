@@ -22,7 +22,7 @@ $(document).ready(function () {
 
             //check if tip is favorited
             $.ajax({
-                url: 'favorite',
+                url: 'getFavorite',
                 type: 'POST',
                 data: { collection: "tips" },
                 success: function (data) {

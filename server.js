@@ -196,6 +196,7 @@ app.post("/favorite", (req, res) => {
             }
             userFav = _.uniq(userFav);
             if (userFav[0] == 0) userFav.shift(); //removes the placeholder 0
+            if(userFav.length==0) userFav.push(0);
 
             // Update database
             switch (collection) {
