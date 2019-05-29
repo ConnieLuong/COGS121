@@ -1,6 +1,11 @@
+* {
+	font-family: Cabin;
+    font-size: 20px;
+}
+
 .activeTab{
     border: 0px solid black;
-    border-bottom: 2px solid salmon;
+    border-bottom: 2px solid #FED766;
 }
 
 .form-wrapper{
@@ -9,4 +14,28 @@
 
 form{
     padding-top: 2rem;
+}
+
+.btn{
+	background-color: #FED766;
+	outline-color: #FED766;
+	border-color: #FED766;
+}
+
+.filter {
+  background: transparent;
+  border: 0px black;
+  margin: 0 0.5rem;
+  font-size: 24px;
+  font-weight: medium;
+}
+
+.active_filter {
+  border: 0px black;
+  border-bottom: 4px solid #FED766;
+  color: white;
+}
+
+input {
+	font-size: 16px;
 }
