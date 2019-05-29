@@ -1,6 +1,7 @@
 * {
     font-family: Cabin;
 }
+
 body {
     margin: 0 auto;
     background: #fffdfd;
@@ -39,7 +40,7 @@ body {
 }
 .active_filter {
     border: 0px black;
-    border-bottom: 4px solid #f2c94c;
+    border-bottom: 4px solid #FED766;
     color: white;
 }
 .dropdown-toggle::after {
