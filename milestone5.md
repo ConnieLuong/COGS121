@@ -13,6 +13,13 @@ Our app’s target population are dads-to-be and first time fathers who may be s
 
 ### UI screenshots
 screenshots of your latest UI webpages embedded directly within the file.
+![ui1](milestone_img/1.png)
+![ui2](milestone_img/2.png)
+![ui3](milestone_img/3.png)
+![ui4](milestone_img/4.png)
+![ui5](milestone_img/5.png)
+![ui6](milestone_img/6.png)
+
 
 written explanation of how your UI's screenshots have improved upon the versions shown in milestone4.md.
 
