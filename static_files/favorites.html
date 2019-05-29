@@ -107,10 +107,22 @@
 
       <!--stories template-->
       <script id="story-template" type="text/x-handlebars-template">
-        <div class="col-sm-12 story"  id="No">
-            <div class="card text-dark">
-                <img class="card-img-top" src="{{story_img}}" id="tip{{No}}">
-                <h5 class="card-title">{{Name}}</h5>
+        <div class="col-sm-12 story"  id="{{No}}">
+            <div class="card text-dark text-center" onclick="getStoryDetails($(this).find('.story_name').text())">
+                <img class="card-img-top" src="{{story_img}}" id="story{{No}}">
+                <h5 class="card-title story_name">{{Name}}</h5>
+                <!--tip content would go here when clicking-->
+                </div>
+            </div>
+      </script>
+
+      <!--songs template-->
+      <script id="song-template" type="text/x-handlebars-template">
+        <div class="col-sm-12 song">
+            <div class="card text-dark text-center " onclick="getTrackDetails($(this).find('.song_name').text(),$(this).find('.artist_name').text())">
+                <img class="card-img-top" src="{{cover_art}}" id="song{{song_num}}">
+                <h5 class="card-title song_name" >{{track_name}}</h5>
+                <h7 class="artist_name">{{artist_name}}</h7>
                 <!--tip content would go here when clicking-->
                 </div>
             </div>

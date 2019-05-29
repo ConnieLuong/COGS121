@@ -187,6 +187,7 @@ app.post("/favorite", (req, res) => {
       }
       userFav = _.uniq(userFav);
       if (userFav[0] == 0) userFav.shift(); //removes the placeholder 0
+      if (userFav.length == 0) userFav.push(0);
 
       // Update database
       switch (collection) {
@@ -269,11 +270,36 @@ app.post("/getFavorite", (req, res) => {
           break;
         default:
           console.log("clicking songs");
+          const results = [];
+          var promise1 = new Promise(function(resolve, reject) {
+            userRef.favorite_songs.forEach(e => {
+              database
+                .ref("songs/" + e)
+                .once("value")
+                .then(snapshot => {
+                  results.push(snapshot.val());
+                });
+              setTimeout(() => {
+                resolve(results);
+              }, 1000);
+            });
+          });
+          promise1.then(function(value) {
+            console.log(value);
+            res.send(value);
+          });
+
+        /* database.ref("songs/favorites").once("value", snapshot => {
+            const data = snapshot.val();
+            const favSong = userFav.includes("favorites");
+            console.log(favSong);
+          }); */
       }
     });
   } else {
     console.log("You need to sign in to see favorites");
-    return res.send({});
+    //res.send({});
+    return res.send({ message: "You need to sign in to see favorites" });
   }
 });
 
@@ -302,13 +328,11 @@ app.post("/updateProfile", (req, res) => {
         });
     }
   }
-  return res
-    .status(200)
-    .send({
-      message: "Successfully updated profile",
-      name: user.displayName,
-      email: user.email
-    });
+  return res.status(200).send({
+    message: "Successfully updated profile",
+    name: user.displayName,
+    email: user.email
+  });
 });
 
 app.post("/changePassword", (req, res) => {
@@ -322,13 +346,11 @@ app.post("/changePassword", (req, res) => {
         .updatePassword(newPassword)
         .then(function() {
           // Update successful.
-          return res
-            .status(200)
-            .send({
-              message: "Successfully changed password",
-              name: user.displayName,
-              email: user.email
-            });
+          return res.status(200).send({
+            message: "Successfully changed password",
+            name: user.displayName,
+            email: user.email
+          });
         })
         .catch(function(error) {
           // An error happened.

@@ -71,23 +71,28 @@ $(document).ready(function() {
       hot_track_list = r2[0].message.body.track_list;
       new_track_list = r3[0].message.body.track_list;
 
+      let j = 0;
+      let counter3 = 0;
+      let counter2 = 19;
       //storing the received data from the api
-      fav_track_list.forEach((e, i) => {
+      /* fav_track_list.forEach((e, i) => {
         e.track["song_num"] = i;
-        e.track["cover_art"] = "./img/coverart.jpg";
+        e.track["cover_art"] = "./img/artcover/" + j + ".jpg";
         database.ref("songs/favorites/track" + i).set(e.track);
-      });
+      }); */
 
       hot_track_list.forEach((e, i) => {
         e.track["song_num"] = i;
-        e.track["cover_art"] = "./img/coverart.jpg";
+        e.track["cover_art"] = "./img/artcover/" + counter2 + ".jpg";
         database.ref("songs/hot/track" + i).set(e.track);
+        counter2--;
       });
 
       new_track_list.forEach((e, i) => {
         e.track["song_num"] = i;
-        e.track["cover_art"] = "./img/coverart.jpg";
+        e.track["cover_art"] = "./img/artcover/" + counter3 + ".jpg";
         database.ref("songs/new/track" + i).set(e.track);
+        counter3++;
       });
     })
     // fail message
@@ -197,15 +202,19 @@ function shuffle(array) {
 }
 
 //knowing which song is clicked
-function getTrackDetails(track_name, artist_name) {
+function getTrackDetails(track_name, artist_name, section) {
   console.log(track_name);
   console.log(artist_name);
+  console.log(section);
   url =
     "./song.html?name=" +
     encodeURIComponent(track_name) +
     "&artist=" +
-    encodeURIComponent(artist_name);
+    encodeURIComponent(artist_name) +
+    "&section=" +
+    encodeURIComponent(section);
   console.log(url);
+
   document.location.href = url;
 }
 

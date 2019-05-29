@@ -115,7 +115,7 @@
 
         <!--Templates-->
         <script id="song-template" type="text/x-handlebars-template">
-            <div class="card text-center" id = "song{{song_num}}card" onclick="getTrackDetails($(this).find('.song_name').text(),$(this).find('.artist_name').text())">
+            <div class="card text-center" id = "song{{song_num}}card" onclick="getTrackDetails($(this).find('.song_name').text(),$(this).find('.artist_name').text(),$(this).parent().parent().prop('className'))">
                 <!--image inside the card-->
                 <div class="imgholder">
                     <img id="fav_img{{song_num}}" class="cardimg" src="{{cover_art}}" alt="img"/>
@@ -129,7 +129,7 @@
             <div class="card text-center" id = "story{{No:}}card" onclick="getStoryDetails($(this).find('.story_name').text())">
                 <!--image inside the card-->
                 <div class="imgholder">
-                    <img id="fav_img{{No}}" class="cardimg" src="{{cover_art}}" alt="img"/>
+                    <img id="fav_img{{No}}" class="cardimg" src="{{story_img}}" alt="img"/>
                 </div>
                 <h3 id="song_name{{No}}" class="story_name">{{Name}}</h3>
                 <h6 id="artist_name{{No}}" class="story_category">{{Category}}</h6>

@@ -3,14 +3,21 @@ $(document).ready(function() {
   $.ajax({
     url: "getFavorite",
     type: "POST",
-    data: { collection: "tips" },
+    data: { collection: "stories" },
     success: function(data) {
       console.log("clicking on tips. need to check if favorited: ", data);
-      var userFavTips = Object.keys(data);
+      var userFavStories = Object.keys(data);
+
+      console.log(userFavStories);
+
       //if a user is signed in and current tip is in their favorites
-      if (userFavTips.length > 0 && userFavTips.includes(tipNum)) {
-        $(".favorite").html('<i class="fas fa-star fa-fw"></i> Favorited');
-      }
+      setTimeout(() => {
+        const story_num = document.getElementsByClassName("favorite")[0].id;
+        console.log(story_num);
+        if (userFavStories.length > 0 && userFavStories.includes(story_num)) {
+          $(".favorite").html('<i class="fas fa-star fa-fw"></i> Favorited');
+        }
+      }, 800);
     }
   });
 
