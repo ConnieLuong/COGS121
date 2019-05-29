@@ -1,95 +1,66 @@
 <html>
-  <head>
+
+<head>
     <title>Poppa Hub | Favorites</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!--Firebase-->
-    <script
-      defer
-      src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"
-    ></script>
-    <script
-      defer
-      src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"
-    ></script>
-    <script
-      defer
-      src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"
-    ></script>
-    <script
-      defer
-      src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"
-    ></script>
+    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
     <script defer src="./js/secret.js"></script>
 
     <!--Bootstrap-->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
     <!--Imports-->
-    <script
-      type="text/javascript"
-      src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"
-    ></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
     <link rel="stylesheet" href="./css/favorites.css" />
     <script src="./js/favorites.js"></script>
     <script src="./js/favoriteAction.js"></script>
 
     <!--Handlebars-->
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"
-    ></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
 
     <script>
-      $(function() {
-        $("#nav-placeholder").load("nav.html");
-      });
+        $(function () {
+            $("#nav-placeholder").load("nav.html");
+        });
     </script>
-  </head>
+</head>
 
-  <body>
+<body>
     <!--Navigation bar-->
     <div id="nav-placeholder"></div>
 
     <!--filter-->
     <div style="background: #FED766; display: flex; justify-content: center;">
-      <button class="filter active_filter" id="Tips">Tips</button>
-      <!--By default, load trending tips-->
-      <button class="filter" id="Songs">Songs</button>
-      <button class="filter" id="Stories">Stories</button>
+        <button class="filter active_filter" id="Tips">Tips</button>
+        <!--By default, load trending tips-->
+        <button class="filter" id="Songs">Songs</button>
+        <button class="filter" id="Stories">Stories</button>
     </div>
 
     <hr />
     <h3 style="text-align: center;">Favorites</h3>
 
     <div class="row feed" style="display: flex; justify-content: center;">
-      <script id="tip-template" type="text/x-handlebars-template">
+        <script id="tip-template" type="text/x-handlebars-template">
         <div class="col-sm-12 tip"  id="tip{{tip_num}}card">
             <div class="card text-dark">
                 <img class="card-img-top" src="{{tip_img}}" id="tip{{tip_num}}">
@@ -98,15 +69,30 @@
                 </div>
             </div>
       </script>
-      <!--tip content-->
-      <script id="tip-content-template" type="text/x-handlebars-template">
-        <div class="card-body" id="tip{{tip_num}}content">
-            <p class="card-text">{{tip_text}}</p>
-        </div>
-      </script>
+        <!--tip content-->
+        <script id="tip-content-template" type="text/x-handlebars-template">
+            <div class="card-body" id="tip{{tip_num}}content">
+                <p class="card-text">{{tip_text}}</p>
+                <div style="float: right">
+                <!--Favorite button-->
+                <button class="favorite" id="tip{{tip_num}}"><i class="far fa-star fa-fw"></i> Favorite</button>
+                <!--Share-->
+                <div class="dropdown" style="display: inline">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-share fa-fw" aria-hidden="true"></i> Share
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#"><i class="fab fa-facebook-f fa-fw"></i> Facebook</a>
+                    <a class="dropdown-item" href="#"><i class="fab fa-twitter fa-fw"></i> Twitter</a>
+                    <a class="dropdown-item" href="#"><i class="fas fa-envelope-open fa-fw"></i> Mail</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </script>
 
-      <!--stories template-->
-      <script id="story-template" type="text/x-handlebars-template">
+        <!--stories template-->
+        <script id="story-template" type="text/x-handlebars-template">
         <div class="col-sm-12 story"  id="{{No}}">
             <div class="card text-dark text-center" onclick="getStoryDetails($(this).find('.story_name').text())">
                 <img class="card-img-top" src="{{story_img}}" id="story{{No}}">
@@ -116,8 +102,8 @@
             </div>
       </script>
 
-      <!--songs template-->
-      <script id="song-template" type="text/x-handlebars-template">
+        <!--songs template-->
+        <script id="song-template" type="text/x-handlebars-template">
         <div class="col-sm-12 song">
             <div class="card text-dark text-center " onclick="getTrackDetails($(this).find('.song_name').text(),$(this).find('.artist_name').text())">
                 <img class="card-img-top" src="{{cover_art}}" id="song{{song_num}}">
@@ -131,14 +117,15 @@
 
     <!--message when the user hasn't logged in-->
     <div id="overlay">
-      <div id="msgCard" class="card text-center">
-        <div class="card-header">Message</div>
-        <div class="card-body">
-          <h5 class="card-title">Please Sign In or Sign Up First</h5>
-          <a href="./signin.html" class="btn btn-warning">Sign In/Sign up</a>
-          <a href="javascript:history.go(-1)" class="btn">Cancel</a>
+        <div id="msgCard" class="card text-center">
+            <div class="card-header">Message</div>
+            <div class="card-body">
+                <h5 class="card-title">Please Sign In or Sign Up First</h5>
+                <a href="./signin.html" class="btn btn-warning">Sign In/Sign up</a>
+                <a href="javascript:history.go(-1)" class="btn">Cancel</a>
+            </div>
         </div>
-      </div>
     </div>
-  </body>
+</body>
+
 </html>
