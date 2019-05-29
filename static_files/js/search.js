@@ -39,7 +39,7 @@ $(document).ready(function () {
 
             //check if tip is favorited
             $.ajax({
-                url: 'getFravorite',
+                url: 'getFavorite',
                 type: 'POST',
                 data: { collection: "tips" },
                 success: function (data) {
