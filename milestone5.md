@@ -28,6 +28,10 @@ such as which libraries/frameworks you used (if any), how you hooked up to data 
 (Again, you don't need a fancy visualization, but your data needs to be shown in a way that makes sense for your app.) 
 (2 points)
 
+For the tips, we imported the data into our firebase and pulled the relevant data from there to display on the sceen for the user. To help with the parsing the data from the database, we use functions from the Underscorejs library. We also used the musixmatch API to get access to the popular children songs and their lyrics. Using the data from their API, we adjusted it to fit into the templates to display on the screen for the user. For stories, we scraped the web for children stories and imported that data into our firebase. Like the tips, we pulled the data from the database and parsed it so that we could display it on the screen as well.
+
+Most all data interactions are done either with the musixmatch API or with firebase.
+
 ### Ambitious data display or visualization ideas
 milestone5.md contains a paragraph describing some more ambitious data display or visualization ideas beyond what you've 
 implemented that would make your app more polished. Note that you do NOT need to implement those ideas, so feel 
