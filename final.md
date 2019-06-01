@@ -31,7 +31,7 @@ Daddy in the house!
 * story.css
 
 ### JS
-* server.js: performs all the GET & POST calls to Firebase
+* `server.js`: performs all the GET & POST calls to Firebase
 * bedtime.js
 * favorites.js
 * favoriteAction.js
