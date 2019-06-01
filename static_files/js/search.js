@@ -1,3 +1,12 @@
+/**
+ * File: search.js
+ * Description: Given search query, searches through all tips, songs, & stories.
+ *              Displays search results onto the DOM. 
+ *              Logic to process a user's search query, searching the whole site
+ *              for matching tips, stories, and songs; returns results and 
+ *              displays on the searchResults page.
+ * Author: Connie Luong
+ */
 var tt_template;
 var tc_template;
 var story_template;
@@ -19,11 +28,9 @@ $(document).ready(function () {
         $('#query').val(query);
     }
 
-    //if query null or search results empty display message
-
     //When click on a tip card image, show its content
     $(document).on("click", ".card-img-top", function (event) {
-    // $(document).on("click", ".card-title", function (event) {
+        // $(document).on("click", ".card-title", function (event) {
         const tipNum = event.target.id;
         console.log("clicking a tip:", event.target.id);
 
@@ -55,13 +62,14 @@ $(document).ready(function () {
     });
 
 })
+//search thru each collection given query
 function search(query) {
-    //search thru each collection
     searchTips(query);
     searchSongs(query);
     searchStories(query);
 }
 
+//search tips
 function searchTips(query) {
     $.ajax({
         url: 'tips',
@@ -91,7 +99,7 @@ function searchTips(query) {
             console.log("ajax call ==> tips res:", res);
 
             //display results
-            if(Object.keys(res).length == 0){
+            if (Object.keys(res).length == 0) {
                 $('.tipResults').append("No results");
                 return;
             }
@@ -103,8 +111,8 @@ function searchTips(query) {
     });
 }
 
+//search stroies
 function searchStories(query) {
-
     $.ajax({
         url: 'stories',
         type: 'GET',
@@ -138,20 +146,20 @@ function searchStories(query) {
 
             console.log("ajax call ==> stories res:", res);
 
-            //TODO display results
+            //display results
             _.each(res, function (e) {
                 var html = story_template(e);
                 $('.storyResults').append(html);
             });
-            if(Object.keys(res).length == 0){
+            if (Object.keys(res).length == 0) {
                 $('.storyResults').append("No results");
                 return;
             }
-            // $('.storyResults').append('No results');
         }
     });
 }
 
+//search songs
 function searchSongs(query) {
     var res = {};
     $.ajax({
@@ -205,7 +213,7 @@ function searchSongs(query) {
                 return {
                     album_name: value.album_name,
                     artist_name: value.artist_name,
-                    track_name: value.track_name,                    
+                    track_name: value.track_name,
                     cover_art: value.cover_art
                 }
             }) //{track0: {album_name:'a', artist_name:'b', track_name:'c'}, ...}
@@ -228,16 +236,16 @@ function searchSongs(query) {
                 $('.songResults').append(html);
             });
 
-            if(Object.keys(res).length == 0){
+            if (Object.keys(res).length == 0) {
                 $('.songResults').append("No results");
                 return;
             }
-            // $('.songResults').append('No results');
         }
     });
 }
 
-function showTipContent(tipNum, tc_template){
+//function to call when a collapsed tip is clicked
+function showTipContent(tipNum, tc_template) {
     $.ajax({
         url: 'tips',
         type: 'GET',
@@ -250,26 +258,27 @@ function showTipContent(tipNum, tc_template){
     });
 }
 
-//knowing which song is clicked
+//knowing which song is clicked, redirect to song page
 function getTrackDetails(track_name, artist_name, section) {
     console.log(track_name);
     console.log(artist_name);
     console.log(section);
     url =
-      "./song.html?name=" +
-      encodeURIComponent(track_name) +
-      "&artist=" +
-      encodeURIComponent(artist_name) +
-      "&section=" +
-      encodeURIComponent(section);
+        "./song.html?name=" +
+        encodeURIComponent(track_name) +
+        "&artist=" +
+        encodeURIComponent(artist_name) +
+        "&section=" +
+        encodeURIComponent(section);
     console.log(url);
-  
+
     document.location.href = url;
-  }
-  
-  function getStoryDetails(story_name) {
+}
+
+//knowing which story is clicked, redirect to story page
+function getStoryDetails(story_name) {
     console.log(story_name);
     url = "./story.html?name=" + encodeURIComponent(story_name);
     console.log(url);
     document.location.href = url;
-  }
+}

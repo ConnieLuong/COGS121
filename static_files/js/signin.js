@@ -1,3 +1,10 @@
+/**
+ * File: signin.js
+ * Description: Signs user in or signs user up based on the 
+ *              form information submitted. Also logic to change UI/form
+ *              displayed based on the tab user clicks on.
+ * Author: Connie Luong
+ */
 $(document).ready(function () {
     //show sign in form initially
     $('.signin').css("display", "initial");
@@ -5,16 +12,22 @@ $(document).ready(function () {
     $('.signinTab').addClass('activeTab');
     $('.signupTab').removeClass('activeTab');
     
-    //sign in
+    //sign in & sign up tab switching
     $(document).on("click", ".signinTab", function(event){
         $('.signin').css("display", "initial");
         $('.signup').css("display", "none");
         $('.signinTab').addClass('activeTab');
         $('.signupTab').removeClass('activeTab');
     });
+    $(document).on("click", ".signupTab", function(event){
+        $('.signin').css("display", "none");
+        $('.signup').css("display", "initial");
+        $('.signinTab').removeClass('activeTab');
+        $('.signupTab').addClass('activeTab');
+    });
 
+    //sign in
     $(document).on("click", "#signinButton", function(event){
-        console.log('signing in...');
         $.ajax({
             url: 'signin',
             type: 'POST', 
@@ -36,15 +49,7 @@ $(document).ready(function () {
     });   
     
     //sign up
-    $(document).on("click", ".signupTab", function(event){
-        $('.signin').css("display", "none");
-        $('.signup').css("display", "initial");
-        $('.signinTab').removeClass('activeTab');
-        $('.signupTab').addClass('activeTab');
-    });
-    
     $(document).on("click", "#signupButton", function(event){
-        console.log('signing up...');
         $.ajax({
             url: 'signup',
             type: 'POST', 
@@ -63,6 +68,5 @@ $(document).ready(function () {
                 alert(data.responseJSON.message);
             }
         });
-        return false; //prevents refresh
     });    
 });

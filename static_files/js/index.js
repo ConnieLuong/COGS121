@@ -1,3 +1,9 @@
+/**
+ * File: index.js
+ * Description: Contains the logic to load the tips onto the page. Also links
+ *              the favorite action to the favorites button.
+ * Author: Connie Luong
+ */
 $(document).ready(function () {
     const tt_template = Handlebars.compile($('#tip-template').html()); //tip-template    
     const tc_template = Handlebars.compile($('#tip-content-template').html()); //tip-content-template
@@ -89,6 +95,7 @@ function loadFilteredTips(filter, tt_template) {
     });
 }
 
+//function to call when a collapsed tip is clicked
 function showTipContent(tipNum, tc_template){
     $.ajax({
         url: 'tips',
@@ -98,7 +105,6 @@ function showTipContent(tipNum, tc_template){
             var tips = data;
             var html = tc_template(tips[tipNum]);
             $('#' + tipNum + 'card').append(html);
-            // $('#' + tipNum + 'content').hide().slideDown(1000);;
         },
     });
 }
