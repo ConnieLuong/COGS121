@@ -3,7 +3,9 @@ Daddy in the house!
 
 ## Members & Contributions: 
 1. Hao-In Choi
-2. Connie Luong 
+2. Connie Luong
+    * Project leader: made sure all tasks assigned were going to be completed on time, cutting scope if needed.
+    * In charge of most of the backend & frontend logic. For example, I did the logic for favoriting/unfavoriting items, user sign in/sign out/sign up,  searching, displaying tips on the main page (index), filtering, and updating profile.
 3. Boya Ren 
 4. Alessandra Landingin
 
