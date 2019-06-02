@@ -1,3 +1,10 @@
+/**
+ * File: server.js
+ * Description: Performs all the GET & POST calls to Firebase & returns data
+ *              back to the frontend
+ * Authors: Connie Luong, Hao-in Choi
+ */
+
 /************************************** Initiations  **************************************/
 const express = require("express");
 const _ = require("underscore");
@@ -19,29 +26,28 @@ const config = {
 firebase.initializeApp(config);
 const database = firebase.database();
 /************************************** GET REQUESTS **************************************/
+
+//Checks if user is signed in & returns data based on this info
 app.get("/getUser", (req, res) => {
     console.log("trying to make GET request to /getUser");
     var user = firebase.auth().currentUser;
     if (user) {
         // User is signed in.
-        var displayName = user.displayName;
-        var email = user.email;
-        var photoURL = user.photoURL;
-
         return res.send({
-            displayName: displayName,
-            email: email,
-            photoURL: photoURL,
-            text: "Sign out"
+            displayName: user.displayName,
+            email: user.email,
+            photoURL: user.photoURL,
+            text: "Sign out" //text to show on navbar
         });
     } else {
         // User is signed out.
         return res.send({
-            text: "Sign in"
+            text: "Sign in" //text to show on navbar
         });
     }
 });
 
+//Signs user out
 app.get("/signOut", (req, res) => {
     console.log("trying to make GET request to /signOut");
     var user = firebase.auth().currentUser;
@@ -54,6 +60,7 @@ app.get("/signOut", (req, res) => {
     }
 });
 
+//Grabs the tips collection from db
 app.get("/tips", (req, res) => {
     console.log("trying to make GET request to /tips");
     database.ref('tips/').once('value', function (snapshot) {
@@ -61,6 +68,7 @@ app.get("/tips", (req, res) => {
     });
 });
 
+//Grabs the stories collection from db
 app.get("/stories", (req, res) => {
     console.log("trying to make GET request to /stories");
     database.ref('stories/').once('value', function (snapshot) {
@@ -68,6 +76,7 @@ app.get("/stories", (req, res) => {
     });
 });
 
+//Grabs the songs collection from db
 app.get("/songs", (req, res) => {
     console.log("trying to make GET request to /songs");
     database.ref('songs/').once('value', function (snapshot) {
@@ -75,6 +84,8 @@ app.get("/songs", (req, res) => {
     });
 });
 /************************************** POST REQUESTS **************************************/
+
+//Sign user in
 app.post("/signin", (req, res) => {
     console.log("trying to make POST request to /signin");
     // Grab email & password from request
@@ -89,7 +100,7 @@ app.post("/signin", (req, res) => {
             return res.status(200).send({ message: "sucess sign in" });
         })
         .catch(function (error) {
-            // Handle Errors here.
+            // Handle Errors
             var errorCode = error.code;
 
             if (errorCode == "auth/invalid-email") {
@@ -108,6 +119,7 @@ app.post("/signin", (req, res) => {
         });
 });
 
+//User sign up
 app.post("/signup", (req, res) => {
     console.log("trying to make POST request to /signup");
     // Grab email & password from request
@@ -116,15 +128,12 @@ app.post("/signup", (req, res) => {
     displayName = req.body.displayName;
 
     // Sign up using firebase
-    firebase
-        .auth()
+    firebase.auth()
         .createUserWithEmailAndPassword(email, password)
         .then(function () {
             //create a user object in database
             database.ref("users/").once("value", function (snapshot) {
-                var collectionSize = snapshot.val()
-                    ? Object.keys(snapshot.val()).length + 1
-                    : 1;
+                var collectionSize = snapshot.val() ? Object.keys(snapshot.val()).length + 1 : 1;
                 var userName = "users/user" + collectionSize;
                 database.ref(userName).set({
                     email: email,
@@ -141,7 +150,7 @@ app.post("/signup", (req, res) => {
             return res.send({ message: "success sign up" });
         })
         .catch(function (error) {
-            // Handle Errors here.
+            // Handle Errors
             var errorCode = error.code;
             var errorMessage = error.message;
             console.log(errorCode);
@@ -169,6 +178,7 @@ app.post("/signup", (req, res) => {
         });
 });
 
+//Favorite or Unfavorite a tip, story, or song
 app.post("/favorite", (req, res) => {
     console.log("trying to make POST request to /favorite");
     var user = firebase.auth().currentUser;
@@ -184,9 +194,8 @@ app.post("/favorite", (req, res) => {
             var userKey = _.findKey(snapshot.val(), function (u) {
                 return u.email == user.email;
             });
-            // console.log("userKey: " + userKey + " userRef: ", userRef);
 
-            // Get reference to user's appropriate favorites list & add new item
+            // Get reference to user's appropriate favorites(tips, songs, or story) list & add new item
             var userFav = (collection == "tips") ? userRef.favorite_tips : ((collection == "stories") ? userRef.favorite_stories : userRef.favorite_songs);
             if (userFav.includes(item)) {
                 //remove that item
@@ -227,29 +236,23 @@ app.post("/favorite", (req, res) => {
     }
 });
 
-//loading favorite
+//If user signed in, grab expected list of favorites
 app.post("/getFavorite", (req, res) => {
     console.log("trying to make POST request to /getFavorite");
     var user = firebase.auth().currentUser;
     var collection = req.body.collection; //tips, stories, songs/favorites, songs/hot, songs/new
     if (user) {
-        console.log("getting favorite data from firebase");
         database.ref("users/").once("value", function (snapshot) {
             //Get a copy of user object
             var userRef = _.findWhere(snapshot.val(), { email: user.email });
             var userKey = _.findKey(snapshot.val(), function (u) {
                 return u.email == user.email;
             });
-            // console.log("userKey: " + userKey + " userRef: ", userRef);
 
             //Get to user's favorites tip
-            var userFav =
-                collection == "tips"
-                    ? userRef.favorite_tips
-                    : collection == "stories"
-                        ? userRef.favorite_stories
-                        : userRef.favorite_songs;
+            var userFav = (collection == "tips") ? userRef.favorite_tips : (collection == "stories" ? userRef.favorite_stories : userRef.favorite_songs);
 
+            //Grab the appropriate favorite list to send back
             switch (collection) {
                 case "tips":
                     database.ref("tips/").once("value", function (t) {
@@ -267,7 +270,6 @@ app.post("/getFavorite", (req, res) => {
                     });
                     break;
                 case "stories":
-                    console.log("clicking stories");
                     database.ref("stories/").once("value", function (t) {
                         const data = t.val();
                         const results = _.chain(Object.keys(data))
@@ -279,12 +281,10 @@ app.post("/getFavorite", (req, res) => {
                                 return obj;
                             }, {})
                             .value();
-                        // console.log(results);
                         res.send(results);
                     });
                     break;
                 default:
-                    console.log("clicking songs");
                     const results = [];
                     var promise1 = new Promise(function (resolve, reject) {
                         userRef.favorite_songs.forEach(e => {
@@ -300,31 +300,24 @@ app.post("/getFavorite", (req, res) => {
                         });
                     });
                     promise1.then(function (value) {
-                        console.log(value);
                         res.send(value);
                     });
-
-                /* database.ref("songs/favorites").once("value", snapshot => {
-                    const data = snapshot.val();
-                    const favSong = userFav.includes("favorites");
-                    console.log(favSong);
-                  }); */
             }
         });
     } else {
         console.log("You need to sign in to see favorites");
-        //res.send({});
         return res.send({ message: "You need to sign in to see favorites" });
     }
 });
 
-//update profile
+//Update profile
 app.post("/updateProfile", (req, res) => {
     console.log("trying to make POST request to /updateProfile");
     var user = firebase.auth().currentUser;
     //new profile info
     var newName = req.body.newName;
     var newEmail = req.body.newEmail;
+    //update profile if signed in
     if (user) {
         if (newName && newName != "") {
             user.updateProfile({
@@ -332,8 +325,7 @@ app.post("/updateProfile", (req, res) => {
             });
         }
         if (newEmail && newEmail != "") {
-            user
-                .updateEmail(newEmail)
+            user.updateEmail(newEmail)
                 .then(function () {
                     // Update successful.
                 })
@@ -350,11 +342,13 @@ app.post("/updateProfile", (req, res) => {
     });
 });
 
+//Change password
 app.post("/changePassword", (req, res) => {
     console.log("trying to make POST request to /changePassword");
     var user = firebase.auth().currentUser;
     var newPassword = req.body.newPassword;
 
+    //update password if signed in
     if (user) {
         if (newPassword && newPassword != "") {
             user

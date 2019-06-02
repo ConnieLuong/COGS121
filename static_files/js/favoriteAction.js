@@ -1,3 +1,10 @@
+/**
+ * File: favoriteAction.js
+ * Description: Contains the logic for favoriting or unfavoriting a tip, 
+ *              story, or song. Will update the user's info accordingly 
+ *              in the database.
+ * Author: Connie Luong
+ */
 $(document).ready(function () {
     //Favorites
     $(document).on("click", ".favorite", function (event) {
@@ -21,7 +28,7 @@ $(document).ready(function () {
                 if (data.message == "Please sign in to add to favorites.")
                     alert(data.message);
 
-                //change ui
+                //change favorite button if favorited/unfavorited
                 switch (data.message) {
                     case "Added item to your favorites":
                         $('.favorite').html('<i class="fas fa-star fa-fw"></i> Favorited');
@@ -30,7 +37,6 @@ $(document).ready(function () {
                         $('.favorite').html('<i class="far fa-star fa-fw"></i> Favorite');
                         break;
                 }
-                //alert(data.message);
             },
             error: (data) => {
                 console.log(data.message);

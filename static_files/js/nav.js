@@ -1,3 +1,8 @@
+/**
+ * File: nav.js
+ * Description: logic for the navbar & signin/signout button
+ * Authors: Boya Ren, Connie Luong
+ */
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
 }
@@ -7,7 +12,7 @@ function closeNav() {
 }
 
 $(document).ready(function () {
-    //update navbar on load
+    //update navbar on load to show signin or signout button
     $.ajax({
         url: 'getUser',
         type: 'GET', 
@@ -46,10 +51,7 @@ $(document).ready(function () {
 
     });
 
-    $('body').click(function(event){
-        console.log(event.target.id);
-    });
-
+    //logo fade out/fade in when search bar expands
     $(document).on('click', '#query', function(event){
         $('#logo').fadeOut(150);
     });

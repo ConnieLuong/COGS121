@@ -1,4 +1,12 @@
+/**
+ * File: settings.js
+ * Description: makes appropriate api calls to properly update a 
+ *              user's profile or password
+ * Author: Connie Luong
+ */
 $(document).ready(function () {
+
+    //only display settings update form if user is signed in
     $.ajax({
         url: 'getUser',
         type: 'GET', 
@@ -15,12 +23,16 @@ $(document).ready(function () {
             }
         }
     });
+
+    //initially hide success notice
     $('small').hide();
 
+    //prevent refresh
     $(".updateForm").submit(function(e) {
         e.preventDefault();
     });
 
+    //update profile
     $(document).on('click', '#saveInfo', function(){
         var newName = $('#name').val();
         var newEmail = $('#email').val();
@@ -46,6 +58,7 @@ $(document).ready(function () {
         });
     });
 
+    //change password
     $(document).on('click', '#changePassword', function(){
         var newPassword = $('#newPassword').val();
         var confirmPassword = $('#confirmPassword').val();
