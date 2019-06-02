@@ -39,8 +39,6 @@
   background: transparent;
   border: 0px black;
   margin: 0 0.5rem;
-  font-size: 24px;
-  font-weight: medium;
 }
 .active_filter {
   border: 0px black;
@@ -57,32 +55,22 @@
 }
 
 body {
-  font-size: 16px;
   line-height: 1.618;
   margin: auto;
   color: #1f1f1f;
   background-color: #f9f9f9;
-  font-family: Cabin;
 }
 
 h1 {
-  font-size: 20px;
-  font-weight: regular;
   margin-left: 1rem;
   margin-bottom: 0;
 }
 
-h3,
-h4 {
-  font-size: 16px;
-  font-weight: regular;
-}
 
 h2,
 h5,
 h6 {
   line-height: 1.1;
-  font-weight: 700;
   overflow-wrap: break-word;
   word-wrap: break-word;
   -ms-word-break: break-all;
@@ -95,14 +83,6 @@ h6 {
 
 section {
   margin-top: 25px;
-}
-
-section h6 {
-  font-weight: 545;
-}
-
-* {
-  font-family: Cabin;
 }
 
 #demo {
@@ -121,11 +101,6 @@ section {
   max-height: 100%;
   width: 24em;
   height: 20em;
-}
-
-.feed h5 {
-    font-size: 16px;
-    font-weight: regular;
 }
 
 .reGenBtn {

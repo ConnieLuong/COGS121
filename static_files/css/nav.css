@@ -1,6 +1,7 @@
 * {
-    font-family: Cabin;
+    font-family: 'Roboto', sans-serif;
 }
+
 .sidenav > h1{
     color: ivory ;
     margin: 0.5rem 2rem ;
@@ -23,9 +24,10 @@
     padding: 0;
     margin: 0;
     font-size: 35px;
-    text-transform: uppercase;
     text-decoration: none;
     color: black;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #f2924c;
 }
 
 /* Navigation */
@@ -50,6 +52,7 @@
   color: #818181;
   display: block;
   transition: 0.3s;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .sidenav a:hover {
