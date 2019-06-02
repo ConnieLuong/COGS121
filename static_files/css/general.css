@@ -24,7 +24,7 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
 
-button{
+button, .btn{
   background-color: #FED766;
   outline-color: #FED766;
   border-color: #FED766;
@@ -32,4 +32,3 @@ button{
   font-weight: medium;
   font-family: 'Josefin Sans', sans-serif;
 }
-
