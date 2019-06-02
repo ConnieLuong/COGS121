@@ -299,6 +299,7 @@ app.post("/getFavorite", (req, res) => {
           break;
         default:
           const results = [];
+          //wait for grabbing all the songs before send the json back to frontend
           var promise1 = new Promise(function(resolve, reject) {
             userRef.favorite_songs.forEach(e => {
               database
@@ -312,6 +313,7 @@ app.post("/getFavorite", (req, res) => {
               }, 1000);
             });
           });
+          //send the object back to frontend
           promise1.then(function(value) {
             res.send(value);
           });

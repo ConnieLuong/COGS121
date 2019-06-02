@@ -1,3 +1,9 @@
+/**
+ * File: story.js
+ * Description: Contains the logic for loading in specific song name, artist
+ *              and content based on the data passed from the url
+ * Author: Hao-In Choi
+ */
 $(document).ready(function() {
   //on load, load correct favorite icon
   $.ajax({
@@ -23,9 +29,9 @@ $(document).ready(function() {
     const song_name = arr[0].split("=")[1];
     const artist = arr[1].split("=")[1];
     const section = arr[2].split("=")[1];
-    console.log('song_name:',song_name);
-    console.log('artist', artist);
-    console.log('section', section);
+    console.log("song_name:", song_name);
+    console.log("artist", artist);
+    console.log("section", section);
     const a = "Sexy and I know it",
       b = "LMFAO";
 
@@ -58,12 +64,26 @@ $(document).ready(function() {
         console.log(errorThrown);
       });
 
-    database.ref("songs/" + section).once("value", function(snapshot) {
-      const songs = snapshot.val();
-      const song = _.find(songs, { track_name: song_name });
-      console.log("songs",songs);
-      console.log("song",song);
-      $(".favorite").attr("id", section + "/track" + song["song_num"]);
+    $.ajax({
+      url: "songs",
+      type: "GET",
+      data: JSON,
+      success: function(data) {
+        const fav_tracks = data.favorites;
+        const hot_tracks = data.hot;
+        const new_tracks = data.new;
+
+        if (section == "favorites") {
+          const song = _.find(fav_tracks, { track_name: song_name });
+          $(".favorite").attr("id", section + "/track" + song["song_num"]);
+        } else if (section == "hot") {
+          const song = _.find(hot_tracks, { track_name: song_name });
+          $(".favorite").attr("id", section + "/track" + song["song_num"]);
+        } else {
+          const song = _.find(new_tracks, { track_name: song_name });
+          $(".favorite").attr("id", section + "/track" + song["song_num"]);
+        }
+      }
     });
   } else {
     $("#lyrics").html("nothing Received");

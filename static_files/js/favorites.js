@@ -1,3 +1,9 @@
+/**
+ * File: favorite.js
+ * Description: Contains the logic for loading a tip,
+ *              story, or song according to the user's data info
+ * Author: Connie Luong, Hao-In Choi
+ */
 $(document).ready(function() {
   //tip-template
   const tt_template = Handlebars.compile($("#tip-template").html());
@@ -8,24 +14,12 @@ $(document).ready(function() {
   //story-template
   const s_template = Handlebars.compile($("#story-template").html());
 
+  //song-template
   const song_template = Handlebars.compile($("#song-template").html());
 
   //showing tips by default
   console.log("loading in favorite tips by default");
-  /* database.ref("/stories").once("value", snapshot => {
-    const stories = snapshot.val();
-    let counter = 0;
-    stories.forEach(e => {
-      e["story_img"] = "./img/story/" + counter + ".jpg";
-      if (counter == 3) {
-        counter = 0;
-      } else {
-        counter++;
-      }
-    });
-    database.ref("/stories").set(stories);
-  });
-  */
+
   $.ajax({
     url: "getFavorite",
     type: "POST",
@@ -58,6 +52,7 @@ $(document).ready(function() {
     //add active_filter to clicked button
     event.target.classList.add("active_filter");
 
+    //load favorite tips
     if (filter == "Tips") {
       console.log("attempting to get favorite tips");
       $.ajax({
@@ -79,7 +74,9 @@ $(document).ready(function() {
           console.log(data.message);
           console.log("fail getting tip");
         });
-    } else if (filter == "Stories") {
+    }
+    //load favorite stories
+    else if (filter == "Stories") {
       console.log("attempting to get favorite stories");
       $.ajax({
         url: "getFavorite",
@@ -99,7 +96,9 @@ $(document).ready(function() {
           console.log("fail getting story");
         }
       });
-    } else {
+    }
+    //load favorited songs
+    else {
       console.log("attempting to get favorite songs");
       $.ajax({
         url: "getFavorite",
@@ -130,13 +129,24 @@ $(document).ready(function() {
     if (event.target.classList.contains("showing")) {
       event.target.classList.remove("showing");
       $("#" + tipNum + "content").remove();
-    } else {
+    }
+    //else mark element as showing & show content
+    else {
       //mark element as showing
       event.target.classList.add("showing");
-      database.ref("tips/" + tipNum).once("value", function(snapshot) {
-        const data = snapshot.val();
-        var html = tc_template(data);
-        $("#" + tipNum + "card").append(html);
+      showTipContent(tipNum, tc_template);
+      $.ajax({
+        url: "getFavorite",
+        type: "POST",
+        data: { collection: "tips" },
+        success: function(data) {
+          console.log("Checking if ", tipNum, " is favorited: ", data);
+          var userFavTips = Object.keys(data);
+          //if a user is signed in and current tip is in their favorites
+          if (userFavTips.length > 0 && userFavTips.includes(tipNum)) {
+            $(".favorite").html('<i class="fas fa-star fa-fw"></i> Favorited');
+          }
+        }
       });
     }
   });
@@ -163,25 +173,17 @@ function getStoryDetails(story_name) {
   console.log(url);
   document.location.href = url;
 }
-/*  database.ref("tips/").once("value", function(t) {
-    const data = t.val();
-    const test = ["tip04", "tip06"];
 
-    const filtered = _.chain(Object.keys(data))
-      .filter(function(key) {
-        return test.includes(key);
-      })
-      .reduce((obj, key) => {
-        obj[key] = data[key];
-        return obj;
-      }, {})
-      .value();
-
-      Object.keys(data)
-      .filter(key => test.includes(key))
-      .reduce((obj, key) => {
-        obj[key] = data[key];
-        return obj;
-      }, {});
-    console.log(filtered);
-  }); */
+//function to call when a collapsed tip is clicked
+function showTipContent(tipNum, tc_template) {
+  $.ajax({
+    url: "tips",
+    type: "GET",
+    data: JSON,
+    success: function(data) {
+      var tips = data;
+      var html = tc_template(tips[tipNum]);
+      $("#" + tipNum + "card").append(html);
+    }
+  });
+}
