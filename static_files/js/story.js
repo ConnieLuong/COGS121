@@ -5,19 +5,19 @@ $(document).ready(function() {
     type: "POST",
     data: { collection: "stories" },
     success: function(data) {
-      console.log("clicking on tips. need to check if favorited: ", data);
       var userFavStories = Object.keys(data);
 
       console.log(userFavStories);
 
       //if a user is signed in and current tip is in their favorites
       setTimeout(() => {
-        const story_num = document.getElementsByClassName("favorite")[0].id;
+        // const story_num = document.getElementsByClassName("favorite")[0].id;
+        const story_num = $('.favorite').attr('id');
         console.log(story_num);
         if (userFavStories.length > 0 && userFavStories.includes(story_num)) {
-          $(".favorite").html('<i class="fas fa-star fa-fw"></i> Favorited');
+          $("button.favorite").html('<i class="fas fa-star fa-fw"></i> Favorited');
         }
-      }, 800);
+      }, 2000);
     }
   });
 

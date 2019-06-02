@@ -58,13 +58,19 @@
 
     <div class="searchResults">
         <h2>Search Results for '<span id="query2" style="font-weight: 100; font-style: italic"></span>'</h2>
-        <h4>Tips <!--<i class="fas fa-caret-down"></i>--><hr></h4>
+        <h4>Tips
+            <hr>
+        </h4>
         <div class="row tipResults" style="display: flex; justify-content: center;"></div>
 
-        <h4>Stories<hr></h4>
+        <h4>Stories
+            <hr>
+        </h4>
         <div class="row storyResults" style="display: flex; justify-content: center;"></div>
 
-        <h4>Songs<hr></h4>
+        <h4>Songs
+            <hr>
+        </h4>
         <div class="row songResults" style="display: flex; justify-content: center;"></div>
 
     </div>
@@ -74,7 +80,6 @@
         <div class="col-sm-12 tip" id="tip{{tip_num}}card">
         <div class="card text-dark">
             <img class="card-img-top" src="{{tip_img}}" id="tip{{tip_num}}">
-            <!-- <img class="card-img-top" src="./img/Mustang.jpg" id="tip{{tip_num}}"> -->
             <h5 class="card-title" id="tip{{tip_num}}">{{tip_title}}</h5>
         </div>
         <!--tip content would go here when clicking-->
@@ -104,13 +109,15 @@
 
     <!--Song template-->
     <script id="song-template" type="text/x-handlebars-template">
-        <div class="card text-center" id = "song{{song_num}}card" onclick="getTrackDetails($(this).find('.song_name').text(),$(this).find('.artist_name').text(),$(this).parent().parent().prop('className'))">
+        <div class="{{section}}">
+            <div class="card text-center {{section}}" id = "song{{song_num}}card" onclick="getTrackDetails($(this).find('.song_name').text(), $(this).find('.artist_name').text(), $(this).parent().prop('className'))">
             <!--image inside the card-->
             <div class="imgholder">
                 <img id="fav_img{{song_num}}" class="cardimg" src="{{cover_art}}" alt="img"/>
             </div>
-            <h3 id="song_name{{song_num}}" class="song_name">{{track_name}}</h3>
+            <h4 id="song_name{{song_num}}" class="song_name">{{track_name}}</h4>
             <h6 id="artist_name{{song_num}}" class="artist_name">{{artist_name}}</h6>
+            </div>
         </div>
     </script>
 

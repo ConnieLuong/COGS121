@@ -5,7 +5,6 @@ $(document).ready(function() {
     type: "POST",
     data: { collection: "songs" },
     success: function(data) {
-      console.log("clicking on tips. need to check if favorited: ", data);
       const song_name = arr[0].split("=")[1];
       const result = _.findWhere(data, { track_name: song_name });
 
@@ -24,9 +23,9 @@ $(document).ready(function() {
     const song_name = arr[0].split("=")[1];
     const artist = arr[1].split("=")[1];
     const section = arr[2].split("=")[1];
-    console.log(song_name);
-    console.log(artist);
-    console.log(section);
+    console.log('song_name:',song_name);
+    console.log('artist', artist);
+    console.log('section', section);
     const a = "Sexy and I know it",
       b = "LMFAO";
 
@@ -62,7 +61,8 @@ $(document).ready(function() {
     database.ref("songs/" + section).once("value", function(snapshot) {
       const songs = snapshot.val();
       const song = _.find(songs, { track_name: song_name });
-      console.log(song);
+      console.log("songs",songs);
+      console.log("song",song);
       $(".favorite").attr("id", section + "/track" + song["song_num"]);
     });
   } else {
