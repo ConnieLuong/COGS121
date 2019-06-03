@@ -1,0 +1,34 @@
+* {
+  font-family: 'Roboto', sans-serif;
+  font-weight: regular;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: medium;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+h3, h4, h5, h6 {
+  font-size: 16px;
+}
+
+body {
+  font-size: 16px;
+}
+
+.filter {
+  font-family: 'Roboto', sans-serif;
+  font-weight: medium;
+  font-size: 24px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+button, .btn{
+  background-color: #FED766;
+  outline-color: #FED766;
+  border-color: #FED766;
+  font-size: 20px;
+  font-weight: medium;
+  font-family: 'Josefin Sans', sans-serif;
+}

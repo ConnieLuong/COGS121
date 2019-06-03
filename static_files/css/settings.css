@@ -3,10 +3,6 @@
  * Description: Contains the styling for the settings.html
  * Author: Boya Ren
  */
-* {
- font-family: Cabin;
- font-weight: regular;
-}
 
 .profile {
     margin-top: 2rem;
@@ -19,7 +15,6 @@ form{
 h1, h4{
     margin: 0 1rem 0 1rem;
     text-align: center;
-    font-size: 20px;
 }
 
 label{
@@ -27,14 +22,13 @@ label{
 }
 
 button{
-    background-color: #FED766!important;
-    color: white;
-    border: 0px !important;
+/*    color: white;
+    border: 0px !important;*/
     margin: 1rem 0 0 0;
 }
 
 small{
-    background: rgb(178, 208, 168);
+    background: #f2924c;
     border: 1px solid rgb(76, 154, 76);
     display: flex;
     justify-content: center;
@@ -48,4 +42,12 @@ label {
 
 input {
     font-size: 16px;
+}
+
+.oneSection {
+    color: #f2924c;
+    font-size: 24px;
+    font-weight: medium;
+    
+    font-family: 'Josefin Sans', sans-serif;
 }
