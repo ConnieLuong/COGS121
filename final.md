@@ -38,16 +38,17 @@ Daddy in the house!
 
 ### JS
 * `server.js`: Performs all the GET & POST calls to Firebase
-* `bedtime.js`: 
-* `favorites.js`
+* `bedtime.js`: Contains all the logic of loading songs and stories onto the page, regenerating new songs/tracks list, carousel and sending info to song.html and story.html
+and carousel.
+* `favorites.js`: Contains the logic for loading favorited tip, story, or song according to the user's data info
 * `favoriteAction.js`: Contains the logic for favoriting or unfavoriting a tip, story, or song. Will update the user's info accordingly in the database
 * `index.js`: Contains the logic to load the tips onto the page, as well as links the favorite action.
 * `nav.js`: logic for the navbar & signin/signout button
 * `search.js`: logic to process a user's search query, searching the whole site for matching tips, stories, and songs; returns results and displays on the searchResults page
 * `settings.js`: makes appropriate api calls to properly update a user's profile or password
 * `signin.js`: makes the api calls necessary to signin or signout a user
-* `song.js`
-* `story.js`
+* `song.js`: Contains the logic for loading in specific song name and content based on the data passed from the url
+* `story.js`: Contains the logic for loading in specific story name and content based on the data passed from the url
 
 ## Presentation Slide
 * https://docs.google.com/presentation/d/1M9oDjkbW-VxojCRI3ZwjUyXuAKp5DZiQngTV1wGY9u0/edit?usp=sharing
