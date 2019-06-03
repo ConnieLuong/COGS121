@@ -35,6 +35,7 @@ Daddy in the house!
 * `signin.css`: styles the sign in/sign up forms
 * `song.css`: styles the song content page
 * `story.css`: styles the story content page
+* `general.css`: contained the styling of the overall app
 
 ### JS
 * `server.js`: Performs all the GET & POST calls to Firebase
