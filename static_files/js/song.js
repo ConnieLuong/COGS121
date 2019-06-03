@@ -32,15 +32,13 @@ $(document).ready(function() {
     console.log("song_name:", song_name);
     console.log("artist", artist);
     console.log("section", section);
-    const a = "Sexy and I know it",
-      b = "LMFAO";
 
     const getLyrics = $.ajax({
       type: "GET",
       data: {
         apikey: "c19e78e81750d07fb415f8fda78a663c",
-        q_track: a,
-        q_artist: b,
+        q_track: "Da Da Da",
+        q_artist: "Trio",
         format: "jsonp",
         callback: "jsonp_callback"
       },
