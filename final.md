@@ -3,8 +3,8 @@ Daddy in the house!
 
 ## Members & Contributions: 
 1. Hao-In Choi
-    * Assitant developer & Storyteller: assisted on developing the web-app and solving bugs. Presenting and pitching our app and ideas to graders.
-    * In charge of some parts of the backend & frontend logic and ultilized the music API. For example, I scrapped the songs and lyrics from the API, did the logic for loading favorited tips to the favorite page and built the skeleton UI for bedtime page.  
+    * Assitant developer & Storyteller: contributed on developing the frontend, backend, and solving bugs. Presenting and pitching our app and ideas to graders.
+    * In charge of some parts of the backend & frontend logic and ultilized the music API. For example, I scrapped the songs and lyrics from the API, did the logic for loading favorited tips to the favorite page and built the skeleton UI and logic for bedtime page.  
 2. Connie Luong
     * Project leader: made sure all tasks assigned were going to be completed on time, cutting scope if needed.
     * In charge of most of the backend & frontend logic. For example, I did the logic for favoriting/unfavoriting items, user sign in/sign out/sign up,  searching, displaying tips on the main page (index), filtering, and updating profile.
@@ -35,6 +35,7 @@ Daddy in the house!
 * `signin.css`: styles the sign in/sign up forms
 * `song.css`: styles the song content page
 * `story.css`: styles the story content page
+* `general.css`: contained the styling of the overall app
 
 ### JS
 * `server.js`: Performs all the GET & POST calls to Firebase
