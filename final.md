@@ -57,5 +57,5 @@ and carousel.
 * https://docs.google.com/presentation/d/1M9oDjkbW-VxojCRI3ZwjUyXuAKp5DZiQngTV1wGY9u0/edit?usp=sharing
 
 ## Demo Video
-* https://vimeo.com/user99280892/review/340055005/3ebbe34912
+* https://vimeo.com/340057865
 
