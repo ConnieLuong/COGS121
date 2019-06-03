@@ -109,11 +109,15 @@ $(document).ready(function() {
       })
         .done(function(data) {
           console.log(data);
-          Object.keys(data).forEach(e => {
-            var html = song_template(data[e]);
-            $(".feed").append(html);
-          });
-          console.log("done loading song");
+          if (data[0] == null) {
+            console.log("empty");
+          } else {
+            Object.keys(data).forEach(e => {
+              var html = song_template(data[e]);
+              $(".feed").append(html);
+            });
+            console.log("done loading song");
+          }
         })
         .fail(function(data) {
           console.log(data.message);
