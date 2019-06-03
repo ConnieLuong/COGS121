@@ -8,7 +8,9 @@ Daddy in the house!
 2. Connie Luong
     * Project leader: made sure all tasks assigned were going to be completed on time, cutting scope if needed.
     * In charge of most of the backend & frontend logic. For example, I did the logic for favoriting/unfavoriting items, user sign in/sign out/sign up,  searching, displaying tips on the main page (index), filtering, and updating profile.
-3. Boya Ren 
+3. Boya Ren
+    * UI designer & Front-end developer: contributed to designing the user interface and implementing the visual elements.
+    * In charge of creating prototypes & style guides and implementing the web design based on the prototypes. For example, I coded the styling for all pages in terms of the content layout, typography, icons, color and interactions and I made visuals for the presentation.
 4. Alessandra Landingin
 
 ## Source Code Files
@@ -47,4 +49,6 @@ Daddy in the house!
 * `song.js`
 * `story.js`
 
+## Presentation Slide
+* https://docs.google.com/presentation/d/1M9oDjkbW-VxojCRI3ZwjUyXuAKp5DZiQngTV1wGY9u0/edit?usp=sharing
 
