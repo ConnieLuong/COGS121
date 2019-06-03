@@ -1,6 +1,6 @@
 /**
  * File: favorite.js
- * Description: Contains the logic for loading a tip,
+ * Description: Contains the logic for loading favorited tip,
  *              story, or song according to the user's data info
  * Author: Connie Luong, Hao-In Choi
  */
