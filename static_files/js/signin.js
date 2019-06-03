@@ -52,7 +52,7 @@ $(document).ready(function () {
     //sign up
     $(document).on("click", "#signupButton", function(event){
         $('#message').show();
-        $('#message').html('Signing you up...');
+        $('#message').html('Signing up...');
         $.ajax({
             url: 'signup',
             type: 'POST', 
