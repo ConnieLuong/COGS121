@@ -12,6 +12,8 @@ Daddy in the house!
     * UI designer & Front-end developer: contributed to designing the user interface and implementing the visual elements.
     * In charge of creating prototypes & style guides and implementing the web design based on the prototypes. For example, I coded the styling for all pages in terms of the content layout, typography, icons, color and interactions and I made visuals for the presentation.
 4. Alessandra Landingin
+   *  UI Designer & Assistant Front-End Developer: contributed to designing the user interface and assisted in implementing the visual elemenets. 
+   * In charge of creating prototypes & style guides and implementing the web design based on the prototypes.
 
 ## Source Code Files
 ### HTML
