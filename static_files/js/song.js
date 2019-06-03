@@ -70,16 +70,19 @@ $(document).ready(function() {
         const fav_tracks = data.favorites;
         const hot_tracks = data.hot;
         const new_tracks = data.new;
+        const search1 = _.find(fav_tracks, { track_name: song_name });
+        const search2 = _.find(hot_tracks, { track_name: song_name });
+        const search3 = _.find(new_tracks, { track_name: song_name });
 
-        if (section == "favorites") {
-          const song = _.find(fav_tracks, { track_name: song_name });
-          $(".favorite").attr("id", section + "/track" + song["song_num"]);
-        } else if (section == "hot") {
-          const song = _.find(hot_tracks, { track_name: song_name });
-          $(".favorite").attr("id", section + "/track" + song["song_num"]);
+        if (search1 != undefined) {
+          console.log(search1);
+          $(".favorite").attr("id", "favorite/track" + search1["song_num"]);
+        } else if (search2 != undefined) {
+          console.log(search2);
+          $(".favorite").attr("id", "hot/track" + search2["song_num"]);
         } else {
-          const song = _.find(new_tracks, { track_name: song_name });
-          $(".favorite").attr("id", section + "/track" + song["song_num"]);
+          console.log(search3);
+          $(".favorite").attr("id", "new/track" + search3["song_num"]);
         }
       }
     });

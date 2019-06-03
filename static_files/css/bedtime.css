@@ -41,16 +41,16 @@
 }
 
 .filter {
-    background: transparent;
-    border: 0px black;
-    color: #f1b60e;
-    margin: 0 0.5rem;
-    font-size: 24px;
-    font-weight: medium;
+  background: transparent;
+  border: 0px black;
+  color: #f1b60e;
+  margin: 0 0.5rem;
+  font-size: 24px;
+  font-weight: medium;
 }
 .active_filter {
-    color: black;
-    border: 0px solid black;
+  color: black;
+  border: 0px solid black;
 }
 
 .row {
@@ -72,7 +72,6 @@ h1 {
   margin-left: 1rem;
   margin-bottom: 0;
 }
-
 
 h2,
 h5,
@@ -112,8 +111,7 @@ section {
 
 .reGenBtn {
   margin: 0rem 1rem 0rem 1rem;
-  color: #FED766;
-  background: white;
+
   border-color: white;
   width: 50px;
 }
