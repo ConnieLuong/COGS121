@@ -41,14 +41,16 @@
 }
 
 .filter {
-  background: transparent;
-  border: 0px black;
-  margin: 0 0.5rem;
+    background: transparent;
+    border: 0px black;
+    color: #f1b60e;
+    margin: 0 0.5rem;
+    font-size: 24px;
+    font-weight: medium;
 }
 .active_filter {
-  border: 0px black;
-  border-bottom: 4px solid #FED766;
-  color: white;
+    color: black;
+    border: 0px solid black;
 }
 
 .row {
