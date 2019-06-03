@@ -24,6 +24,7 @@ $(document).ready(function() {
         if (e.Name == story_name) {
           $("#story_content").html(e.Content);
           $(".favorite").attr("id", e["No"]);
+          $("#story_picture").attr("src", e.story_img);
         }
       });
     }

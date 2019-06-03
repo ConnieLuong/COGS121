@@ -4,10 +4,11 @@
  * Author: Boya Ren, Alessandra Landingin
  */
 * {
- font-family: Cabin;
+  font-family: Cabin;
 }
 
-h1, h4 {
+h1,
+h4 {
   font-size: 20px;
   font-weight: regular;
   text-align: center;
@@ -15,17 +16,20 @@ h1, h4 {
 }
 
 img {
-	text-align: center;
-	margin: 1rem 1rem 1rem 1rem;
+  text-align: center;
+  margin: 1em;
+  width: 90%;
+  height: 100%;
+  position: relative;
 }
 
 p {
-	font-size: 16px;
- 	font-weight: regular;
- 	text-align: left;
- 	margin: 1rem 1rem 1rem 1rem;
+  font-size: 16px;
+  font-weight: regular;
+  text-align: left;
+  margin: 1rem 1rem 1rem 1rem;
 }
 
 body {
-	background-color: #FFF9EC;
+  background-color: #fff9ec;
 }
