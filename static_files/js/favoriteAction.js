@@ -12,7 +12,7 @@ $(document).ready(function () {
 
         //determine collection & item
         var url = document.location.pathname;
-        var collection = (url.includes('index')) ? 'tips' : (url.includes('story') ? 'stories' : (url.includes('songs') ? 'songs' : 'tips'));
+        var collection = (url.includes('index') || url.includes('search')) ? 'tips' : (url.includes('story') ? 'stories' : 'songs');
         var item = (collection == 'songs') ? event.target.id : event.target.id;
 
         $.ajax({

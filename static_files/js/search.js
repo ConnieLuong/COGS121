@@ -176,7 +176,9 @@ function searchSongs(query) {
                     album_name: value.album_name,
                     artist_name: value.artist_name,
                     track_name: value.track_name,
-                    cover_art: value.cover_art
+                    cover_art: value.cover_art,
+                    song_num: String(value.song_num),
+                    section: 'favorites'
                 }
             }) //{track0: {album_name:'a', artist_name:'b', track_name:'c'}, ...}
                 .each(function (trackValue, trackKey) {
@@ -195,7 +197,9 @@ function searchSongs(query) {
                     album_name: value.album_name,
                     artist_name: value.artist_name,
                     track_name: value.track_name,
-                    cover_art: value.cover_art
+                    cover_art: value.cover_art,
+                    song_num: String(value.song_num),
+                    section: 'hot'
                 }
             }) //{track0: {album_name:'a', artist_name:'b', track_name:'c'}, ...}
                 .each(function (trackValue, trackKey) {
@@ -214,7 +218,9 @@ function searchSongs(query) {
                     album_name: value.album_name,
                     artist_name: value.artist_name,
                     track_name: value.track_name,
-                    cover_art: value.cover_art
+                    cover_art: value.cover_art,
+                    song_num: String(value.song_num),
+                    section: 'new'
                 }
             }) //{track0: {album_name:'a', artist_name:'b', track_name:'c'}, ...}
                 .each(function (trackValue, trackKey) {
