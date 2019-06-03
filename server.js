@@ -150,8 +150,9 @@ app.post("/signup", (req, res) => {
       //update user name
       firebase.auth().currentUser.updateProfile({
         displayName: displayName
+      }).then(function() {
+        return res.send({ message: "success sign up" });
       });
-      return res.send({ message: "success sign up" });
     })
     .catch(function(error) {
       // Handle Errors

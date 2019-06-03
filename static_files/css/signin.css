@@ -26,9 +26,19 @@
 }
 
 form{
-    padding-top: 2rem;
+    padding-top: 1rem;
 }
 
 input {
 	font-size: 16px;
+}
+
+small#message{
+    padding: 0.3rem 1rem;
+    border: 2px solid #fed766;
+    background: #fff7df;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 0.5rem;
 }

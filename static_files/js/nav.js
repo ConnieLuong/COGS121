@@ -35,6 +35,7 @@ $(document).ready(function() {
     }
   });
 
+
   //sign out
   $(document).on("click", ".signoutNav", function(event) {
     console.log(event.target.classList);

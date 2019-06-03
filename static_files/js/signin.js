@@ -6,6 +6,7 @@
  * Author: Connie Luong
  */
 $(document).ready(function () {
+    $('#message').hide();
     //show sign in form initially
     $('.signin').css("display", "initial");
     $('.signup').css("display", "none");
@@ -14,14 +15,14 @@ $(document).ready(function () {
     
     //sign in & sign up tab switching
     $(document).on("click", ".signinTab", function(event){
-        $('.signin').css("display", "initial");
+        $('.signin').css("display", "inline");
         $('.signup').css("display", "none");
         $('.signinTab').addClass('activeTab');
         $('.signupTab').removeClass('activeTab');
     });
     $(document).on("click", ".signupTab", function(event){
         $('.signin').css("display", "none");
-        $('.signup').css("display", "initial");
+        $('.signup').css("display", "inline");
         $('.signinTab').removeClass('activeTab');
         $('.signupTab').addClass('activeTab');
     });
@@ -50,6 +51,8 @@ $(document).ready(function () {
     
     //sign up
     $(document).on("click", "#signupButton", function(event){
+        $('#message').show();
+        $('#message').html('Signing you up...');
         $.ajax({
             url: 'signup',
             type: 'POST', 
@@ -61,12 +64,19 @@ $(document).ready(function () {
             success: (data) => {
                 console.log('User sign up successful');
                 //redirect to home page
-                location.href = "./index.html";
+                // window.location.href = "./index.html";
+                document.location.assign('./index.html');
             },
             error: (data) => {
                 console.log(data.responseJSON.message);
                 alert(data.responseJSON.message);
             }
         });
-    });    
+    }); 
+    
+    $("#signupPassword").keyup(function(event) {
+        if (event.keyCode === 13) {
+            $("#signupButton").click();
+        }
+    });
 });
